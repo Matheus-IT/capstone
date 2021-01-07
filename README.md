@@ -4,14 +4,14 @@ The final project of CS50W (Python and Javascript)
 ## Installation
 Python version that was used in this project: 3.9.1
 * **Linux**:
-At the highest directory of the project, you can create a virtual envinroment using `python3 -m venv venv`,
-then running `source venv/bin/activate` will activate the virtual envinroment.
+At the highest directory of the project, you can create a virtual environment using `python3 -m venv venv`,
+then running `source venv/bin/activate` will activate the virtual environment.
 To install all the dependencies this project requires run `pip3 install -r requirements.txt`, you should see
 a message saying that everything was installed.
 
 * **Windows**:
-At the highest directory of the project, you can create a virtual envinroment using `python -m venv venv`,
-then running `venv\Scripts\activate.bat` will activate the virtual envinroment.
+At the highest directory of the project, you can create a virtual environment using `python -m venv venv`,
+then running `venv\Scripts\activate.bat` will activate the virtual environment.
 To install all the dependencies this project requires run `pip install -r requirements.txt`, you should see
 a message saying that everything was installed.
 > **Notice**:
