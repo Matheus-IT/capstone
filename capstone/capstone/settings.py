@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'fontawesome-free',
+    'channels',
+    'controlqueue.apps.ControlqueueConfig',
     'mysite.apps.MysiteConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -70,6 +73,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'capstone.wsgi.application'
 
+ASGI_APPLICATION = 'capstone.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -81,6 +91,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'mysite.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

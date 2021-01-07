@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block title %} Restrict area {% endblock %}
+
+{% block adicional_in_head %}
+	<script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+	<script src="{% static 'controlqueue/JavaScript/adminQueueControl.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+	<span id="room-name" hidden>{{ room_name }}</span>
+
+	<div class="container control">
+		<h1 id="mainMessage">Control increase (+) <br> or decrease (-) the queue</h1>
+
+		<h2 id="queueSizeWrapper">
+			Queue size: <span id="displayQueueSize"></span>
+		</h2>
+
+		<span id="increase" class="icon" style="font-size: 6em">
+			<i class="fas fa-plus"></i>
+		</span>
+		<span id="decrease" class="icon" style="font-size: 6em">
+			<i class="fas fa-minus"></i>
+		</span>
+	</div>
+{% endblock %}

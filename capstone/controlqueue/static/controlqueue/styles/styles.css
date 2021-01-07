@@ -1,0 +1,52 @@
+body {
+  font: normal 1em Arial, sans-serif;
+  color: #424242;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 25em;
+  min-height: 90vh;
+  max-height: 90vh;
+  margin: auto;
+  margin-top: 1.6em;
+  padding: 1em;
+  border-radius: 0.4em;
+  box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.12);
+}
+@media only screen and (max-width: 39.9375rem) {
+  .container {
+    margin-top: 1em;
+    padding-top: 1em;
+  }
+  .container #mainMessage {
+    font-size: 1.4em;
+    margin-bottom: 0;
+  }
+}
+.container #displayQueueSize {
+  font-size: 1.2em;
+}
+.container .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  padding: 0.2em;
+  height: 1em;
+  background-color: #5d9c9c;
+  border: solid #5d9c9c;
+  border-radius: 0.2em;
+}
+.container .icon:not(:last-child) {
+  margin-bottom: 0.1em;
+}
+.container .icon:hover, .container .icon .icon:active {
+  cursor: pointer;
+  border: solid #424242;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,52 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	text-align: center;
+	max-width: 25em;
+	min-height: 90vh;
+	max-height: 90vh;
+	margin: auto;
+	margin-top: 1.6em;
+	padding: 1em;
+
+	border-radius: 0.4em;
+	box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.12);
+
+	@include breakpoint-down(small) {
+		margin-top: 1em;
+		padding-top: 1em;
+
+		#mainMessage {
+			font-size: 1.4em;
+			margin-bottom: 0;
+		}
+	}
+
+	#displayQueueSize {
+		font-size: 1.2em;
+	}
+
+	.icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: static;
+		padding: 0.2em;
+		height: 1em;
+
+		background-color: rgb(93, 156, 156);
+		border: solid rgb(93, 156, 156);
+		border-radius: 0.2em;
+
+		&:not(:last-child) {
+			margin-bottom: 0.1em;
+		}
+
+		&:hover, .icon:active {
+			cursor: pointer;
+			border: solid rgb(66, 66, 66);
+		}
+	}
+}
