@@ -1,0 +1,6 @@
+.vscode/
+venv/
+.python-version
+__pycache__/
+*.sqlite3
+*.sqlite
