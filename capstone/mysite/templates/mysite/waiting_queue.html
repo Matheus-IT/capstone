@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title>Test app</title>
+	<link rel="stylesheet" href="{% static 'testapp/styles/styles.css' %}">
+	<script>
+		// Some global static files' sources which will be used in the program
+		const hairSalonImgSource = '{% static "testapp/images/hairSalon.png" %}';
+		const personWaitingSource = '{% static "testapp/images/person.png" %}';
+		const personWalkingSource = '{% static "testapp/images/person-walking.gif" %}';
+	</script>
+	<script type="module" src="{% static 'testapp/JavaScript/index.js' %}"></script>
+</head>
+<body>
+	<span id="room-name" hidden >{{ room_name }}</span>
+	
+	<div class="container">
+		<div class="textContainer">
+			<h2>Real-time queue</h2>
+			
+			<h2 id="queueSizeWrapper">
+				Current queue size: <span id="displayQueueSize"></span>
+			</h2>
+		</div>
+
+		<div id="hairSalonContainer">
+			<!-- The hair salon image is going to be the background -->
+			<img id="hairSalonBackground" src="{% static 'testapp/images/hairSalon.png' %}" alt="" srcset="">
+			
+			<div id="queueContainer">
+				<!-- The queue will be generated here via websocket -->
+			</div>
+		</div>
+	</div>
+</body>
+</html>
