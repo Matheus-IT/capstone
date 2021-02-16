@@ -1,0 +1,73 @@
+#landing {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)), url(/static/mysite/images/indexPage/landing-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #f0f0f0;
+}
+#landing .navbar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(89, 28, 28, 0.7);
+  height: 3em;
+}
+#landing .navbar :not(:last-child) {
+  margin-right: 1em;
+}
+#landing .navbar .motto {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 1.6em;
+}
+#landing .navbar .motto__logo {
+  width: 4em;
+  margin-right: 0.2em;
+}
+#landing .navbar .motto__text {
+  font-weight: bold;
+}
+#landing .navbar__item {
+  text-decoration: none;
+  color: #f0f0f0;
+  padding: 0.4em;
+  transition: background-color 150ms ease;
+}
+#landing .navbar__item:hover {
+  background-color: rgba(128, 40, 40, 0.7);
+}
+#landing .navbar .book-now {
+  text-transform: uppercase;
+  border: 0.125em solid #230b0b;
+}
+#landing .presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14vh 20%;
+}
+#landing .presentation__title {
+  font: 500 4em "Source Sans Pro", sans-serif;
+}
+#landing .presentation__text {
+  max-width: 20em;
+  font-size: 1.6em;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.location__subtitle {
+  font: 500 3em "Source Sans Pro", sans-serif;
+}
+
+/*# sourceMappingURL=index.css.map */

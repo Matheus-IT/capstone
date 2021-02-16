@@ -1,21 +1,41 @@
 {% extends './base.html' %}
+{% load static %}
+
+{% block adicional_in_head %}
+<link rel="stylesheet" href="{% static 'mysite/styles/indexPage/index.css' %}">
+{% endblock %}
 
 {% block content %}
-	<div id="landing">
-		 <div id="navbar">
-			<div id="motto">
-				<img class="motto__logo" src="" alt="">
-				<p class="motto__text"></p>
-			</div>
-			<div class="navbar__item">Home</div>
-			<div class="navbar__item">Queue</div>
-			<div class="navbar__item">Services</div>
-			<div class="navbar__item">Book Now</div>
-		 </div>
-		 <div id="presentation">
+<div id="landing">
+	<nav class="navbar">
+		<div class="motto">
+			<img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-black.png' %}" alt="">
+			<p class="motto__text">Barber Shop</p>
+		</div>
+		<a class="navbar__item" href="#">Home</a>
+		<a class="navbar__item" href="#">Queue</a>
+		<a class="navbar__item" href="#">Services</a>
+		<a class="navbar__item book-now" href="#">Book Now</a>
+	</nav>
+	<div class="presentation">
+		<div>
 			<h1 class="presentation__title">Barber Shop</h1>
 			<p class="presentation__text">If you want to see what our barber shop is all about, don't hesitate to book an appointment.</p>
-			<img class="presentation__img" src="" alt="">
-		 </div>
+		</div>
+		<img class="presentation__logo" src="{% static 'mysite/images/indexPage/logo-white.png' %}" alt="">
 	</div>
+</div>
+<div class="location">
+	<h2 class="location__subtitle">Location</h2>
+	<p class="location__text">Av. São Sebastião 999, Parnaíba, Brazil</p>
+	
+	<img src="" alt="">
+	
+	<h3 class="location__subtitle">Hours</h3>
+	<p class="location__text">
+		Tues-Fri 9:00am-8:00pm
+		Sat 9:00am-3:00pm
+		Closed Sun
+	</p>
+</div>
 {% endblock %}
