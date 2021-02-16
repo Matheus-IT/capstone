@@ -1,6 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text&family=Source+Sans+Pro:wght@400;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font: normal 1em "Red Hat Text", sans-serif;
+  box-sizing: border-box;
+}
+
 body {
-  font: normal 1em Arial, sans-serif;
   color: #424242;
+}
+
+::selection {
+  color: #f0f0f0;
+  background: #591c1c;
 }
 
 /*# sourceMappingURL=styles.css.map */
