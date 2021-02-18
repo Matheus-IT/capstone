@@ -26,16 +26,20 @@
 	</div>
 </div>
 <div class="location">
-	<h2 class="location__subtitle">Location</h2>
-	<p class="location__text">Av. São Sebastião 999, Parnaíba, Brazil</p>
+	<div class="container--centered">
+		<h2 class="location__subtitle">Location</h2>
+		<p class="location__text">Av. São Sebastião 999, Parnaíba, Brazil</p>
+	</div>
 	
-	<img src="" alt="">
+	<img class="location__image" src="{% static 'mysite/images/indexPage/location-map.png' %}" alt="Location">
 	
-	<h3 class="location__subtitle">Hours</h3>
-	<p class="location__text">
-		Tues-Fri 9:00am-8:00pm
-		Sat 9:00am-3:00pm
-		Closed Sun
-	</p>
+	<div class="container--centered">
+		<h3 class="location__subtitle">Hours</h3>
+		<p class="location__text">
+			Tues-Fri 9:00am-8:00pm <br>
+			Sat 9:00am-3:00pm <br>
+			Closed Sun
+		</p>
+	</div>
 </div>
 {% endblock %}
