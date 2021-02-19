@@ -3,6 +3,9 @@
 
 /* HELPERS FORM BEING USED AS ATOMIC CSS */
 @import "./helpers/containers";
+@import "./helpers/atomicStyles";
+
+@import "./animations/fades";
 
 #landing {
 	position: relative;
@@ -15,6 +18,8 @@
 	background-size: cover;
 	color: $white;
 
+	$navbarHeight: 3em;
+
 	.navbar {
 		position: absolute;
 		display: flex;
@@ -22,10 +27,10 @@
 		align-items: center;
 		top: 0;
 		width: 100%;
-		height: 3em;
+		height: $navbarHeight;
 		background-color: rgba($darkRed, 0.6);
 
-		:not(:last-child) {
+		&:not(:last-child) {
 			margin-right: 1em;
 		}
 
@@ -52,10 +57,105 @@
 			&:hover {
 				background-color: lighten(rgba($darkRed, 0.7), 10%);
 			}
+
 		}
 		.book-now {
 			text-transform: uppercase;
 			border: 0.125em solid darken($darkRed, 14%);
+		}
+
+		.menu {
+			display: none;
+		}
+
+		@include breakpoint-down(medium) {
+			&__item {
+				display: none;
+			}
+			.motto {
+				left: 1em;
+			}
+			&__toggle {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 2em;
+				height: 2em;
+				margin-left: auto;
+				margin-right: 1.6em;
+
+				> span {
+					display: block;
+					width: 100%;
+					height: 0.125em;
+					background-color: $white;
+					transition: all 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+					transform-origin: 6px 1px;
+
+					&:not(:last-child) {
+						margin-bottom: 5px;
+					}
+				}
+				&--open {
+					> span:first-child {
+						transform: rotate(45deg);
+					}
+					> span:nth-child(2) {
+						opacity: 0;
+					}
+					> span:last-child {
+						transform: rotate(-45deg);
+					}
+				}
+				&:hover {
+					cursor: pointer;
+				}
+			}
+			.menu {
+				visibility: hidden;
+				display: block;
+				position: absolute;
+				width: 90%;
+				background-color: $white;
+				margin-top: 20em;
+				padding: 1.6em;
+				border-radius: 0.4em;
+				text-align: center;
+				z-index: 1;
+
+				&__item {
+					display: block;
+					padding: 0.6em;
+					color: $darkGray;
+					text-decoration: none;
+					text-transform: uppercase;
+
+					&:hover, &:focus {
+						box-shadow: 0 0 3px $darkGray;
+					}
+				}
+				&--open {
+					visibility: visible;
+				}
+			}
+			#overlay {
+				opacity: 0;
+				position: fixed;
+				top: $navbarHeight;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 0;
+			
+				background-image: linear-gradient($darkGray, transparent);
+			}
+			.fade-in {
+				animation: fade-in 200ms ease-in-out forwards;
+			}
+			.fade-out {
+				animation: fade-out 200ms ease-in-out forwards;
+			}
 		}
 	}
 	.presentation {
@@ -75,6 +175,12 @@
 		}
 		&__logo {
 			width: 40%;
+		}
+		.fa-angle-double-down {
+			position: absolute;
+			bottom: 0.6em;
+			font-size: 4em;
+			margin: auto;
 		}
 		@include breakpoint-down(small) {
 			flex-direction: column;
