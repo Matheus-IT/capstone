@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	const overlay = body.querySelector('#overlay');
 	
 	btnHamburger.addEventListener('click', function() {
-		console.log('click');
-
 		if (mobileMenu.classList.contains('menu--open'))
 			handleCloseMenu();
 		else
