@@ -1,10 +1,10 @@
+@import "../common/globals";
 @import "../common/mixins";
-@import "common/globals";
-@import "common/base";
+@import "./common/base";
 
-@import "components/calendar";
-@import "components/buttons";
-@import "components/selectService";
+@import "./components/calendar";
+@import "./components/buttons";
+@import "./components/selectService";
 
 .container {
 	display: flex;
@@ -34,7 +34,7 @@
 		font-weight: 600;
 	}
 
-	@import "components/progressBar";
+	@import "./components/progressBar";
 
 	.form-outer {
 		flex-grow: 1;

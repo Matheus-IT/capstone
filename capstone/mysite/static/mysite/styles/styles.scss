@@ -1,3 +1,8 @@
 @import "./common/globals";
+
 @import "./common/mixins";
 @import "./common/base";
+
+@import "./pageBookingForm/index";
+@import "./pageIndex/index";
+@import "./pageWaitingQueue/index";
