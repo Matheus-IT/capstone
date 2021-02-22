@@ -1,0 +1,9 @@
+.title {
+	font-weight: 500;
+	font-size: 4em;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+.subtitle {
+	@extend .title;
+	font-size: 3em;
+}

@@ -15,30 +15,31 @@ def index(request):
 			'title': 'Cut & Beard Trim $48 - 45min',
 			'description': 'Combination of a classic cut and beard/mustache shaping.'
 		},
+		
 		{
 			'title': 'Skin Fade & Beard Trim $55 - 1hr',
 			'description': 'Combination of skin fade and beard/mustache shaping.'
 		},
-		{
-			'title': 'Long Cut $60 - 1hr',
-			'description': 'If your hair is currently past your ear lobes, this is the service for you; whether you’re keeping your long locks or chopping them off for a new look.'
-		},
-		{
-			'title': 'Beard Trim $20 - 30min',
-			'description': 'Let your barber apply their artistry to help you create the perfectly shaped beard or mustache style you envision.'
-		},
-		{
-			'title': 'Buzz $20 - 15min',
-			'description': 'Ask for a buzz cut if you\'re looking for a no-nonsense low maintenance look at a uniform length as close as you\'d like.'
-		},
-		{
-			'title': 'Shave $33 - 30min',
-			'description': 'Experience a traditional hot towel shave with a straight razor and warm shaving cream that will leave your face smooth to the touch.'
-		},
-		{
-			'title': 'Buzz & Beard Trim $40 - 45min',
-			'description': 'Combination of single length buzz cut and beard/mustache shaping. '
-		},
+		#{
+		#	'title': 'Long Cut $60 - 1hr',
+		#	'description': 'If your hair is currently past your ear lobes, this is the service for you; whether you’re keeping your long locks or chopping them off for a new look.'
+		#},
+		#{
+		#	'title': 'Beard Trim $20 - 30min',
+		#	'description': 'Let your barber apply their artistry to help you create the perfectly shaped beard or mustache style you envision.'
+		#},
+		#{
+		#	'title': 'Buzz $20 - 15min',
+		#	'description': 'Ask for a buzz cut if you\'re looking for a no-nonsense low maintenance look at a uniform length as close as you\'d like.'
+		#},
+		#{
+		#	'title': 'Shave $33 - 30min',
+		#	'description': 'Experience a traditional hot towel shave with a straight razor and warm shaving cream that will leave your face smooth to the touch.'
+		#},
+		#{
+		#	'title': 'Buzz & Beard Trim $40 - 45min',
+		#	'description': 'Combination of single length buzz cut and beard/mustache shaping. '
+		#},
 	]
 	return render(request, 'mysite/index.html', { 'services': services})
 

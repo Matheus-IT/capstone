@@ -29,7 +29,7 @@
 			<a class="menu__item" href="#">Home</a>
 			<a class="menu__item" href="#">Queue</a>
 			<a class="menu__item" href="#">Services</a>
-			<a class="menu__item book-now" href="#">Book Now</a>
+			<a class="menu__item book-now--secondary" href="#">Book Now</a>
 		</div>
 
 		<div id="overlay"></div> <!-- used when press the hamburger menu -->
@@ -58,6 +58,30 @@
 			Sat 9:00am-3:00pm <br>
 			Closed Sun
 		</p>
+	</div>
+</div>
+<div class="services">
+	<div class="container--centered">
+		<h2 class="services__subtitle">The Menu</h2>
+
+		<button class="services__navigation-button left">
+			<i class="fas fa-chevron-left"></i>
+		</button>
+
+		<ul>
+			{% for service in services %}
+			<li class="services__item">
+				<h4 class="services__item__title">{{ service.title }}</h4>
+				<p class="services__item__description">{{ service.description }}</p>
+			</li>
+			{% endfor %}
+		</ul>
+		
+		<button class="services__navigation-button right">
+			<i class="fas fa-chevron-right"></i>
+		</button>
+
+		<button class="book-now--secondary">Book Now</button>
 	</div>
 </div>
 {% endblock %}

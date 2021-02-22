@@ -41,6 +41,33 @@
     opacity: 0;
   }
 }
+.title, .subtitle, .services__subtitle, .location__subtitle {
+  font-weight: 500;
+  font-size: 4em;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.subtitle, .services__subtitle, .location__subtitle {
+  font-size: 3em;
+}
+
+.book-now, .book-now--secondary {
+  background-color: rgba(89, 28, 28, 0.6);
+  border: 0.125em solid #230b0b;
+  text-transform: uppercase;
+  transition: background-color 150ms ease;
+}
+.book-now:hover, .book-now--secondary:hover {
+  background-color: rgba(128, 40, 40, 0.6);
+  cursor: pointer;
+}
+.book-now--secondary {
+  background-color: #f0f0f0;
+}
+.book-now--secondary:hover {
+  background-color: #d7d7d7;
+}
+
 #landing {
   position: relative;
   width: 100%;
@@ -83,11 +110,7 @@
   transition: background-color 150ms ease;
 }
 #landing .navbar__item:hover {
-  background-color: rgba(128, 40, 40, 0.7);
-}
-#landing .navbar .book-now {
-  text-transform: uppercase;
-  border: 0.125em solid #230b0b;
+  background-color: rgba(128, 40, 40, 0.6);
 }
 #landing .navbar .menu {
   display: none;
@@ -227,9 +250,6 @@
   background-color: #591c1c;
   color: #f0f0f0;
 }
-.location__subtitle {
-  font: 500 3em "Source Sans Pro", sans-serif;
-}
 .location__text {
   font-size: 1em;
 }
@@ -248,6 +268,41 @@
     width: auto;
     overflow-x: hidden;
   }
+}
+
+.services {
+  background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+  background-size: cover;
+  height: 100vh;
+  color: #f0f0f0;
+}
+.services .container, .services .container--centered {
+  width: 100%;
+  height: 100%;
+}
+.servicesitem__description {
+  color: rgba(240, 240, 240, 0.6);
+}
+.services__navigation-button {
+  border: none;
+  padding: 4.2em 0.6em;
+  color: #f0f0f0;
+  background-color: rgba(66, 66, 66, 0.9);
+}
+.services__navigation-button:hover {
+  cursor: pointer;
+  background-color: rgba(92, 92, 92, 0.9);
+}
+.services__navigation-button.left {
+  position: absolute;
+  left: 1.6em;
+}
+.services__navigation-button.right {
+  position: absolute;
+  right: 1.6em;
+}
+.services .book-now, .services .book-now--secondary {
+  padding: 0.6em;
 }
 
 /*# sourceMappingURL=index.css.map */

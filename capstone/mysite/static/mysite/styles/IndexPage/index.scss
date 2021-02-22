@@ -6,13 +6,15 @@
 @import "./helpers/atomicStyles";
 
 @import "./animations/fades";
+@import "./components/textLayouts";
+@import "./components/buttons";
 
 #landing {
 	position: relative;
 	width: 100%;
 	height: 100vh;
 	background-image:
-		linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)) /* image overlay */,
+		linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)) /* image background */,
 		url(/static/mysite/images/indexPage/landing-background.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -28,7 +30,7 @@
 		top: 0;
 		width: 100%;
 		height: $navbarHeight;
-		background-color: rgba($darkRed, 0.6);
+		background-color: $darkRedTransparent;
 
 		&:not(:last-child) {
 			margin-right: 1em;
@@ -55,15 +57,10 @@
 			transition: background-color 150ms ease;
 
 			&:hover {
-				background-color: lighten(rgba($darkRed, 0.7), 10%);
+				background-color: lighten($darkRedTransparent, 10%);
 			}
 
 		}
-		.book-now {
-			text-transform: uppercase;
-			border: 0.125em solid darken($darkRed, 14%);
-		}
-
 		.menu {
 			display: none;
 		}
@@ -214,7 +211,7 @@
 	color: $white;
 	
 	&__subtitle {
-		font: 500 3em 'Source Sans Pro', sans-serif;
+		@extend .subtitle;
 	}
 	&__text {
 		font-size: 1em;
@@ -231,5 +228,46 @@
 			width: auto;
 			overflow-x: hidden;
 		}
+	}
+}
+.services {
+	background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+	background-size: cover;
+	height: 100vh;
+	color: $white;
+
+	.container {
+		width: 100%;
+		height: 100%;	
+	}
+
+	&__subtitle {
+		@extend .subtitle;
+	}
+	&item__description {
+		color: rgba($white, 0.6);
+	}
+	&__navigation-button {
+		border: none;
+		padding: 4.2em 0.6em;
+		color: $white;
+		background-color: rgba($darkGray, 0.9);
+		
+		&:hover {
+			cursor: pointer;
+			background-color: lighten(rgba($darkGray, 0.9), 10%);
+
+		}
+		&.left {
+			position: absolute;
+			left: 1.6em
+		}
+		&.right {
+			position: absolute;
+			right: 1.6em
+		}
+	}
+	.book-now {
+		padding: 0.6em;
 	}
 }
