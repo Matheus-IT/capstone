@@ -390,13 +390,13 @@ body #bookingFormPageWrapper {
     opacity: 0;
   }
 }
-.title, .subtitle, .services__subtitle, .location__subtitle {
+.title, .subtitle, .location__subtitle, .services__list .item__title, .services__subtitle {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.subtitle, .services__subtitle, .location__subtitle {
+.subtitle, .location__subtitle, .services__list .item__title, .services__subtitle {
   font-size: 3em;
 }
 
@@ -415,6 +415,62 @@ body #bookingFormPageWrapper {
 }
 .book-now--secondary:hover {
   background-color: #d7d7d7;
+}
+
+.services {
+  background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+  background-size: cover;
+  height: 100vh;
+  color: #f0f0f0;
+}
+.services .container, .services .container--centered {
+  width: 100%;
+  height: 100%;
+}
+.services__list {
+  display: grid;
+  grid-template-columns: repeat(5, 100%);
+  grid-template-rows: repeat(2, 1fr);
+  width: 74%;
+  height: 64%;
+  margin: 1em auto;
+  list-style: none;
+  row-gap: 0.6em;
+}
+.services__list .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(66, 66, 66, 0.8);
+  border-radius: 0.4em;
+  padding: 0.6em;
+}
+.services__list .item__title {
+  font-size: 1.4em;
+}
+.services__list .item__description {
+  font-size: 0.94em;
+  color: rgba(240, 240, 240, 0.8);
+}
+.services__navigation-button {
+  border: none;
+  border-radius: 0.2em;
+  padding: 4.2em 0.6em;
+  color: #f0f0f0;
+  background-color: rgba(66, 66, 66, 0.9);
+}
+.services__navigation-button:hover {
+  cursor: pointer;
+  background-color: rgba(92, 92, 92, 0.9);
+}
+.services__navigation-button.left {
+  position: absolute;
+  left: 1.6em;
+}
+.services__navigation-button.right {
+  position: absolute;
+  right: 1.6em;
 }
 
 #landing {
@@ -617,41 +673,6 @@ body #bookingFormPageWrapper {
     width: auto;
     overflow-x: hidden;
   }
-}
-
-.services {
-  background-image: url(/static/mysite/images/indexPage/services-background.jpg);
-  background-size: cover;
-  height: 100vh;
-  color: #f0f0f0;
-}
-.services .container, .services .container--centered {
-  width: 100%;
-  height: 100%;
-}
-.servicesitem__description {
-  color: rgba(240, 240, 240, 0.6);
-}
-.services__navigation-button {
-  border: none;
-  padding: 4.2em 0.6em;
-  color: #f0f0f0;
-  background-color: rgba(66, 66, 66, 0.9);
-}
-.services__navigation-button:hover {
-  cursor: pointer;
-  background-color: rgba(92, 92, 92, 0.9);
-}
-.services__navigation-button.left {
-  position: absolute;
-  left: 1.6em;
-}
-.services__navigation-button.right {
-  position: absolute;
-  right: 1.6em;
-}
-.services .book-now, .services .book-now--secondary {
-  padding: 0.6em;
 }
 
 @media only screen and (max-width: 39.9375rem) {

@@ -9,6 +9,8 @@
 @import "./components/textLayouts";
 @import "./components/buttons";
 
+@import "./layouts/servicesSection";
+
 #landing {
 	position: relative;
 	width: 100%;
@@ -228,46 +230,5 @@
 			width: auto;
 			overflow-x: hidden;
 		}
-	}
-}
-.services {
-	background-image: url(/static/mysite/images/indexPage/services-background.jpg);
-	background-size: cover;
-	height: 100vh;
-	color: $white;
-
-	.container {
-		width: 100%;
-		height: 100%;	
-	}
-
-	&__subtitle {
-		@extend .subtitle;
-	}
-	&item__description {
-		color: rgba($white, 0.6);
-	}
-	&__navigation-button {
-		border: none;
-		padding: 4.2em 0.6em;
-		color: $white;
-		background-color: rgba($darkGray, 0.9);
-		
-		&:hover {
-			cursor: pointer;
-			background-color: lighten(rgba($darkGray, 0.9), 10%);
-
-		}
-		&.left {
-			position: absolute;
-			left: 1.6em
-		}
-		&.right {
-			position: absolute;
-			right: 1.6em
-		}
-	}
-	.book-now {
-		padding: 0.6em;
 	}
 }

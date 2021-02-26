@@ -1,0 +1,68 @@
+@import "../../common/globals";
+@import "../../common/mixins";
+
+.services {
+	background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+	background-size: cover;
+	height: 100vh;
+	color: $white;
+
+	.container {
+		width: 100%;
+		height: 100%;	
+	}
+
+	&__subtitle {
+		@extend .subtitle;
+	}
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(5, 100%);
+		grid-template-rows: repeat(2, 1fr);
+		width: 74%;
+		height: 64%;
+		margin: 1em auto;
+		list-style: none;
+		row-gap: 0.6em;
+
+		.item {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba($darkGray, 0.8);
+			border-radius: 0.4em;
+			padding: 0.6em;
+			
+			&__title {
+				@extend .subtitle;
+				font-size: 1.4em;
+			}
+			&__description {
+				font-size: 0.94em;
+				color: rgba($white, 0.8);
+			}
+		}
+	}
+	&__navigation-button {
+		border: none;
+		border-radius: 0.2em;
+		padding: 4.2em 0.6em;
+		color: $white;
+		background-color: rgba($darkGray, 0.9);
+		
+		&:hover {
+			cursor: pointer;
+			background-color: lighten(rgba($darkGray, 0.9), 10%);
+
+		}
+		&.left {
+			position: absolute;
+			left: 1.6em
+		}
+		&.right {
+			position: absolute;
+			right: 1.6em
+		}
+	}
+}
