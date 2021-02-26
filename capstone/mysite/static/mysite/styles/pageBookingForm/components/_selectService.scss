@@ -20,12 +20,12 @@
 			margin: 1em;
 			padding: 0.4em;
 			border-radius: 0.2em;
-			background: $midLightGray;
+			background: rgba($gray, 0.7);
 			transition: background-color 150ms ease, text-shadow 150ms ease;
 		
 			&:hover {
 				text-shadow: 1px 1px 1px $gray;
-				background: #ffffff63;
+				background: lighten($gray, 10%);
 			}
 		}
 	}

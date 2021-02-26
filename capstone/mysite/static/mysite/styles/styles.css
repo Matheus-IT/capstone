@@ -209,12 +209,12 @@ body #bookingFormPageWrapper {
   margin: 1em;
   padding: 0.4em;
   border-radius: 0.2em;
-  background: #b8b8b8;
+  background: rgba(83, 83, 83, 0.7);
   transition: background-color 150ms ease, text-shadow 150ms ease;
 }
 .selectService .services__service:hover {
   text-shadow: 1px 1px 1px #535353;
-  background: #ffffff63;
+  background: #6d6d6d;
 }
 
 #bookingFormPageWrapper .container, #bookingFormPageWrapper .container--centered {
