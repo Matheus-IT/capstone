@@ -64,24 +64,71 @@
 	<div class="container--centered">
 		<h2 class="services__subtitle">The Menu</h2>
 
-		<button id="navigationBtnLeft" class="services__navigation-button left">
-			<i class="fas fa-chevron-left"></i>
-		</button>
-
+		
 		<div class="services__slider">
-			<ul id="slides" class="slides">
-				{% for service in services %}
-				<li class="item">
-					<h4 class="item__title">{{ service.title }}</h4>
-					<p class="item__description">{{ service.description }}</p>
-				</li>
-				{% endfor %}
-			</ul>
+			<button id="navigationBtnLeft" class="navigation-button left">
+				<i class="fas fa-chevron-left"></i>
+			</button>
+			
+			<button id="navigationBtnRight" class="navigation-button right">
+				<i class="fas fa-chevron-right"></i>
+			</button>
+
+			<div id="slides" class="slides">
+				<ul class="slide">
+					<li class="item">
+						<h4 class="item__title">Classic Cut $30 - 30minutes</h4>
+						<p class="item__description">Relax while your barber achieves your tailored look. If you’re looking for a bald fade or if your hair is currently longer than earlobe length please book from our other options.</p>
+					</li>
+					
+					<li class="item">
+						<h4 class="item__title">Skin Fade $40 - 45minutes</h4>
+						<p class="item__description">Also known as a bald fade or a zero fade, this service requires a little extra time. Hair is faded from skin or “0” length to your desired length on top.</p>
+					</li>
+				</ul>
+				<ul class="slide">
+					<li class="item">
+						<h4 class="item__title">Cut &amp; Beard Trim $48 - 45min</h4>
+						<p class="item__description">Combination of a classic cut and beard/mustache shaping.</p>
+					</li>
+					
+					<li class="item">
+						<h4 class="item__title">Skin Fade &amp; Beard Trim $55 - 1hr</h4>
+						<p class="item__description">Combination of skin fade and beard/mustache shaping.</p>
+					</li>
+				</ul>
+				<ul class="slide">
+					<li class="item">
+						<h4 class="item__title">Long Cut $60 - 1hr</h4>
+						<p class="item__description">If your hair is currently past your ear lobes, this is the service for you; whether you’re keeping your long locks or chopping them off for a new look.</p>
+					</li>
+					
+					<li class="item">
+						<h4 class="item__title">Beard Trim $20 - 30min</h4>
+						<p class="item__description">Let your barber apply their artistry to help you create the perfectly shaped beard or mustache style you envision.</p>
+					</li>
+				</ul>
+				<ul class="slide">
+					<li class="item">
+						<h4 class="item__title">Buzz $20 - 15min</h4>
+						<p class="item__description">Ask for a buzz cut if you're looking for a no-nonsense low maintenance look at a uniform length as close as you'd like.</p>
+					</li>
+					
+					<li class="item">
+						<h4 class="item__title">Shave $33 - 30min</h4>
+						<p class="item__description">Experience a traditional hot towel shave with a straight razor and warm shaving cream that will leave your face smooth to the touch.</p>
+					</li>
+				</ul>
+				<ul class="slide">
+					<li class="item">
+						<h4 class="item__title">Buzz &amp; Beard Trim $40 - 45min</h4>
+						<p class="item__description">Combination of single length buzz cut and beard/mustache shaping. </p>
+					</li>
+				</ul>
+			</div>
+			
 		</div>
 		
-		<button id="navigationBtnRight" class="services__navigation-button right">
-			<i class="fas fa-chevron-right"></i>
-		</button>
 	</div>
 </div>
 {% endblock %}
