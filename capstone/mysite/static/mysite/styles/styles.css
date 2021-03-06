@@ -390,13 +390,13 @@ body #bookingFormPageWrapper {
     opacity: 0;
   }
 }
-.title, .subtitle, .location__subtitle, .services__list .item__title, .services__subtitle {
+.title, .subtitle, .location__subtitle, .services__slider .slides .item__title, .services__subtitle {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.subtitle, .location__subtitle, .services__list .item__title, .services__subtitle {
+.subtitle, .location__subtitle, .services__slider .slides .item__title, .services__subtitle {
   font-size: 3em;
 }
 
@@ -426,18 +426,26 @@ body #bookingFormPageWrapper {
 .services .container, .services .container--centered {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
-.services__list {
-  display: grid;
-  grid-template-columns: repeat(5, 100%);
-  grid-template-rows: repeat(2, 1fr);
+.services__slider {
   width: 74%;
   height: 64%;
   margin: 1em auto;
-  list-style: none;
-  row-gap: 0.6em;
+  overflow-x: auto;
 }
-.services__list .item {
+.services__slider .slides {
+  display: grid;
+  /* This is gonna make the slider scroll vertically
+  width 5 columns of 2 items */
+  grid-template-columns: repeat(5, 100%);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 0.6em;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+}
+.services__slider .slides .item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -446,10 +454,10 @@ body #bookingFormPageWrapper {
   border-radius: 0.4em;
   padding: 0.6em;
 }
-.services__list .item__title {
+.services__slider .slides .item__title {
   font-size: 1.4em;
 }
-.services__list .item__description {
+.services__slider .slides .item__description {
   font-size: 0.94em;
   color: rgba(240, 240, 240, 0.8);
 }
@@ -586,6 +594,7 @@ body #bookingFormPageWrapper {
     visibility: visible;
   }
   #landing .navbar #overlay {
+    display: none;
     opacity: 0;
     position: fixed;
     top: 3em;

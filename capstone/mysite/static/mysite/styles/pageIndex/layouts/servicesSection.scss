@@ -6,41 +6,50 @@
 	background-size: cover;
 	height: 100vh;
 	color: $white;
-
+	
 	.container {
 		width: 100%;
 		height: 100%;	
+		overflow-x: hidden;
 	}
-
+	
 	&__subtitle {
 		@extend .subtitle;
 	}
-	&__list {
-		display: grid;
-		grid-template-columns: repeat(5, 100%);
-		grid-template-rows: repeat(2, 1fr);
+	&__slider {
 		width: 74%;
 		height: 64%;
 		margin: 1em auto;
-		list-style: none;
-		row-gap: 0.6em;
+		overflow-x: auto;
+		
+		.slides {
+			display: grid;
+			/* This is gonna make the slider scroll vertically
+			width 5 columns of 2 items */
+			grid-template-columns: repeat(5, 100%);
+			grid-template-rows: repeat(2, 1fr);
+			row-gap: 0.6em;
+			list-style: none;
+			width: 100%;
+			height: 100%;
 
-		.item {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			background-color: rgba($darkGray, 0.8);
-			border-radius: 0.4em;
-			padding: 0.6em;
-			
-			&__title {
-				@extend .subtitle;
-				font-size: 1.4em;
-			}
-			&__description {
-				font-size: 0.94em;
-				color: rgba($white, 0.8);
+			.item {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background-color: rgba($darkGray, 0.8);
+				border-radius: 0.4em;
+				padding: 0.6em;
+				
+				&__title {
+					@extend .subtitle;
+					font-size: 1.4em;
+				}
+				&__description {
+					font-size: 0.94em;
+					color: rgba($white, 0.8);
+				}
 			}
 		}
 	}

@@ -68,14 +68,16 @@
 			<i class="fas fa-chevron-left"></i>
 		</button>
 
-		<ul class="services__list">
-			{% for service in services %}
-			<li class="item">
-				<h4 class="item__title">{{ service.title }}</h4>
-				<p class="item__description">{{ service.description }}</p>
-			</li>
-			{% endfor %}
-		</ul>
+		<div class="services__slider">
+			<ul id="slides" class="slides">
+				{% for service in services %}
+				<li class="item">
+					<h4 class="item__title">{{ service.title }}</h4>
+					<p class="item__description">{{ service.description }}</p>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
 		
 		<button id="navigationBtnRight" class="services__navigation-button right">
 			<i class="fas fa-chevron-right"></i>
