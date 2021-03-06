@@ -362,6 +362,18 @@ body #bookingFormPageWrapper {
   overflow-y: hidden;
 }
 
+@media only screen and (max-width: 39.9375rem) {
+  .hideForMobile {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 40rem) {
+  .hideForDesktop {
+    display: none;
+  }
+}
+
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -390,13 +402,13 @@ body #bookingFormPageWrapper {
     opacity: 0;
   }
 }
-.title, .subtitle, .location__subtitle, .services__slider .slides .slide .item__title, .services__subtitle {
+.title, .subtitle, .location__subtitle, .services__slider .slides .item__title, .services__subtitle {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.subtitle, .location__subtitle, .services__slider .slides .slide .item__title, .services__subtitle {
+.subtitle, .location__subtitle, .services__slider .slides .item__title, .services__subtitle {
   font-size: 3em;
 }
 
@@ -415,6 +427,15 @@ body #bookingFormPageWrapper {
 }
 .book-now--secondary:hover {
   background-color: #d7d7d7;
+}
+
+html, body {
+  scroll-snap-type: y proximity;
+}
+
+.section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .services {
@@ -438,6 +459,7 @@ body #bookingFormPageWrapper {
 }
 @media only screen and (max-width: 39.9375rem) {
   .services__slider {
+    width: 94%;
     overflow-x: auto;
   }
 }
@@ -446,20 +468,22 @@ body #bookingFormPageWrapper {
   /* This is gonna make the slider scroll vertically
   width 5 columns of 2 items */
   grid-template-columns: repeat(5, 100%);
-  grid-template-rows: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 0.6em;
   list-style: none;
   width: 100%;
   height: 100%;
   transition: margin-left 300ms ease;
 }
-.services__slider .slides .slide {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  scroll-snap-align: start;
+@media only screen and (max-width: 39.9375rem) {
+  .services__slider .slides {
+    display: flex;
+    width: 900%;
+  }
 }
-.services__slider .slides .slide .item {
-  flex-grow: 1;
+.services__slider .slides .item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -467,12 +491,22 @@ body #bookingFormPageWrapper {
   background-color: rgba(66, 66, 66, 0.8);
   border-radius: 0.4em;
   padding: 0.6em;
-  max-height: 49%;
 }
-.services__slider .slides .slide .item__title {
+@media only screen and (max-width: 39.9375rem) {
+  .services__slider .slides .item {
+    width: 100%;
+  }
+  .services__slider .slides .item .book-now, .services__slider .slides .item .book-now--secondary {
+    padding: 0.5em 2em;
+    margin-top: 1em;
+    background-color: #f0f0f0;
+    border-radius: 0.4em;
+  }
+}
+.services__slider .slides .item__title {
   font-size: 1.4em;
 }
-.services__slider .slides .slide .item__description {
+.services__slider .slides .item__description {
   font-size: 0.94em;
   color: rgba(240, 240, 240, 0.8);
 }
