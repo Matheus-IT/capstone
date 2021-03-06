@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		overlay.classList.remove('fade-in');
 		overlay.classList.add('fade-out');
+		overlay.style.display = 'none';
 
 		for (const element of mobileMenu.children) {
 			element.classList.remove('fade-in');
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		body.classList.add('noScroll');
 
 		overlay.classList.remove('fade-out');
+		overlay.style.display = 'block';
 		overlay.classList.add('fade-in');
 
 		for (const element of mobileMenu.children) {
