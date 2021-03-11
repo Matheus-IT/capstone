@@ -1,0 +1,22 @@
+@import "../../common/globals";
+
+.book-now {
+	background-color: $darkRedTransparent;
+	border: 0.125em solid darken($darkRed, 14%);
+	text-transform: uppercase;
+	transition: background-color 150ms ease;
+
+	&:hover {
+		background-color: lighten($darkRedTransparent, 10%);
+		cursor: pointer;
+	}
+	
+	&--secondary {
+		@extend .book-now;
+		background-color: $white;
+		
+		&:hover {
+			background-color: darken($white, 10%);
+		}
+	}
+}

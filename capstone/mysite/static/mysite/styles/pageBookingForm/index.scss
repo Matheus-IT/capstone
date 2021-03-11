@@ -1,0 +1,102 @@
+@import "../common/globals";
+@import "../common/mixins";
+@import "./common/base";
+
+@import "./components/calendar";
+@import "./components/buttons";
+@import "./components/selectService";
+
+#bookingFormPageWrapper {
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 500px;
+		height: 94vh;
+		margin: 3vh auto;
+		padding: 1.6em;
+		background: $white;
+		border-radius: 0.4em;
+		font-size: 1em;
+	
+		@include breakpoint-up(xxlarge) {
+			height: 70vh;
+			margin: 15vh auto;
+		}
+		@include breakpoint-down(small) {
+			width: 100vw;
+			height: 100vh;
+			margin: 0;
+			font-size: 0.8em;
+		}
+	
+		#header {
+			font-size: 2em;
+			font-weight: 600;
+		}
+	
+		@import "./components/progressBar";
+	
+		.form-outer {
+			flex-grow: 1;
+			width: 100%;
+			margin-top: 1em;
+			overflow: hidden;
+			
+			.form {
+				display: flex;
+				width: 400%;
+				height: 100%;
+	
+				&__page {
+					position: relative;
+					display: flex;
+					flex-direction: column;
+					justify-content: space-between;
+					align-items: center;
+	
+					width: 25%;
+					height: 100%;
+					transition: margin-left 0.3s ease-in-out;
+	
+					.hint {
+						font-style: italic;
+					}
+					.field {
+						position: relative;
+						width: 100%;
+	
+						.label {
+							font-weight: 500;
+							margin-bottom: 0.4em;
+						}
+						.control {
+							width: 100%;
+							padding: 0.4em;
+							border: 0.0625em solid $lightGray;
+							border-radius: 0.2em;
+							font-size: 1em;
+						}
+					}
+					.multi-field {
+						display: flex;
+						justify-content: space-between;
+						width: 100%;
+						
+						.field {
+							@extend .field;
+							display: flex;
+							flex-wrap: wrap;
+							width: 49%;
+							justify-content: center;
+	
+							label {
+								margin-right: 0.2em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

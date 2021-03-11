@@ -1,4 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text&family=Source+Sans+Pro:wght@400;500;600;700&display=swap');
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	font: normal 1em 'Red Hat Text', sans-serif;
+	box-sizing: border-box;
+}
 body {
-	font: normal 1em Arial, sans-serif;
-	color: rgb(66, 66, 66);
+	color: $darkGray;
+}
+::selection {
+	color: $white;
+	background: $darkRed;
 }
