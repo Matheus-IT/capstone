@@ -2,6 +2,8 @@ class Slider {
 	buttonPrevious = document.querySelector('#navigationBtnLeft');
 	buttonNext = document.querySelector('#navigationBtnRight');
 	
+	sliderContainer = document.querySelector('#slider');
+	navigationTrackerItems = document.querySelector('#navigationTracker').children;
 	slides = document.querySelector('#slides');
 	currentSlide = 0; // Start on the first slide
 	maxLengthOfSlides = 4;
@@ -9,6 +11,16 @@ class Slider {
 	constructor() {
 		this.buttonNext.onclick = this.handleGoToNextSlide;
 		this.buttonPrevious.onclick = this.handleGoToPreviousSlide;
+		this.sliderContainer.onscroll = this.handleScroll;
+	}
+
+	handleScroll = () => {
+		const scrollOfOneCard = 338.5;
+		const num = Math.ceil(this.sliderContainer.scrollLeft / scrollOfOneCard);
+		for (let item of this.navigationTrackerItems) {
+			item.classList.remove('item-active');
+		}
+		this.navigationTrackerItems[num].classList.add('item-active');
 	}
 	
 	handleGoToNextSlide = () => {

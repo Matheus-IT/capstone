@@ -529,6 +529,29 @@ html, body {
 .services__slider .navigation-button.right {
   right: 1.6em;
 }
+.services__slider .navigationTracker {
+  position: absolute;
+  display: flex;
+  bottom: 18vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media only screen and (min-width: 40rem) {
+  .services__slider .navigationTracker {
+    display: none;
+  }
+}
+.services__slider .navigationTracker .item {
+  padding: 0.4em;
+  border: solid 2px black;
+  border-radius: 50%;
+}
+.services__slider .navigationTracker .item:not(:last-child) {
+  margin-right: 0.4em;
+}
+.services__slider .navigationTracker .item-active {
+  background-color: #f0f0f0;
+}
 
 #landing {
   position: relative;
