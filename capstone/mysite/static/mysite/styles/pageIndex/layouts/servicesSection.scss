@@ -108,5 +108,29 @@ html, body {
 				right: 1.6em
 			}
 		}
+		.navigationTracker {
+			position: absolute;
+			display: flex;
+			bottom: 18vh;
+			left: 50%;
+			transform: translateX(-50%);
+
+			@include breakpoint-up(medium) {
+				display: none;
+			}
+
+			.item {
+				padding: 0.4em;
+				border: solid 2px black;
+				border-radius: 50%;
+				
+				&:not(:last-child) {
+					margin-right: 0.4em;
+				}
+				&-active {
+					background-color: $white;
+				}
+			}
+		}
 	}
 }
