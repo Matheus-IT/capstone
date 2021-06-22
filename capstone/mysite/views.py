@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import GiveFeedbackForm
 
 
 def index(request):
@@ -41,7 +42,11 @@ def index(request):
 			'description': 'Combination of single length buzz cut and beard/mustache shaping. '
 		},
 	]
-	return render(request, 'mysite/index.html', { 'services': services})
+
+	feedback_form = GiveFeedbackForm()
+
+	return render(request, 'mysite/index.html', { 'services': services,
+												  'feedback_form': feedback_form })
 
 
 def waiting_queue(request):

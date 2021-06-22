@@ -1,3 +1,4 @@
+/* GENERAL STYLES */
 @import "../common/globals";
 @import "../common/mixins";
 
@@ -5,6 +6,7 @@
 @import "./helpers/containers";
 @import "./helpers/atomicStyles";
 
+/* MORE SPECIFIC FOR COMPONENTS */
 @import "./animations/fades";
 @import "./components/textLayouts";
 @import "./components/buttons";
@@ -358,6 +360,19 @@
 					}
 				}
 			}
+		}
+	}
+	.feedback {
+		background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+		background-size: cover;
+		height: 100vh;
+		color: $white;
+		
+		.container {
+			position: relative;
+			width: 100%;
+			height: 100%;	
+			overflow-x: hidden;
 		}
 	}
 }
