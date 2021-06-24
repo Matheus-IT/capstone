@@ -137,10 +137,14 @@
 	</div>
 	<div class="feedback section">
 		<h2 class="feedback__subtitle">What our customers say about the service</h2>
+		
+		<div class="container--centered">
+			{{ feedback_form }}
+		</div>
 
-		<textarea name="feedback__submit" id="" cols="30" rows="10"></textarea>
-
-		{{ feedback_form }}
+		<div class="feedback__posts">
+			
+		</div>
 	</div>
 </div>
 {% endblock %}

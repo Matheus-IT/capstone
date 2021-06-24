@@ -363,16 +363,24 @@
 		}
 	}
 	.feedback {
-		background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+		background-image: url(/static/mysite/images/indexPage/feedback-background.jpg);
 		background-size: cover;
 		height: 100vh;
 		color: $white;
+		text-align: center;
 		
-		.container {
-			position: relative;
-			width: 100%;
-			height: 100%;	
-			overflow-x: hidden;
+		&__subtitle {
+			@extend .subtitle;
+		}
+		.container--centered {
+			width: 44%;
+			margin: auto;
+
+			.feedback-submit-content {
+				width: 20em;
+				height: 3.2em;
+				border-radius: 0.6em;
+			}
 		}
 	}
 }

@@ -404,13 +404,13 @@ body #bookingFormPageWrapper {
     opacity: 0;
   }
 }
-.title, .subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .services__subtitle, #indexPageWrapper .location__subtitle {
+.title, .subtitle, #indexPageWrapper .feedback__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .services__subtitle, #indexPageWrapper .location__subtitle {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .services__subtitle, #indexPageWrapper .location__subtitle {
+.subtitle, #indexPageWrapper .feedback__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .services__subtitle, #indexPageWrapper .location__subtitle {
   font-size: 3em;
 }
 
@@ -756,16 +756,20 @@ html, body {
   background-color: #f0f0f0;
 }
 #indexPageWrapper .feedback {
-  background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+  background-image: url(/static/mysite/images/indexPage/feedback-background.jpg);
   background-size: cover;
   height: 100vh;
   color: #f0f0f0;
+  text-align: center;
 }
-#indexPageWrapper .feedback .container, #indexPageWrapper .feedback .container--centered {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
+#indexPageWrapper .feedback .container--centered {
+  width: 44%;
+  margin: auto;
+}
+#indexPageWrapper .feedback .container--centered .feedback-submit-content {
+  width: 20em;
+  height: 3.2em;
+  border-radius: 0.6em;
 }
 
 @media only screen and (max-width: 39.9375rem) {
