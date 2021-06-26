@@ -8,6 +8,7 @@
 
 /* MORE SPECIFIC FOR COMPONENTS */
 @import "./animations/fades";
+@import "./animations/specialAnimations";
 @import "./components/textLayouts";
 @import "./components/buttons";
 
@@ -366,20 +367,85 @@
 		background-image: url(/static/mysite/images/indexPage/feedback-background.jpg);
 		background-size: cover;
 		height: 100vh;
+		padding: 1em;
 		color: $white;
 		text-align: center;
 		
 		&__subtitle {
 			@extend .subtitle;
+			font-size: 2.4em;
+			margin-bottom: 0.6em;
 		}
 		.container--centered {
 			width: 44%;
+			height: 82%;
 			margin: auto;
+			justify-content: flex-start;
 
 			.feedback-submit-content {
+				padding: 0.6em;
 				width: 20em;
 				height: 3.2em;
 				border-radius: 0.6em;
+				transition: all 250ms $flutteredAnimation;
+			}
+			.feedback__posts {
+				margin: 1.2em 0;
+				color: $darkGray;
+				margin-left: -5.2em;
+				padding: 0 1em;
+				overflow-y: scroll;
+				max-height: 74%;
+	
+				.post {
+					display: flex;
+					align-items: center;
+					text-align: left;
+
+					&:not(:last-child) {
+						margin-bottom: 1em;
+					}
+
+					.user-photo {
+						align-self: flex-start;
+						margin-top: 1em;
+						background: #b8b8b8;
+						border-radius: 50%;
+						width: 4em;
+					}
+					.talk-bubble {
+						margin-left: 2em;
+						padding: 1em;
+						position: relative;
+						width: 20em;
+						background-color: $lightestGray;
+					}
+					/* Right triangle, left side slightly down */
+					.tri-right.border.left-in:before {
+						content: ' ';
+						position: absolute;
+						width: 0;
+						height: 0;
+						left: -40px;
+						right: auto;
+						top: 8px;
+						bottom: auto;
+						border: 20px solid;
+						border-color: #666 #666 transparent transparent;
+					}
+					.tri-right.left-in:after{
+						content: ' ';
+						position: absolute;
+						width: 0;
+						height: 0;
+						left: -20px;
+						right: auto;
+						top: 8px;
+						bottom: auto;
+						border: 12px solid;
+						border-color: $lightestGray $lightestGray transparent transparent;
+					}
+				}
 			}
 		}
 	}

@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from .forms import GiveFeedbackForm
+from .models import UserFeedback
+from django.contrib.auth import get_user_model
 
 
 def index(request):
@@ -44,9 +46,11 @@ def index(request):
 	]
 
 	feedback_form = GiveFeedbackForm()
+	user_feedbacks = UserFeedback.objects.order_by('-created_at').all()[:3]
 
 	return render(request, 'mysite/index.html', { 'services': services,
-												  'feedback_form': feedback_form })
+												  'feedback_form': feedback_form,
+												  'user_feedbacks': user_feedbacks })
 
 
 def waiting_queue(request):

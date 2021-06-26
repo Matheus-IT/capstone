@@ -6,6 +6,7 @@
 
 <script src="{% static 'mysite/JavaScript/indexPage/hamburgerMenu.js' %}"></script>
 <script src="{% static 'mysite/JavaScript/indexPage/servicesSection.js' %}"></script>
+<script src="{% static 'mysite/JavaScript/indexPage/feedbackInteractivity.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -139,12 +140,24 @@
 		<h2 class="feedback__subtitle">What our customers say about the service</h2>
 		
 		<div class="container--centered">
-			{{ feedback_form }}
+			{{ feedback_form.content }}
+			
+			<div class="feedback__posts">
+				{% for user_feedback in user_feedbacks %}
+					<div class="post">
+						<img class="user-photo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="user image">
+						<div class="talk-bubble tri-right left-in">
+							<div class="talktext">
+								<p>{{ user_feedback.content }}</p>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<button class="load-more-feedbacks">. . .</button>
 		</div>
 
-		<div class="feedback__posts">
-			
-		</div>
 	</div>
 </div>
 {% endblock %}

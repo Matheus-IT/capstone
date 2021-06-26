@@ -431,6 +431,19 @@ body #bookingFormPageWrapper {
   background-color: #d7d7d7;
 }
 
+.load-more-feedbacks {
+  width: 4.6em;
+  min-height: 2.6em;
+  border-radius: 50%;
+  border: none;
+  background-color: #b8b8b8;
+  transition: all 150ms ease;
+}
+.load-more-feedbacks:hover {
+  width: 5.2em;
+  cursor: pointer;
+}
+
 html, body {
   scroll-snap-type: y proximity;
 }
@@ -759,17 +772,81 @@ html, body {
   background-image: url(/static/mysite/images/indexPage/feedback-background.jpg);
   background-size: cover;
   height: 100vh;
+  padding: 1em;
   color: #f0f0f0;
   text-align: center;
 }
+#indexPageWrapper .feedback__subtitle {
+  font-size: 2.4em;
+  margin-bottom: 0.6em;
+}
 #indexPageWrapper .feedback .container--centered {
   width: 44%;
+  height: 82%;
   margin: auto;
+  justify-content: flex-start;
 }
 #indexPageWrapper .feedback .container--centered .feedback-submit-content {
+  padding: 0.6em;
   width: 20em;
   height: 3.2em;
   border-radius: 0.6em;
+  transition: all 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts {
+  margin: 1.2em 0;
+  color: #424242;
+  margin-left: -5.2em;
+  padding: 0 1em;
+  overflow-y: scroll;
+  max-height: 74%;
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts .post {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  /* Right triangle, left side slightly down */
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts .post:not(:last-child) {
+  margin-bottom: 1em;
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts .post .user-photo {
+  align-self: flex-start;
+  margin-top: 1em;
+  background: #b8b8b8;
+  border-radius: 50%;
+  width: 4em;
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts .post .talk-bubble {
+  margin-left: 2em;
+  padding: 1em;
+  position: relative;
+  width: 20em;
+  background-color: #ddd;
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts .post .tri-right.border.left-in:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -40px;
+  right: auto;
+  top: 8px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: #666 #666 transparent transparent;
+}
+#indexPageWrapper .feedback .container--centered .feedback__posts .post .tri-right.left-in:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: 8px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: #ddd #ddd transparent transparent;
 }
 
 @media only screen and (max-width: 39.9375rem) {
