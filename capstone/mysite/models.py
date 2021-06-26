@@ -19,4 +19,4 @@ class UserFeedback(models.Model):
 	author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return f'Feedback title: {self.title}'
+		return f'Feedback: {self.content[:20]}...'
