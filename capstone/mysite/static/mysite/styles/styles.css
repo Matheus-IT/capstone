@@ -786,13 +786,32 @@ html, body {
   margin: auto;
   justify-content: flex-start;
 }
-#indexPageWrapper .feedback .container--centered .feedback-submit-content {
+#indexPageWrapper .feedback .container--centered .feedback-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#indexPageWrapper .feedback .container--centered .feedback-submit__content {
   padding: 0.6em;
   width: 20em;
   height: 3.2em;
   border-radius: 0.6em;
   transition: height 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   resize: none;
+}
+#indexPageWrapper .feedback .container--centered .feedback-submit__btn {
+  position: absolute;
+  right: 0.8em;
+  bottom: 0.6em;
+  padding: 0.2em;
+  border-radius: 0.2em;
+  border: 0.0625em solid #535353;
+  background-color: #591c1c;
+  color: #f0f0f0;
+}
+#indexPageWrapper .feedback .container--centered .feedback-submit__btn:hover {
+  cursor: pointer;
 }
 #indexPageWrapper .feedback .container--centered .feedback__posts {
   margin: 1.2em 0;

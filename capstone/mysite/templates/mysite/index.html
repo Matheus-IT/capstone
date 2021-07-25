@@ -144,7 +144,11 @@
 		<h2 class="feedback__subtitle">What our customers say about the service</h2>
 		
 		<div class="container--centered">
-			{{ feedback_form.content }}
+			<form action="" method="" class="feedback-submit">
+				{% csrf_token %}
+				{{ feedback_form.content }}
+				<button id="feedback-submit-btn" class="feedback-submit__btn">Submit</button>
+			</form>
 			
 			<div class="feedback__posts">
 				{% for user_feedback in user_feedbacks %}
@@ -159,7 +163,7 @@
 				{% endfor %}
 			</div>
 
-			<button class="load-more-feedbacks">. . .</button>
+			<button id="load-more-feedbacks" class="load-more-feedbacks">. . .</button>
 		</div>
 
 	</div>

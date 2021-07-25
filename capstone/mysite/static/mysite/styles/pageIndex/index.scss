@@ -382,14 +382,37 @@
 			margin: auto;
 			justify-content: flex-start;
 
-			.feedback-submit-content {
-				padding: 0.6em;
-				width: 20em;
-				height: 3.2em;
-				border-radius: 0.6em;
-				transition: height 250ms $flutteredAnimation;
-				resize: none;
+			.feedback-submit {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: relative;
+
+				&__content {
+					padding: 0.6em;
+					width: 20em;
+					height: 3.2em;
+					border-radius: 0.6em;
+					transition: height 250ms $flutteredAnimation;
+					resize: none;
+				}
+				&__btn {
+					position: absolute;
+					right: 0.8em;
+				    bottom: 0.6em;
+				    padding: 0.2em;
+				    border-radius: 0.2em;
+				    border: 0.0625em solid $gray;
+
+					background-color: $darkRed;
+					color: $white;
+
+				    &:hover {
+				    	cursor: pointer;
+				    }
+				}
 			}
+
 			.feedback__posts {
 				margin: 1.2em 0;
 				color: $darkGray;

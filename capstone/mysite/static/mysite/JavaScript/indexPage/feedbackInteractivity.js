@@ -1,10 +1,10 @@
 let currentPage = 1;
 
 document.addEventListener('DOMContentLoaded', function() {
-	const feedbackSubmit = document.querySelector('.feedback-submit-content');
+	const feedbackSubmit = document.querySelector('#feedback-submit-content');
 	const heightBefore = feedbackSubmit.style.height;
 
-	const buttonLoadMoreFeedbacks = document.querySelector('.load-more-feedbacks');
+	const buttonLoadMoreFeedbacks = document.querySelector('#load-more-feedbacks');
 	buttonLoadMoreFeedbacks.onclick = fetchMoreUserFeedbacks;
 
 	feedbackSubmit.addEventListener('focus', function() {
