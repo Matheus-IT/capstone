@@ -387,7 +387,8 @@
 				width: 20em;
 				height: 3.2em;
 				border-radius: 0.6em;
-				transition: all 250ms $flutteredAnimation;
+				transition: height 250ms $flutteredAnimation;
+				resize: none;
 			}
 			.feedback__posts {
 				margin: 1.2em 0;
