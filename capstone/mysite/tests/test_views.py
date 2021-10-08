@@ -6,6 +6,7 @@ from ..models import User, UserFeedback
 from controlqueue.consumers import QueueConsumer
 
 import json
+from django.contrib import auth
 
 
 def URL_MORE_USER_FEEDBACKS(page_number: int):
@@ -18,12 +19,13 @@ def URL_MORE_USER_FEEDBACKS(page_number: int):
 URL_INDEX = reverse('mysite:index')
 URL_WAITING_QUEUE = reverse('mysite:waiting_queue')
 URL_REGISTER = reverse('mysite:register')
+URL_LOGOUT = reverse('mysite:logout')
 # number of feedbacks per page for the index paginator
 from mysite.views import FEEDBACKS_PER_PAGE
 
 
 # --------------------------- Helper functions ----------------------------
-def create_user(data):
+def create_user(**data):
     return User.objects.create(**data)
 
 
@@ -185,6 +187,48 @@ class RegisterViewTests(TestCase):
         # Try registering again
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(res.context.get('message'), 'Username already taken.')
+
+
+class LogoutViewTests(TestCase):
+    def setUp(self):
+        self.user = create_user(
+            username='test_user', email='test@example.com', password='12345678'
+        )
+        self.client.force_login(self.user)
+
+    def test_post_method_is_not_allowed(self):
+        res = self.client.post(URL_LOGOUT)
+        self.assertEqual(res.status_code, 405)
+
+    def test_put_method_is_not_allowed(self):
+        payload = {'data': 'some_data'}
+        res = self.client.put(URL_LOGOUT, payload)
+        self.assertEqual(res.status_code, 405)
+
+    def test_patch_method_is_not_allowed(self):
+        payload = {'data': 'some_data'}
+        res = self.client.patch(URL_LOGOUT, payload)
+        self.assertEqual(res.status_code, 405)
+
+    def test_delete_method_is_not_allowed(self):
+        payload = {'data': 'some_data'}
+        res = self.client.delete(URL_LOGOUT, payload)
+        self.assertEqual(res.status_code, 405)
+
+    def test_logout_user_successfully(self):
+        res = self.client.get(URL_LOGOUT, follow=True)
+        self.assertEqual(res.status_code, 200)
+
+    def test_user_is_actually_being_logged_out(self):
+        # Ensure is authenticated before
+        user = auth.get_user(self.client)
+        self.assertTrue(user.is_authenticated)
+
+        self.client.get(URL_LOGOUT)
+
+        # Now it's not
+        user = auth.get_user(self.client)
+        self.assertFalse(user.is_authenticated)
 
 
 class GetMoreUserFeedbacksTests(TestCase):

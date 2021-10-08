@@ -10,7 +10,7 @@ from django.urls import reverse
 
 from .forms import GiveFeedbackForm
 from .models import UserFeedback
-from django.views.decorators.http import require_http_methods
+from django.views.decorators.http import require_GET, require_http_methods
 
 # number of feedbacks per page for the index paginator
 FEEDBACKS_PER_PAGE = 3
@@ -167,4 +167,10 @@ def register(request):
         )
 
     login(request, user)
+    return HttpResponseRedirect(reverse('mysite:index'))
+
+
+@require_GET
+def logout_view(request):
+    logout(request)
     return HttpResponseRedirect(reverse('mysite:index'))
