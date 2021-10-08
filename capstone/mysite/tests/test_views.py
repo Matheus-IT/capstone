@@ -56,7 +56,7 @@ class IndexViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user_data = {'username': 'test_user', 'password': '12345678'}
-        cls.sample_user = create_user(cls.user_data)
+        cls.sample_user = create_user(**cls.user_data)
 
         create_user_feedbacks(10, cls.sample_user)
 
@@ -237,7 +237,7 @@ class GetMoreUserFeedbacksTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.user_data = {'username': 'test_user', 'password': '12345678'}
-        cls.sample_user = create_user(cls.user_data)
+        cls.sample_user = create_user(**cls.user_data)
 
         cls.number_feedbacks_created = 5
         create_user_feedbacks(cls.number_feedbacks_created, cls.sample_user)
