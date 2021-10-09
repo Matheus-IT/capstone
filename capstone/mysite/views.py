@@ -10,7 +10,11 @@ from django.urls import reverse
 
 from .forms import GiveFeedbackForm
 from .models import UserFeedback
-from django.views.decorators.http import require_GET, require_http_methods
+from django.views.decorators.http import (
+    require_GET,
+    require_POST,
+    require_http_methods,
+)
 
 # number of feedbacks per page for the index paginator
 FEEDBACKS_PER_PAGE = 3
@@ -168,6 +172,24 @@ def register(request):
 
     login(request, user)
     return HttpResponseRedirect(reverse('mysite:index'))
+
+
+@require_POST
+def login_view(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    user = authenticate(request, username=username, password=password)
+
+    # Check if authentication successful
+    if user is not None:
+        login(request, user)
+        return HttpResponseRedirect(reverse("mysite:index"))
+    else:
+        return render(
+            request,
+            "mysite/login.html",
+            {"error_message": "Invalid username and/or password."},
+        )
 
 
 @require_GET

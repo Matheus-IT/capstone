@@ -19,6 +19,7 @@ def URL_MORE_USER_FEEDBACKS(page_number: int):
 URL_INDEX = reverse('mysite:index')
 URL_WAITING_QUEUE = reverse('mysite:waiting_queue')
 URL_REGISTER = reverse('mysite:register')
+URL_LOGIN = reverse('mysite:login')
 URL_LOGOUT = reverse('mysite:logout')
 # number of feedbacks per page for the index paginator
 from mysite.views import FEEDBACKS_PER_PAGE
@@ -26,7 +27,7 @@ from mysite.views import FEEDBACKS_PER_PAGE
 
 # --------------------------- Helper functions ----------------------------
 def create_user(**data):
-    return User.objects.create(**data)
+    return User.objects.create_user(**data)
 
 
 def create_superuser(data):
@@ -187,6 +188,82 @@ class RegisterViewTests(TestCase):
         # Try registering again
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(res.context.get('message'), 'Username already taken.')
+
+
+class LoginViewTests(TestCase):
+    def setUp(self):
+        self.test_user_data = dict(
+            username='test_user', email='test@example.com', password='12345678'
+        )
+
+    def test_get_method_is_not_allowed(self):
+        res = self.client.get(URL_LOGIN)
+        self.assertEqual(res.status_code, 405)
+
+    def test_put_method_is_not_allowed(self):
+        payload = {'data': 'some_data'}
+        res = self.client.put(URL_LOGIN, payload)
+        self.assertEqual(res.status_code, 405)
+
+    def test_patch_method_is_not_allowed(self):
+        payload = {'data': 'some_data'}
+        res = self.client.patch(URL_LOGIN, payload)
+        self.assertEqual(res.status_code, 405)
+
+    def test_delete_method_is_not_allowed(self):
+        payload = {'data': 'some_data'}
+        res = self.client.delete(URL_LOGIN, payload)
+        self.assertEqual(res.status_code, 405)
+
+    def test_user_login_successful(self):
+        create_user(**self.test_user_data)
+
+        payload = dict(
+            username=self.test_user_data['username'],
+            password=self.test_user_data['password'],
+        )
+        res = self.client.post(URL_LOGIN, payload)
+
+        self.assertIsNone(res.context)  # No error message
+
+    def test_user_is_not_authenticated_before_passing(self):
+        '''Tests that the user is not authenticated before login'''
+        create_user(**self.test_user_data)
+
+        # User is really NOT logged in
+        user = auth.get_user(self.client)
+        self.assertFalse(user.is_authenticated)
+
+    def test_user_is_really_logged_in_after_passing(self):
+        '''Tests that the user who passed for this endpoint really logged in'''
+        create_user(**self.test_user_data)
+
+        payload = dict(
+            username=self.test_user_data['username'],
+            password=self.test_user_data['password'],
+        )
+        self.client.post(URL_LOGIN, payload)
+
+        user = auth.get_user(self.client)
+        self.assertTrue(user.is_authenticated)
+
+    def test_username_is_required(self):
+        create_user(**self.test_user_data)
+
+        payload = dict(
+            password=self.test_user_data['password'],
+        )
+        res = self.client.post(URL_LOGIN, payload)
+        self.assertIsNotNone(res.context.get('error_message'))
+
+    def test_password_is_required(self):
+        create_user(**self.test_user_data)
+
+        payload = dict(
+            username=self.test_user_data['username'],
+        )
+        res = self.client.post(URL_LOGIN, payload)
+        self.assertIsNotNone(res.context.get('error_message'))
 
 
 class LogoutViewTests(TestCase):

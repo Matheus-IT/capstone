@@ -12,6 +12,7 @@ urlpatterns = [
     path('booking-form/', views.booking_form, name='booking_form'),
     path('register', views.register, name='register'),
     path('logout/', views.logout_view, name='logout'),
+    path('login/', views.login_view, name='login'),
     # ----------------------------- API URLs --------------------------------
     path(
         'more-user-feedback/<int:page_number>/',
