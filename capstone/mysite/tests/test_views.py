@@ -196,9 +196,9 @@ class LoginViewTests(TestCase):
             username='test_user', email='test@example.com', password='12345678'
         )
 
-    def test_get_method_is_not_allowed(self):
+    def test_get_method_is_allowed(self):
         res = self.client.get(URL_LOGIN)
-        self.assertEqual(res.status_code, 405)
+        self.assertEqual(res.status_code, 200)
 
     def test_put_method_is_not_allowed(self):
         payload = {'data': 'some_data'}
@@ -233,6 +233,12 @@ class LoginViewTests(TestCase):
         # User is really NOT logged in
         user = auth.get_user(self.client)
         self.assertFalse(user.is_authenticated)
+
+    def test_user_do_not_receive_error_message_at_first(self):
+        '''A user who gets to the login page shouldn't receive an error msg'''
+        create_user(**self.test_user_data)
+        res = self.client.get(URL_LOGIN)
+        self.assertIsNone(res.context.get('error_message'))
 
     def test_user_is_really_logged_in_after_passing(self):
         '''Tests that the user who passed for this endpoint really logged in'''

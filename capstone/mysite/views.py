@@ -174,8 +174,11 @@ def register(request):
     return HttpResponseRedirect(reverse('mysite:index'))
 
 
-@require_POST
+@require_http_methods(["GET", "POST"])
 def login_view(request):
+    if request.method == 'GET':
+        return render(request, 'mysite/login.html')
+
     username = request.POST.get("username")
     password = request.POST.get("password")
     user = authenticate(request, username=username, password=password)
