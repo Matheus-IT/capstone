@@ -119,6 +119,11 @@ class RegisterViewTests(TestCase):
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(res.status_code, 200)
 
+    def test_user_do_not_receive_error_message_when_get_to_the_page(self):
+        '''A user shouldn't receive an error msg when getting to the page'''
+        res = self.client.get(URL_REGISTER)
+        self.assertIsNone(res.context.get('error_message'))
+
     def test_username_is_required(self):
         payload = {
             'email': self.user['email'],
@@ -127,7 +132,7 @@ class RegisterViewTests(TestCase):
         }
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(
-            res.context.get('message'), 'All fields are required.'
+            res.context.get('error_message'), 'All fields are required.'
         )
 
     def test_email_is_required(self):
@@ -138,7 +143,7 @@ class RegisterViewTests(TestCase):
         }
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(
-            res.context.get('message'), 'All fields are required.'
+            res.context.get('error_message'), 'All fields are required.'
         )
 
     def test_password_is_required(self):
@@ -149,7 +154,7 @@ class RegisterViewTests(TestCase):
         }
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(
-            res.context.get('message'), 'All fields are required.'
+            res.context.get('error_message'), 'All fields are required.'
         )
 
     def test_confirmation_is_required(self):
@@ -160,7 +165,7 @@ class RegisterViewTests(TestCase):
         }
         res = self.client.post(URL_REGISTER, payload, follow=True)
         self.assertEqual(
-            res.context.get('message'), 'All fields are required.'
+            res.context.get('error_message'), 'All fields are required.'
         )
 
     def test_password_with_wrong_confirmation(self):
@@ -172,7 +177,9 @@ class RegisterViewTests(TestCase):
         }
 
         res = self.client.post(URL_REGISTER, payload, follow=True)
-        self.assertEqual(res.context.get('message'), 'Passwords must match.')
+        self.assertEqual(
+            res.context.get('error_message'), 'Passwords must match.'
+        )
 
     def test_creating_user_that_already_exists(self):
         payload = {
@@ -187,7 +194,9 @@ class RegisterViewTests(TestCase):
 
         # Try registering again
         res = self.client.post(URL_REGISTER, payload, follow=True)
-        self.assertEqual(res.context.get('message'), 'Username already taken.')
+        self.assertEqual(
+            res.context.get('error_message'), 'Username already taken.'
+        )
 
 
 class LoginViewTests(TestCase):

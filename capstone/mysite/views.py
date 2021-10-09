@@ -136,6 +136,11 @@ def booking_form(request):
 
 @require_http_methods(["GET", "POST"])
 def register(request):
+    TEMPLATE_PATH = 'mysite/register.html'
+
+    if request.method == 'GET':
+        return render(request, TEMPLATE_PATH)
+
     fields = dict(
         username=request.POST.get('username'),
         email=request.POST.get('email'),
@@ -146,15 +151,15 @@ def register(request):
     if not were_all_fields_passed(fields):
         return render(
             request,
-            'mysite/register.html',
-            {'message': 'All fields are required.'},
+            TEMPLATE_PATH,
+            {'error_message': 'All fields are required.'},
         )
 
     if not password_matches_confirmation(fields):
         return render(
             request,
-            'mysite/register.html',
-            {'message': 'Passwords must match.'},
+            TEMPLATE_PATH,
+            {'error_message': 'Passwords must match.'},
         )
 
     # Attempt to create new user
@@ -166,8 +171,8 @@ def register(request):
     except IntegrityError:
         return render(
             request,
-            'mysite/register.html',
-            {'message': 'Username already taken.'},
+            TEMPLATE_PATH,
+            {'error_message': 'Username already taken.'},
         )
 
     login(request, user)

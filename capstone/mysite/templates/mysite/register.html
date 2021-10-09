@@ -4,8 +4,8 @@
 <div class="container">
     <h2>Register</h2>
 
-    {% if message %}
-    <div>{{ message }}</div>
+    {% if error_message %}
+    <div>{{ error_message }}</div>
     {% endif %}
 
     <form action="{% url 'mysite:register' %}" method="post">
