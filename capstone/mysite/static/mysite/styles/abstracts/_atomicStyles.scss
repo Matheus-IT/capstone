@@ -1,0 +1,15 @@
+.noScroll {
+  overflow-y: hidden;
+}
+
+.hideForMobile {
+  @include breakpoint-down(small) {
+    display: none;
+  }
+}
+
+.hideForDesktop {
+  @include breakpoint-up(medium) {
+    display: none;
+  }
+}

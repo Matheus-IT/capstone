@@ -1,0 +1,134 @@
+.calendar {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 72%;
+  font-family: Verdana, sans-serif;
+
+  &__month {
+    flex-grow: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $darkRed;
+
+    #displayMonth, #displayYear {
+      margin-right: 0.6em;
+      letter-spacing: 3px;
+      font-size: 1em;
+      text-transform: uppercase;
+      color: $white;
+    }
+    .change-month {
+      position: absolute;
+      width: 4em;
+      height: 100%;
+      top: 0;
+
+      color: $white;
+      background-color: $darkRed;
+      border: none;
+      transition-property: background-color, color, width;
+      transition-duration: 500ms;
+      transition-timing-function: ease;
+
+      &:hover {
+        cursor: pointer;
+        width: 6em;
+        background-color: $lightestGray;
+        color: $gray;
+      }
+      /* classes for animations */
+      &.fadeIn {
+        animation: fadeIn 500ms;
+      }
+      @keyframes fadeIn {
+        from {
+          width: 0;
+        }
+        to {
+          width: 4em;
+        }
+      }
+      &.fadeOut {
+        animation: fadeOut 500ms;
+      }
+      @keyframes fadeOut {
+        0% {
+          width: 6em;
+          background-color: $lightestGray;
+          color: $gray;
+        }
+        25% {
+          width: 6em;
+          background-color: $darkRed;
+          color: $white;
+        }
+        100% {
+          width: 0;
+          background-color: $darkRed;
+          color: $white;
+        }
+      }
+      /* positioning the buttons properly */
+      &#nextMonth {
+        right: 0;
+      }
+      &#previousMonth {
+        left: 0;
+      }
+    }
+  }
+  &__weekdays {
+    flex-grow: 1;
+    display: inline-grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: $lightestGray;
+
+    .weekday {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $lightGray;
+      font-size: 1em;
+    }
+  }
+  &__days {
+    flex-grow: 4;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 0.125em;
+    row-gap: 0.125em;
+
+    * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.0625em solid $midLightGray;
+      background-color: $white;
+      color: $lightGray;
+      transition: border-color 250ms ease-in-out;
+      animation: createButton 500ms forwards;
+
+      &.active {
+        background-color: $darkPurple;
+        border-color: $darkPurple;
+        color: $white;
+      }
+      &:hover {
+        cursor: pointer;
+        border-color: $darkPurple;
+      }
+      @keyframes createButton {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

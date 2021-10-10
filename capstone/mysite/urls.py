@@ -10,7 +10,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('waiting-queue/', views.waiting_queue, name='waiting_queue'),
     path('booking-form/', views.booking_form, name='booking_form'),
-    path('register', views.register, name='register'),
+    path('register/', views.register, name='register'),
     path('logout/', views.logout_view, name='logout'),
     path('login/', views.login_view, name='login'),
     # ----------------------------- API URLs --------------------------------

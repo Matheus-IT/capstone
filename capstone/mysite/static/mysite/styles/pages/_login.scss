@@ -1,0 +1,16 @@
+@use "../common/globals";
+@use "../common/mixins";
+@use "common/base";
+
+
+#loginPageWrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, $darkRed, #b4b4b4);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+}
