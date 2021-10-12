@@ -1,7 +1,8 @@
-// @use "./common/base";
-// @use "./components/calendar";
-// @use "./components/buttons";
-// @use "./components/selectService";
+@use "../base/globals" as *;
+@use "../base/variables" as vars;
+@use "../components/progressBar" as *;
+@use "../abstracts/breakpoints" as *;
+
 
 #bookingFormPageWrapper {
   .container {
@@ -12,7 +13,7 @@
     height: 94vh;
     margin: 3vh auto;
     padding: 1.6em;
-    background: $white;
+    background: vars.$white;
     border-radius: 0.4em;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
@@ -33,7 +34,7 @@
       font-weight: 600;
     }
 
-    @import "./components/progressBar";
+    @include progress-bar;
 
     .form-outer {
       flex-grow: 1;
@@ -71,7 +72,7 @@
             .control {
               width: 100%;
               padding: 0.4em;
-              border: 0.0625em solid $lightGray;
+              border: 0.0625em solid vars.$lightGray;
               border-radius: 0.2em;
               font-size: 1em;
             }

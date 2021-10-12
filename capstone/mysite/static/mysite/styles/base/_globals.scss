@@ -1,10 +1,18 @@
-// COLORS ----------------------------------------------
-$darkRed: #591c1c;
-$darkRedTransparent: rgba($darkRed, 0.6);
-$darkPurple: #701d46;
-$white: #f0f0f0;
-$darkGray: #424242;
-$gray: #535353;
-$lightGray: #686868;
-$midLightGray: #b8b8b8;
-$lightestGray: #ddd;
+@use "./variables" as vars;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font: normal 1em 'Red Hat Text', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  color: vars.$darkGray;
+}
+
+::selection {
+  color: vars.$white;
+  background: vars.$darkRed;
+}

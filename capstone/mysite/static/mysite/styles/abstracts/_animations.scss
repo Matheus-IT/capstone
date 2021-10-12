@@ -1,0 +1,70 @@
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+// ----------------------- Animations for the calendar -----------------------
+@keyframes fadeIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 4em;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    width: 6em;
+    background-color: vars.$lightestGray;
+    color: vars.$gray;
+  }
+  25% {
+    width: 6em;
+    background-color: vars.$darkRed;
+    color: vars.$white;
+  }
+  100% {
+    width: 0;
+    background-color: vars.$darkRed;
+    color: vars.$white;
+  }
+}
+// ---------------------------------------------------------------------------
+
+$flutteredAnimation: cubic-bezier(.68,-0.55,.27,1.55);
+
+@keyframes createButton {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

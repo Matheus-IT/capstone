@@ -1,3 +1,7 @@
+@use "../base/globals" as *;
+@use "../base/variables" as vars;
+@use "../abstracts/animations";
+
 .calendar {
   flex-grow: 1;
   display: flex;
@@ -11,14 +15,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: $darkRed;
+    background: vars.$darkRed;
 
     #displayMonth, #displayYear {
       margin-right: 0.6em;
       letter-spacing: 3px;
       font-size: 1em;
       text-transform: uppercase;
-      color: $white;
+      color: vars.$white;
     }
     .change-month {
       position: absolute;
@@ -26,8 +30,8 @@
       height: 100%;
       top: 0;
 
-      color: $white;
-      background-color: $darkRed;
+      color: vars.$white;
+      background-color: vars.$darkRed;
       border: none;
       transition-property: background-color, color, width;
       transition-duration: 500ms;
@@ -36,41 +40,18 @@
       &:hover {
         cursor: pointer;
         width: 6em;
-        background-color: $lightestGray;
-        color: $gray;
+        background-color: vars.$lightestGray;
+        color: vars.$gray;
       }
+
       /* classes for animations */
       &.fadeIn {
         animation: fadeIn 500ms;
       }
-      @keyframes fadeIn {
-        from {
-          width: 0;
-        }
-        to {
-          width: 4em;
-        }
-      }
       &.fadeOut {
         animation: fadeOut 500ms;
       }
-      @keyframes fadeOut {
-        0% {
-          width: 6em;
-          background-color: $lightestGray;
-          color: $gray;
-        }
-        25% {
-          width: 6em;
-          background-color: $darkRed;
-          color: $white;
-        }
-        100% {
-          width: 0;
-          background-color: $darkRed;
-          color: $white;
-        }
-      }
+
       /* positioning the buttons properly */
       &#nextMonth {
         right: 0;
@@ -84,13 +65,13 @@
     flex-grow: 1;
     display: inline-grid;
     grid-template-columns: repeat(7, 1fr);
-    background-color: $lightestGray;
+    background-color: vars.$lightestGray;
 
     .weekday {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: $lightGray;
+      color: vars.$lightGray;
       font-size: 1em;
     }
   }
@@ -106,28 +87,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 0.0625em solid $midLightGray;
-      background-color: $white;
-      color: $lightGray;
+      border: 0.0625em solid vars.$midLightGray;
+      background-color: vars.$white;
+      color: vars.$lightGray;
       transition: border-color 250ms ease-in-out;
       animation: createButton 500ms forwards;
 
       &.active {
-        background-color: $darkPurple;
-        border-color: $darkPurple;
-        color: $white;
+        background-color: vars.$darkPurple;
+        border-color: vars.$darkPurple;
+        color: vars.$white;
       }
       &:hover {
         cursor: pointer;
-        border-color: $darkPurple;
-      }
-      @keyframes createButton {
-        from {
-          width: 0;
-        }
-        to {
-          width: 100%;
-        }
+        border-color: vars.$darkPurple;
       }
     }
   }

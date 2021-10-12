@@ -1,4 +1,8 @@
-#progress-bar {
+@use "../base/globals" as *;
+@use "../base/variables" as vars;
+
+
+@mixin progress-bar {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -13,7 +17,7 @@
     &__label {
       font-weight: 500;
       font-size: 1.2em;
-      color: $gray;
+      color: vars.$gray;
     }
     &__bullet {
       display: flex;
@@ -23,7 +27,7 @@
       height: 1.4em;
       width: 1.4em;
       margin: auto;
-      border: 2px solid $gray;
+      border: 2px solid vars.$gray;
 
       border-radius: 50%;
       font-weight: 500;
@@ -40,8 +44,8 @@
         }
       }
       &--is-active {
-        border-color: $darkPurple;
-        background: $darkPurple;
+        border-color: vars.$darkPurple;
+        background: vars.$darkPurple;
 
         .num{
           display: none;

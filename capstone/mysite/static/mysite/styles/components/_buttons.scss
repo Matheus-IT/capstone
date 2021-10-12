@@ -1,3 +1,6 @@
+@use "../base/globals" as *;
+@use "../base/variables" as vars;
+
 .btns {
   display: flex;
   width: 100%;
@@ -10,8 +13,8 @@
     border: none;
     border-radius: 0.2em;
 
-    background: $darkRed;
-    color: $white;
+    background: vars.$darkRed;
+    color: vars.$white;
 
     font-size: 1.2em;
     font-weight: 500;
@@ -19,19 +22,19 @@
     transition: background-color 0.5s ease;
 
     &:hover {
-      background: $darkPurple;
+      background: vars.$darkPurple;
       cursor: pointer;
     }
     &:not(:last-child){
       margin-right: 1em;
     }
     &--is-disabled {
-      background-color: $midLightGray;
-      color: $lightGray;
+      background-color: vars.$midLightGray;
+      color: vars.$lightGray;
       cursor: default;
 
       &:hover {
-        background: $midLightGray;
+        background: vars.$midLightGray;
         cursor: default;
       }
     }
@@ -39,22 +42,22 @@
 }
 
 .book-now {
-  background-color: $darkRedTransparent;
-  border: 0.125em solid darken($darkRed, 14%);
+  background-color: vars.$darkRedTransparent;
+  border: 0.125em solid darken(vars.$darkRed, 14%);
   text-transform: uppercase;
   transition: background-color 150ms ease;
 
   &:hover {
-    background-color: lighten($darkRedTransparent, 10%);
+    background-color: lighten(vars.$darkRedTransparent, 10%);
     cursor: pointer;
   }
 
   &--secondary {
     @extend .book-now;
-    background-color: $white;
+    background-color: vars.$white;
 
     &:hover {
-      background-color: darken($white, 10%);
+      background-color: darken(vars.$white, 10%);
     }
   }
 }
@@ -64,7 +67,7 @@
   min-height: 2.6em;
   border-radius: 50%;
   border: none;
-  background-color: $midLightGray;
+  background-color: vars.$midLightGray;
   transition: all 150ms ease;
 
   &:hover {

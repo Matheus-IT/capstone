@@ -1,9 +1,3 @@
-@import "../../common/globals";
-@import "../../common/mixins";
-
-html, body {
-  scroll-snap-type: y proximity;
-}
 .section {
   scroll-snap-align: center;
   scroll-snap-stop: always;

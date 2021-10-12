@@ -1,3 +1,5 @@
+@use "../abstracts/breakpoints" as *;
+
 .noScroll {
   overflow-y: hidden;
 }
