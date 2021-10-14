@@ -8,8 +8,12 @@ class GiveFeedbackForm(forms.ModelForm):
         fields = ('content',)
 
         widgets = {
-            'content': forms.Textarea(attrs={'class': 'feedback-submit-content',
-                                             'placeholder': 'Give feedback...',
-                                             'cols': 30, 
-                                             'rows': 6})
+            'content': forms.Textarea(
+                attrs={
+                    'class': 'feedback-submit-content',
+                    'placeholder': 'Give feedback...',
+                    'cols': 10,
+                    'rows': 6,
+                }
+            )
         }
