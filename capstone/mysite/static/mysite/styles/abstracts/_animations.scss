@@ -1,3 +1,7 @@
+@use "colors";
+
+
+// ------------------------------ Simple fades -------------------------------
 @keyframes fade-in {
   from {
     visibility: hidden;
@@ -42,18 +46,18 @@
 @keyframes fadeOut {
   0% {
     width: 6em;
-    background-color: vars.$lightestGray;
-    color: vars.$gray;
+    background-color: colors.$lightestGray;
+    color: colors.$gray;
   }
   25% {
     width: 6em;
-    background-color: vars.$darkRed;
-    color: vars.$white;
+    background-color: colors.$darkRed;
+    color: colors.$white;
   }
   100% {
     width: 0;
-    background-color: vars.$darkRed;
-    color: vars.$white;
+    background-color: colors.$darkRed;
+    color: colors.$white;
   }
 }
 // ---------------------------------------------------------------------------

@@ -1,73 +1,31 @@
-@use "../base/globals" as *;
-@use "../base/variables" as vars;
+@use "../abstracts/colors";
 
-.btns {
-  display: flex;
-  width: 100%;
-  margin-top: 1em;
 
-  &__btn {
-    position: relative;
-    width: 100%;
-    height: 2.8em;
-    border: none;
-    border-radius: 0.2em;
-
-    background: vars.$darkRed;
-    color: vars.$white;
-
-    font-size: 1.2em;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: background-color 0.5s ease;
-
-    &:hover {
-      background: vars.$darkPurple;
-      cursor: pointer;
-    }
-    &:not(:last-child){
-      margin-right: 1em;
-    }
-    &--is-disabled {
-      background-color: vars.$midLightGray;
-      color: vars.$lightGray;
-      cursor: default;
-
-      &:hover {
-        background: vars.$midLightGray;
-        cursor: default;
-      }
-    }
-  }
-}
-
-.book-now {
-  background-color: vars.$darkRedTransparent;
-  border: 0.125em solid darken(vars.$darkRed, 14%);
+@mixin book-now {
+  border: 0.125em solid darken(colors.$darkRed, 14%);
   text-transform: uppercase;
   transition: background-color 150ms ease;
 
   &:hover {
-    background-color: lighten(vars.$darkRedTransparent, 10%);
-    cursor: pointer;
-  }
-
-  &--secondary {
-    @extend .book-now;
-    background-color: vars.$white;
-
-    &:hover {
-      background-color: darken(vars.$white, 10%);
-    }
+    background-color: darken(colors.$white, 90%);
   }
 }
 
-.load-more-feedbacks {
+@mixin book-now--secondary {
+  @include book-now;
+  background-color: colors.$white;
+
+  &:hover {
+    background-color: darken(colors.$white, 10%);
+  }
+}
+
+@mixin load-more-feedbacks {
   width: 4.6em;
   min-height: 2.6em;
   border-radius: 50%;
   border: none;
-  background-color: vars.$midLightGray;
+  background-color: colors.$midLightGray;
   transition: all 150ms ease;
 
   &:hover {

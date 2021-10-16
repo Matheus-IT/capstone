@@ -1,17 +1,17 @@
 let currentPage = 1;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	const feedbackSubmit = document.querySelector('.feedback-submit-content');
 	const heightBefore = feedbackSubmit.style.height;
 
 	const buttonLoadMoreFeedbacks = document.querySelector('.load-more-feedbacks');
 	buttonLoadMoreFeedbacks.onclick = fetchMoreUserFeedbacks;
 
-	feedbackSubmit.addEventListener('focus', function() {
+	feedbackSubmit.addEventListener('focus', function () {
 		this.style.height = '24.2em';
 	});
 
-	feedbackSubmit.addEventListener('focusout', function() {
+	feedbackSubmit.addEventListener('focusout', function () {
 		this.style.height = heightBefore;
 	});
 
@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
 		let pageNumber = ++currentPage;
 
 		fetch(`/more-user-feedback/${pageNumber}/`)
-		.then(res => handleResponse(res))
-		.then(data => {
-			data.feedbacks.forEach(feedback => {
-				const newPost = renderNewPost(feedback);
+			.then(res => handleResponse(res))
+			.then(data => {
+				data.feedbacks.forEach(feedback => {
+					const newPost = renderNewPost(feedback);
 
-				const feedbackPosts = document.querySelector('.feedback__posts');
-				feedbackPosts.append(newPost);
+					const feedbackPosts = document.querySelector('.feedback__posts');
+					feedbackPosts.append(newPost);
+				});
+			})
+			.catch(err => {
+				console.log(err);
 			});
-		})
-		.catch(err => {
-			console.log(err);
-		});
 	}
 
 	function handleResponse(res) {
@@ -43,9 +43,13 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	function renderNewPost(feedback) {
+		const content = document.createElement('p');
+		content.classList.add('content');
+		content.innerHTML = feedback.content;
+
 		const talkText = document.createElement('div');
 		talkText.classList.add('talktext');
-		talkText.innerHTML = feedback.content;
+		talkText.append(content);
 
 		const talkBuble = document.createElement('div');
 		talkBuble.classList.add('talk-bubble');

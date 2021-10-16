@@ -1,4 +1,4 @@
-@use "./variables" as vars;
+@use "colors";
 
 * {
   margin: 0;
@@ -9,10 +9,10 @@
 }
 
 body {
-  color: vars.$darkGray;
+  color: colors.$darkGray;
 }
 
 ::selection {
-  color: vars.$white;
-  background: vars.$darkRed;
+  color: colors.$white;
+  background: colors.$darkRed;
 }

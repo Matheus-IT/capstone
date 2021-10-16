@@ -1,9 +1,21 @@
-.container {
+%container-col {
   display: flex;
   flex-direction: column;
 
   &--centered {
-    @extend .container;
+    @extend %container-col;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+%container-row {
+  display: flex;
+  flex-direction: row;
+
+  &--centered {
+    @extend %container-row;
     justify-content: center;
     align-items: center;
     text-align: center;

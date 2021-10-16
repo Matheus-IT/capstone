@@ -1,5 +1,4 @@
-@use "../base/globals" as *;
-@use "../base/variables" as vars;
+@use "../base/colors";
 
 .selectService {
   .services {
@@ -9,7 +8,7 @@
     height: 78%;
     overflow: auto;
     scroll-behavior: smooth;
-    color: vars.$white;
+    color: colors.$white;
 
     background-image:
     linear-gradient(to right, hsla(0, 0%, 0%, 1), hsla(0, 0%, 45%, 0.8)),
@@ -23,12 +22,12 @@
       margin: 1em;
       padding: 0.4em;
       border-radius: 0.2em;
-      background: rgba(vars.$gray, 0.7);
+      background: rgba(colors.$gray, 0.7);
       transition: background-color 150ms ease, text-shadow 150ms ease;
 
       &:hover {
-        text-shadow: 1px 1px 1px vars.$gray;
-        background: lighten(vars.$gray, 10%);
+        text-shadow: 1px 1px 1px colors.$gray;
+        background: lighten(colors.$gray, 10%);
       }
     }
   }

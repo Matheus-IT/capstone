@@ -1,8 +1,7 @@
-@use "../base/globals" as *;
-@use "../base/variables" as vars;
+@use "../abstracts/colors";
 @use "../abstracts/animations";
 
-.calendar {
+@mixin calendar {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -15,14 +14,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: vars.$darkRed;
+    background: colors.$darkRed;
 
     #displayMonth, #displayYear {
       margin-right: 0.6em;
       letter-spacing: 3px;
       font-size: 1em;
       text-transform: uppercase;
-      color: vars.$white;
+      color: colors.$white;
     }
     .change-month {
       position: absolute;
@@ -30,8 +29,8 @@
       height: 100%;
       top: 0;
 
-      color: vars.$white;
-      background-color: vars.$darkRed;
+      color: colors.$white;
+      background-color: colors.$darkRed;
       border: none;
       transition-property: background-color, color, width;
       transition-duration: 500ms;
@@ -40,8 +39,8 @@
       &:hover {
         cursor: pointer;
         width: 6em;
-        background-color: vars.$lightestGray;
-        color: vars.$gray;
+        background-color: colors.$lightestGray;
+        color: colors.$gray;
       }
 
       /* classes for animations */
@@ -65,13 +64,13 @@
     flex-grow: 1;
     display: inline-grid;
     grid-template-columns: repeat(7, 1fr);
-    background-color: vars.$lightestGray;
+    background-color: colors.$lightestGray;
 
     .weekday {
       display: flex;
       justify-content: center;
       align-items: center;
-      color: vars.$lightGray;
+      color: colors.$lightGray;
       font-size: 1em;
     }
   }
@@ -87,20 +86,20 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 0.0625em solid vars.$midLightGray;
-      background-color: vars.$white;
-      color: vars.$lightGray;
+      border: 0.0625em solid colors.$midLightGray;
+      background-color: colors.$white;
+      color: colors.$lightGray;
       transition: border-color 250ms ease-in-out;
       animation: createButton 500ms forwards;
 
       &.active {
-        background-color: vars.$darkPurple;
-        border-color: vars.$darkPurple;
-        color: vars.$white;
+        background-color: colors.$darkPurple;
+        border-color: colors.$darkPurple;
+        color: colors.$white;
       }
       &:hover {
         cursor: pointer;
-        border-color: vars.$darkPurple;
+        border-color: colors.$darkPurple;
       }
     }
   }

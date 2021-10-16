@@ -1,7 +1,8 @@
-@use "../base/globals" as *;
-@use "../base/variables" as vars;
-@use "../components/progressBar" as *;
-@use "../abstracts/breakpoints" as *;
+@use "../abstracts/globals";
+@use "../abstracts/colors";
+@use "../abstracts/breakpoints";
+
+@use "../components/progressBar";
 
 
 #bookingFormPageWrapper {
@@ -13,16 +14,16 @@
     height: 94vh;
     margin: 3vh auto;
     padding: 1.6em;
-    background: vars.$white;
+    background: colors.$white;
     border-radius: 0.4em;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
 
-    @include breakpoint-up(xxlarge) {
+    @include breakpoints.breakpoint-up(xxlarge) {
       height: 70vh;
       margin: 15vh auto;
     }
-    @include breakpoint-down(small) {
+    @include breakpoints.breakpoint-down(small) {
       width: 100vw;
       height: 100vh;
       margin: 0;
@@ -34,7 +35,7 @@
       font-weight: 600;
     }
 
-    @include progress-bar;
+    @include progressBar.progress-bar;
 
     .form-outer {
       flex-grow: 1;
@@ -72,7 +73,7 @@
             .control {
               width: 100%;
               padding: 0.4em;
-              border: 0.0625em solid vars.$lightGray;
+              border: 0.0625em solid colors.$lightGray;
               border-radius: 0.2em;
               font-size: 1em;
             }
@@ -91,6 +92,45 @@
 
               label {
                 margin-right: 0.2em;
+              }
+            }
+          }
+          .btns {
+            display: flex;
+            width: 100%;
+            margin-top: 1em;
+
+            &__btn {
+              position: relative;
+              width: 100%;
+              height: 2.8em;
+              border: none;
+              border-radius: 0.2em;
+
+              background: colors.$darkRed;
+              color: colors.$white;
+
+              font-size: 1.2em;
+              font-weight: 500;
+              text-transform: uppercase;
+              transition: background-color 0.5s ease;
+
+              &:hover {
+                background: colors.$darkPurple;
+                cursor: pointer;
+              }
+              &:not(:last-child){
+                margin-right: 1em;
+              }
+              &--is-disabled {
+                background-color: colors.$midLightGray;
+                color: colors.$lightGray;
+                cursor: default;
+
+                &:hover {
+                  background: colors.$midLightGray;
+                  cursor: default;
+                }
               }
             }
           }
