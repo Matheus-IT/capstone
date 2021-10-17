@@ -84,11 +84,11 @@ document.addEventListener("DOMContentLoaded", function () {
     talkText.append(author);
     talkText.append(content);
 
-    const talkBuble = document.createElement("div");
-    talkBuble.classList.add("talk-bubble");
-    talkBuble.classList.add("tri-right");
-    talkBuble.classList.add("left-in");
-    talkBuble.append(talkText);
+    const talkBubble = document.createElement("div");
+    talkBubble.classList.add("talk-bubble");
+    talkBubble.classList.add("tri-right");
+    talkBubble.classList.add("left-in");
+    talkBubble.append(talkText);
 
     const img = document.createElement("img");
     img.setAttribute("src", userImagePath);
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const post = document.createElement("div");
     post.classList.add("post");
     post.append(img);
-    post.append(talkBuble);
+    post.append(talkBubble);
 
     return post;
   }
