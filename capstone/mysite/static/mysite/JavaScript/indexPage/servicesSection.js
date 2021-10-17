@@ -1,19 +1,20 @@
 class Slider {
   constructor() {
-    this.sliderContainer = document.querySelector('#slider');
+    this.sliderContainer = document.querySelector("#slider");
     this.sliderContainer.onscroll = this.handleScroll;
 
     // Buttons available for desktop design
-    this.buttonPrevious = document.querySelector('#navigationBtnLeft');
+    this.buttonPrevious = document.querySelector("#navigationBtnLeft");
     this.buttonPrevious.onclick = this.handleGoToPreviousSlide;
 
-    this.buttonNext = document.querySelector('#navigationBtnRight');
+    this.buttonNext = document.querySelector("#navigationBtnRight");
     this.buttonNext.onclick = this.handleGoToNextSlide;
 
     // Tracker available for mobile design
-    this.navigationTrackerItems = document.querySelector('#navigationTracker').children;
+    this.navigationTrackerItems =
+      document.querySelector("#navigationTracker").children;
 
-    this.slides = document.querySelector('#slides');
+    this.slides = document.querySelector("#slides");
 
     this.currentSlide = 0; // The first slide starts on 0
     this.maxLengthOfSlides = 4;
@@ -22,14 +23,12 @@ class Slider {
   handleScroll = () => {
     const scrollOfOneCard = 300; // In px
 
-    console.log(this.sliderContainer.scrollLeft);
-
     const num = Math.ceil(this.sliderContainer.scrollLeft / scrollOfOneCard);
     for (let item of this.navigationTrackerItems) {
-      item.classList.remove('item-active');
+      item.classList.remove("item-active");
     }
-    this.navigationTrackerItems[num].classList.add('item-active');
-  }
+    this.navigationTrackerItems[num].classList.add("item-active");
+  };
 
   handleGoToNextSlide = () => {
     if (this.currentSlide < this.maxLengthOfSlides) {
@@ -51,7 +50,6 @@ class Slider {
   }
 }
 
-
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   const slider = new Slider();
 });
