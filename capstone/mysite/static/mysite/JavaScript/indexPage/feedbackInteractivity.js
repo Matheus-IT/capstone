@@ -37,7 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(`Result: ${data}`);
+        const feedback = data.feedback;
+        const feedbackPosts = document.querySelector("#feedback-posts");
+        feedbackPosts.prepend(renderNewPost(feedback));
       })
       .catch((error) => {
         console.log(`Something went wrong: ${error}`);
@@ -53,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data.feedbacks.forEach((feedback) => {
           const newPost = renderNewPost(feedback);
 
-          const feedbackPosts = document.querySelector(".feedback__posts");
+          const feedbackPosts = document.querySelector("#feedback-posts");
           feedbackPosts.append(newPost);
         });
       })

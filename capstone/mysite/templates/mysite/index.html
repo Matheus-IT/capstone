@@ -157,7 +157,7 @@
         <button type="submit" class="feedback-form-submit">Enter</button>
       </form>
 
-      <div class="feedback__posts">
+      <div id="feedback-posts" class="feedback__posts">
         {% for user_feedback in user_feedbacks %}
         <div class="post">
           <img class="user-photo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="user image">

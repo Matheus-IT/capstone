@@ -124,7 +124,7 @@ def submit_feedback_post(request):
     if form.is_valid():
         feedback = UserFeedback(author=data['author'], content=data['content'])
         feedback.save()
-        return JsonResponse({'msg': 'Success'}, status=200)
+        return JsonResponse({'feedback': feedback.serialize()}, status=200)
     return JsonResponse({'msg': 'Error: Something went wrong...'}, status=400)
 
 
