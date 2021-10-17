@@ -71,12 +71,17 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function renderNewPost(feedback) {
+    const author = document.createElement("p");
+    author.classList.add("post__author");
+    author.innerHTML = `${feedback.author.name} says`;
+
     const content = document.createElement("p");
-    content.classList.add("content");
+    content.classList.add("post__content");
     content.innerHTML = feedback.content;
 
     const talkText = document.createElement("div");
     talkText.classList.add("talktext");
+    talkText.append(author);
     talkText.append(content);
 
     const talkBuble = document.createElement("div");

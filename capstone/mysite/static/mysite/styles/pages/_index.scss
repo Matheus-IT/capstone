@@ -467,8 +467,14 @@ body {
             border-color: colors.$lightestGray colors.$lightestGray transparent
               transparent;
           }
-          .content {
+          &__author {
             color: colors.$darkGray;
+            font-size: 1em;
+            text-align: left;
+          }
+          &__content {
+            color: colors.$lightGray;
+            font-size: 0.9em;
             text-align: left;
           }
         }

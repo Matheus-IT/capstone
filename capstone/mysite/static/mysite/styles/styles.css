@@ -717,8 +717,14 @@ body {
   border: 12px solid;
   border-color: #ddd #ddd transparent transparent;
 }
-#indexPageWrapper .feedback .container .feedback__posts .post .content {
+#indexPageWrapper .feedback .container .feedback__posts .post__author {
   color: #424242;
+  font-size: 1em;
+  text-align: left;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post__content {
+  color: #686868;
+  font-size: 0.9em;
   text-align: left;
 }
 #indexPageWrapper .feedback .container .load-more-feedbacks {

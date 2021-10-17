@@ -92,9 +92,11 @@ def index(request):
     ]
 
     form = GiveFeedbackForm()
+
     feedbacks = UserFeedback.objects.order_by('-created_at')[
         :FEEDBACKS_PER_PAGE
     ]
+    feedbacks_serialized = [feedback.serialize() for feedback in feedbacks]
 
     return render(
         request,
@@ -102,7 +104,7 @@ def index(request):
         {
             'services': services,
             'feedback_form': form,
-            'user_feedbacks': feedbacks,
+            'user_feedbacks': feedbacks_serialized,
         },
     )
 

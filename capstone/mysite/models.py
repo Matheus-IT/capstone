@@ -7,14 +7,15 @@ class User(AbstractUser):
     def serialize(self):
         return {'id': self.id, 'username': self.username}
 
+    def serialize(self):
+        return {'id': self.id, 'name': self.username}
+
     def __str__(self):
         return f'User {self.username}'
 
 
 class UserFeedback(models.Model):
-    author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
-    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
 
