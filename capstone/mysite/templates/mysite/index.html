@@ -18,7 +18,7 @@
   <div class="landing">
     <nav class="navbar">
       <div class="motto">
-        <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-black.png' %}" alt="">
+        <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
         <p class="motto__text">Barber Shop</p>
       </div>
       <a class="navbar__item" href="#">Home</a>
@@ -152,7 +152,10 @@
     <h2 class="feedback__subtitle">What our customers say about the service</h2>
 
     <div class="container">
-      {{ feedback_form.content }}
+      <form id="submit-feedback-form" action="/submit-new-feedback/" method="post">
+        {{ feedback_form.content }}
+        <button type="submit">Enter</button>
+      </form>
 
       <div class="feedback__posts">
         {% for user_feedback in user_feedbacks %}

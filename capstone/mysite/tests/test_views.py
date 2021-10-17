@@ -17,12 +17,13 @@ def URL_MORE_USER_FEEDBACKS(page_number: int):
 
 
 URL_INDEX = reverse('mysite:index')
+URL_SUBMIT_FEEDBACK = reverse('mysite:submit_new_feedback')
 URL_WAITING_QUEUE = reverse('mysite:waiting_queue')
 URL_REGISTER = reverse('mysite:register')
 URL_LOGIN = reverse('mysite:login')
 URL_LOGOUT = reverse('mysite:logout')
 # number of feedbacks per page for the index paginator
-from mysite.views import FEEDBACKS_PER_PAGE
+FEEDBACKS_PER_PAGE = 3
 
 
 # --------------------------- Helper functions ----------------------------
@@ -54,12 +55,12 @@ def create_user_feedbacks(n_feedbacks: int, user: User) -> List[UserFeedback]:
 class IndexViewTests(TestCase):
     '''Tests for the index view'''
 
-    @classmethod
-    def setUpTestData(cls):
-        cls.user_data = {'username': 'test_user', 'password': '12345678'}
-        cls.sample_user = create_user(**cls.user_data)
+    def setUp(self):
+        self.user_data = {'username': 'test_user', 'password': '12345678'}
+        self.sample_user = create_user(**self.user_data)
 
-        create_user_feedbacks(10, cls.sample_user)
+        self.client.force_login(self.sample_user)
+        create_user_feedbacks(5, self.sample_user)
 
     def test_getting_right_number_of_feedback(self):
         '''Test template is receiving the right number of feedback objects'''
@@ -82,6 +83,38 @@ class IndexViewTests(TestCase):
         ):
             self.assertEqual(feedback.content, feedback_res.content)
             self.assertEqual(feedback.created_at, feedback_res.created_at)
+
+    def test_submit_feedback_successfully(self):
+        payload = {'content': 'testing'}
+        res = self.client.post(URL_SUBMIT_FEEDBACK, payload)
+        self.assertEqual(res.status_code, 200)
+
+    def test_submit_feedback_saves_new_feedback(self):
+        payload = {'content': 'testing saving new'}
+        self.client.post(URL_SUBMIT_FEEDBACK, payload)
+
+        feedback = UserFeedback.objects.get(
+            author=auth.get_user(self.client), content=payload['content']
+        )
+        self.assertIsNotNone(feedback)
+
+    def test_submit_feedback_correct_author(self):
+        payload = {'content': 'testing'}
+        self.client.post(URL_SUBMIT_FEEDBACK, payload)
+
+        feedback = UserFeedback.objects.all().last()
+        self.assertEqual(feedback.author, auth.get_user(self.client))
+
+    def test_submit_feedback_not_authenticated(self):
+        payload = {'content': 'testing'}
+        self.client.logout()
+        res = self.client.post(URL_SUBMIT_FEEDBACK, payload)
+        self.assertEqual(res.status_code, 401)
+
+    def test_submit_feedback_content_is_required(self):
+        payload = {}
+        res = self.client.post(URL_SUBMIT_FEEDBACK, payload)
+        self.assertEqual(res.status_code, 400)
 
 
 class RegisterViewTests(TestCase):

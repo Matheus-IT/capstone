@@ -19,4 +19,9 @@ urlpatterns = [
         views.get_more_user_feedbacks,
         name='more_user_feedback',
     ),
+    path(
+        'submit-new-feedback/',
+        views.submit_feedback_post,
+        name='submit_new_feedback',
+    ),
 ]

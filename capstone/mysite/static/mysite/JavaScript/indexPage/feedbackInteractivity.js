@@ -1,72 +1,115 @@
 let currentPage = 1;
 
-document.addEventListener('DOMContentLoaded', function () {
-	const feedbackSubmit = document.querySelector('.feedback-submit-content');
-	const heightBefore = feedbackSubmit.style.height;
+document.addEventListener("DOMContentLoaded", function () {
+  // ----------------------- Handle animation of text area -------------------
+  const feedbackSubmit = document.querySelector("#feedback-content");
+  const heightBefore = feedbackSubmit.style.height;
+  feedbackSubmit.addEventListener("focus", function () {
+    this.style.height = "24.2em";
+  });
+  feedbackSubmit.addEventListener("focusout", function () {
+    this.style.height = heightBefore;
+  });
+  // -------------------------------------------------------------------------
 
-	const buttonLoadMoreFeedbacks = document.querySelector('.load-more-feedbacks');
-	buttonLoadMoreFeedbacks.onclick = fetchMoreUserFeedbacks;
+  const feedbackForm = document.querySelector("#submit-feedback-form");
+  feedbackForm.addEventListener("submit", handleSubmitFeedback);
 
-	feedbackSubmit.addEventListener('focus', function () {
-		this.style.height = '24.2em';
-	});
+  const buttonLoadMoreFeedbacks = document.querySelector(
+    ".load-more-feedbacks"
+  );
+  buttonLoadMoreFeedbacks.onclick = fetchMoreUserFeedbacks;
 
-	feedbackSubmit.addEventListener('focusout', function () {
-		this.style.height = heightBefore;
-	});
+  function handleSubmitFeedback(event) {
+    event.preventDefault();
 
-	function fetchMoreUserFeedbacks() {
-		let pageNumber = ++currentPage;
+    const contentFormField = document.querySelector("#feedback-content");
 
-		fetch(`/more-user-feedback/${pageNumber}/`)
-			.then(res => handleResponse(res))
-			.then(data => {
-				data.feedbacks.forEach(feedback => {
-					const newPost = renderNewPost(feedback);
+    fetch("/submit-new-feedback/", {
+      method: "POST",
+      body: JSON.stringify({
+        content: contentFormField.value,
+      }),
+      headers: {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "X-Requested-With": "XMLHttpRequest", //Necessary to work with request.is_ajax()
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(`Result: ${data}`);
+      })
+      .catch((error) => {
+        console.log(`Something went wrong: ${error}`);
+      });
+  }
 
-					const feedbackPosts = document.querySelector('.feedback__posts');
-					feedbackPosts.append(newPost);
-				});
-			})
-			.catch(err => {
-				console.log(err);
-			});
-	}
+  function fetchMoreUserFeedbacks() {
+    let pageNumber = ++currentPage;
 
-	function handleResponse(res) {
-		if (res.ok)
-			return res.json();
-		else if (res.status === 404)
-			return Promise.reject('Error 404');
-		else
-			return Promise.reject(`Something doesn't seem right: ${res.status}`);
-	}
+    fetch(`/more-user-feedback/${pageNumber}/`)
+      .then((res) => handleResponse(res))
+      .then((data) => {
+        data.feedbacks.forEach((feedback) => {
+          const newPost = renderNewPost(feedback);
 
-	function renderNewPost(feedback) {
-		const content = document.createElement('p');
-		content.classList.add('content');
-		content.innerHTML = feedback.content;
+          const feedbackPosts = document.querySelector(".feedback__posts");
+          feedbackPosts.append(newPost);
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 
-		const talkText = document.createElement('div');
-		talkText.classList.add('talktext');
-		talkText.append(content);
+  function handleResponse(res) {
+    if (res.ok) return res.json();
+    else if (res.status === 404) return Promise.reject("Error 404");
+    else return Promise.reject(`Something doesn't seem right: ${res.status}`);
+  }
 
-		const talkBuble = document.createElement('div');
-		talkBuble.classList.add('talk-bubble');
-		talkBuble.classList.add('tri-right');
-		talkBuble.classList.add('left-in');
-		talkBuble.append(talkText);
+  function renderNewPost(feedback) {
+    const content = document.createElement("p");
+    content.classList.add("content");
+    content.innerHTML = feedback.content;
 
-		const img = document.createElement('img');
-		img.setAttribute('src', userImagePath);
-		img.setAttribute('alt', 'user image');
-		img.classList.add('user-photo');
+    const talkText = document.createElement("div");
+    talkText.classList.add("talktext");
+    talkText.append(content);
 
-		const post = document.createElement('div');
-		post.classList.add('post');
-		post.append(img);
-		post.append(talkBuble)
+    const talkBuble = document.createElement("div");
+    talkBuble.classList.add("talk-bubble");
+    talkBuble.classList.add("tri-right");
+    talkBuble.classList.add("left-in");
+    talkBuble.append(talkText);
 
-		return post;
-	}
+    const img = document.createElement("img");
+    img.setAttribute("src", userImagePath);
+    img.setAttribute("alt", "user image");
+    img.classList.add("user-photo");
+
+    const post = document.createElement("div");
+    post.classList.add("post");
+    post.append(img);
+    post.append(talkBuble);
+
+    return post;
+  }
 });
+
+function getCookie(name) {
+  if (document.cookie && document.cookie !== "") {
+    var cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+      let cookie = cookies[i].trim();
+      // Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        var cookieValue = null;
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}

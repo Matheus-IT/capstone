@@ -1,6 +1,7 @@
 import json
 
 from django.contrib.auth import authenticate, get_user_model, login, logout
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import EmptyPage, Paginator
 from django.core.serializers import serialize
 from django.db import IntegrityError
@@ -104,6 +105,27 @@ def index(request):
             'user_feedbacks': feedbacks,
         },
     )
+
+
+@require_POST
+def submit_feedback_post(request):
+    if not request.user.is_authenticated:
+        return JsonResponse({'msg': 'Not authenticated'}, status=401)
+
+    data = dict(author=request.user)
+
+    if request.is_ajax():
+        data['content'] = json.loads(request.body).get('content')
+    else:
+        data['content'] = request.POST.get('content')  # For the testing client
+
+    form = GiveFeedbackForm(data)
+
+    if form.is_valid():
+        feedback = UserFeedback(author=data['author'], content=data['content'])
+        feedback.save()
+        return JsonResponse({'msg': 'Success'}, status=200)
+    return JsonResponse({'msg': 'Error: Something went wrong...'}, status=400)
 
 
 def get_more_user_feedbacks(request, page_number):
