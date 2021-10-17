@@ -271,7 +271,8 @@ body {
   text-align: center;
 }
 
-html, body {
+html,
+body {
   scroll-snap-type: y proximity;
 }
 
@@ -639,13 +640,25 @@ html, body {
   justify-content: space-between;
   align-items: center;
 }
+#indexPageWrapper .feedback .container .feedback-form {
+  position: relative;
+}
 #indexPageWrapper .feedback .container .feedback-submit-content {
   padding: 0.6em;
-  width: 16em;
+  width: 18em;
   height: 3.2em;
   border-radius: 0.6em;
   transition: height 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
   resize: none;
+}
+#indexPageWrapper .feedback .container .feedback-form-submit {
+  position: absolute;
+  bottom: 0.8em;
+  right: 0.4em;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  border: 0.0625em solid #535353;
+  background: #f0f0f0;
 }
 #indexPageWrapper .feedback .container .feedback__posts {
   overflow-y: scroll;

@@ -10,8 +10,8 @@
 @use "../components/buttons";
 @use "../layout/sections";
 
-
-html, body {
+html,
+body {
   scroll-snap-type: y proximity;
 }
 
@@ -21,9 +21,9 @@ html, body {
     padding: 0 0 1em 0;
     color: colors.$white;
 
-    background-image:
-    linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)) /* image background */,
-    url(/static/mysite/images/indexPage/landing-background.jpg);
+    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6))
+        /* image background */,
+      url(/static/mysite/images/indexPage/landing-background.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -136,7 +136,8 @@ html, body {
             text-decoration: none;
             text-transform: uppercase;
 
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
               box-shadow: 0 0 3px colors.$darkGray;
             }
             &:last-of-type {
@@ -176,7 +177,7 @@ html, body {
       margin: auto;
 
       &__title {
-        font: 500 4em 'Source Sans Pro', sans-serif;
+        font: 500 4em "Source Sans Pro", sans-serif;
       }
       &__text {
         max-width: 20em;
@@ -197,7 +198,7 @@ html, body {
         width: 100%;
 
         &__title {
-          font: 500 3em 'Source Sans Pro', sans-serif;
+          font: 500 3em "Source Sans Pro", sans-serif;
         }
         &__text {
           font-size: 1.4em;
@@ -333,13 +334,12 @@ html, body {
         &:hover {
           cursor: pointer;
           background-color: lighten(rgba(colors.$darkGray, 0.9), 10%);
-
         }
         &.left {
-          left: 1.6em
+          left: 1.6em;
         }
         &.right {
-          right: 1.6em
+          right: 1.6em;
         }
       }
       .navigationTracker {
@@ -389,14 +389,25 @@ html, body {
       justify-content: space-between;
       align-items: center;
 
+      .feedback-form {
+        position: relative;
+      }
       .feedback-submit-content {
         padding: 0.6em;
-        width: 16em;
+        width: 18em;
         height: 3.2em;
         border-radius: 0.6em;
         transition: height 250ms animations.$flutteredAnimation;
         resize: none;
-
+      }
+      .feedback-form-submit {
+        position: absolute;
+        bottom: 0.8em;
+        right: 0.4em;
+        padding: 0.4em;
+        border-radius: 0.4em;
+        border: 0.0625em solid colors.$gray;
+        background: colors.$white;
       }
       .feedback__posts {
         overflow-y: scroll; // Enable scrolling through the list of posts
@@ -432,7 +443,7 @@ html, body {
           }
           /* Right triangle, left side slightly down */
           .tri-right.border.left-in:before {
-            content: ' ';
+            content: " ";
             position: absolute;
             width: 0;
             height: 0;
@@ -443,8 +454,8 @@ html, body {
             border: 20px solid;
             border-color: #666 #666 transparent transparent;
           }
-          .tri-right.left-in:after{
-            content: ' ';
+          .tri-right.left-in:after {
+            content: " ";
             position: absolute;
             width: 0;
             height: 0;
@@ -453,7 +464,8 @@ html, body {
             top: 8px;
             bottom: auto;
             border: 12px solid;
-            border-color: colors.$lightestGray colors.$lightestGray transparent transparent;
+            border-color: colors.$lightestGray colors.$lightestGray transparent
+              transparent;
           }
           .content {
             color: colors.$darkGray;

@@ -152,9 +152,9 @@
     <h2 class="feedback__subtitle">What our customers say about the service</h2>
 
     <div class="container">
-      <form id="submit-feedback-form" action="/submit-new-feedback/" method="post">
+      <form id="submit-feedback-form" class="feedback-form" action="/submit-new-feedback/" method="post">
         {{ feedback_form.content }}
-        <button type="submit">Enter</button>
+        <button type="submit" class="feedback-form-submit">Enter</button>
       </form>
 
       <div class="feedback__posts">
