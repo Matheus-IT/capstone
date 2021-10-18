@@ -1,0 +1,483 @@
+@use "../abstracts/globals";
+@use "../abstracts/colors";
+@use "../abstracts/animations";
+@use "../abstracts/breakpoints";
+
+@use "../base/typography";
+@use "../base/containers";
+@use "../base/atomicStyles";
+
+@use "../components/buttons";
+@use "../layout/sections";
+
+html,
+body {
+  scroll-snap-type: y proximity;
+}
+
+#indexPageWrapper {
+  .landing {
+    @include sections.snap-section;
+    padding: 0 0 1em 0;
+    color: colors.$white;
+
+    background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6))
+        /* image background */,
+      url(/static/mysite/images/indexPage/landing-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    $navbarHeight: 3em;
+
+    .navbar {
+      @extend %container-row--centered;
+      width: 100%;
+      height: $navbarHeight;
+      background-color: colors.$darkRedTransparent;
+
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+      &__item {
+        text-decoration: none;
+        color: colors.$white;
+        padding: 0.4em;
+        transition: background-color 150ms ease;
+
+        &:hover {
+          background-color: lighten(colors.$darkRedTransparent, 10%);
+        }
+        &:last-of-type {
+          @include buttons.book-now;
+        }
+      }
+
+      .motto {
+        display: flex;
+        align-items: center;
+        margin-left: 1em;
+
+        &__logo {
+          width: 2.8em;
+          margin-right: 0.4em;
+        }
+        &__text {
+          font-weight: bold;
+        }
+      }
+
+      .mobile-menu {
+        display: none;
+      }
+
+      @include breakpoints.breakpoint-down(medium) {
+        &__item {
+          display: none;
+        }
+        &__toggle {
+          /* Hamburger menu for mobile devices */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 2em;
+          height: 2em;
+          margin-left: auto;
+          margin-right: 1.6em;
+
+          > span {
+            display: block;
+            width: 100%;
+            height: 0.125em;
+            background-color: colors.$white;
+            transition: all 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform-origin: 6px 1px;
+
+            &:not(:last-child) {
+              margin-bottom: 5px;
+            }
+          }
+          &--open {
+            > span:first-child {
+              transform: rotate(45deg);
+            }
+            > span:nth-child(2) {
+              opacity: 0;
+            }
+            > span:last-child {
+              transform: rotate(-45deg);
+            }
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .mobile-menu {
+          /* Also controlled from js */
+          visibility: hidden;
+          display: block;
+          position: absolute;
+          width: 90%;
+          background-color: colors.$white;
+          margin-top: 20em;
+          padding: 1.6em;
+          border-radius: 0.4em;
+          text-align: center;
+          z-index: 1;
+
+          &__item {
+            display: block;
+            padding: 0.6em;
+            color: colors.$darkGray;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:hover,
+            &:focus {
+              box-shadow: 0 0 3px colors.$darkGray;
+            }
+            &:last-of-type {
+              @include buttons.book-now--secondary;
+            }
+          }
+          &--open {
+            visibility: visible;
+          }
+        }
+        #overlay {
+          display: none;
+          opacity: 0;
+          position: fixed;
+          top: $navbarHeight;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 0;
+
+          background-image: linear-gradient(colors.$darkGray, transparent);
+        }
+        .fade-in {
+          animation: fade-in 200ms ease-in-out forwards;
+        }
+        .fade-out {
+          animation: fade-out 200ms ease-in-out forwards;
+        }
+      }
+    }
+    .presentation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 80%;
+      margin: auto;
+
+      &__title {
+        font: 500 4em "Source Sans Pro", sans-serif;
+      }
+      &__text {
+        max-width: 20em;
+        font-size: 1.6em;
+      }
+      &__logo {
+        width: 40%;
+      }
+      .fa-angle-double-down {
+        position: absolute;
+        bottom: 0.6em;
+        font-size: 4em;
+        margin: auto;
+      }
+      @include breakpoints.breakpoint-down(small) {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+
+        &__title {
+          font: 500 3em "Source Sans Pro", sans-serif;
+        }
+        &__text {
+          font-size: 1.4em;
+        }
+        &__logo {
+          width: 64%;
+        }
+      }
+    }
+  }
+  .location {
+    @include sections.snap-section;
+    @extend %container-col--centered;
+
+    justify-content: space-evenly;
+    background-color: colors.$darkRed;
+    color: colors.$white;
+
+    @include breakpoints.breakpoint-down(small) {
+      overflow-x: hidden;
+    }
+
+    .container {
+      @extend %container-col--centered;
+    }
+
+    &__subtitle {
+      @extend %subtitle;
+    }
+    &__text {
+      font-size: 1em;
+    }
+    &__image {
+      width: 50%;
+      border-radius: 0.2em;
+
+      @include breakpoints.breakpoint-down(medium) {
+        width: 70%;
+      }
+      @include breakpoints.breakpoint-down(small) {
+        height: 50%;
+        width: auto;
+      }
+    }
+  }
+  .services {
+    @include sections.snap-section;
+    @extend %container-col--centered;
+
+    /* Position relative to contain the absolute desktop navigation buttons */
+    position: relative;
+    justify-content: space-evenly;
+    background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+    background-size: cover;
+    color: colors.$white;
+
+    &__subtitle {
+      @extend %subtitle;
+    }
+    &__slider {
+      width: 74%;
+      height: 64%;
+      overflow-x: hidden;
+      scroll-snap-type: x mandatory;
+
+      @include breakpoints.breakpoint-down(small) {
+        width: 94%;
+        overflow-x: auto;
+      }
+
+      .slides {
+        display: grid;
+        /* This is gonna make the slider scroll vertically
+        width 5 columns of 2 items */
+        grid-template-columns: repeat(5, 100%);
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 0.6em;
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        transition: margin-left 300ms ease;
+
+        @include breakpoints.breakpoint-down(small) {
+          /* For mobile it's going to display one item per slide */
+          display: flex;
+          width: 900%;
+        }
+
+        .item {
+          scroll-snap-align: start;
+          scroll-snap-stop: always;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          background-color: rgba(colors.$darkGray, 0.8);
+          border-radius: 0.4em;
+          padding: 0.6em;
+
+          @include breakpoints.breakpoint-down(small) {
+            width: 100%;
+
+            .book-now {
+              padding: 0.5em 2em;
+              margin-top: 1em;
+              background-color: colors.$white;
+              border-radius: 0.4em;
+            }
+          }
+
+          &__title {
+            @extend %subtitle;
+            font-size: 1.4em;
+          }
+          &__description {
+            font-size: 0.94em;
+            color: rgba(colors.$white, 0.8);
+          }
+        }
+      }
+      .navigation-button {
+        @include atomicStyles.hide-for-mobile;
+
+        position: absolute; // buttons floating around the slides
+        border: none;
+        border-radius: 0.2em;
+        padding: 4.2em 0.6em;
+        top: 41.5%;
+        color: colors.$white;
+        background-color: rgba(colors.$darkGray, 0.9);
+
+        &:hover {
+          cursor: pointer;
+          background-color: lighten(rgba(colors.$darkGray, 0.9), 10%);
+        }
+        &.left {
+          left: 1.6em;
+        }
+        &.right {
+          right: 1.6em;
+        }
+      }
+      .navigationTracker {
+        @include atomicStyles.hide-for-desktop;
+
+        position: absolute;
+        display: flex;
+        bottom: 18vh;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .item {
+          padding: 0.4em;
+          border: solid 2px black;
+          border-radius: 50%;
+
+          &:not(:last-of-type) {
+            margin-right: 0.4em;
+          }
+          &-active {
+            background-color: colors.$white;
+          }
+        }
+      }
+    }
+  }
+  .feedback {
+    @include sections.snap-section;
+    @extend %container-col--centered;
+
+    background-image: url(/static/mysite/images/indexPage/feedback-background.jpg);
+    background-size: cover;
+
+    &__subtitle {
+      @extend %subtitle;
+
+      color: colors.$white;
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 0.6em;
+    }
+    .container {
+      @extend %container-col;
+
+      width: 100%;
+      height: 80%;
+      justify-content: space-between;
+      align-items: center;
+
+      .feedback-form {
+        position: relative;
+      }
+      .feedback-submit-content {
+        padding: 0.6em;
+        width: 18em;
+        height: 3.2em;
+        border-radius: 0.6em;
+        transition: height 250ms animations.$flutteredAnimation;
+        resize: none;
+      }
+      .feedback-form-submit {
+        position: absolute;
+        bottom: 0.8em;
+        right: 0.4em;
+        padding: 0.4em;
+        border-radius: 0.4em;
+        border: 0.0625em solid colors.$gray;
+        background: colors.$white;
+      }
+      .feedback__posts {
+        overflow-y: scroll; // Enable scrolling through the list of posts
+        height: 72%;
+        width: 100%;
+
+        @include breakpoints.breakpoint-up(medium) {
+          width: 44%;
+        }
+
+        @include breakpoints.breakpoint-up(large) {
+          width: 28%;
+        }
+
+        .post {
+          @extend %container-row--centered;
+
+          &:not(:last-of-type) {
+            margin-bottom: 1em;
+          }
+
+          .user-photo {
+            background: #b8b8b8;
+            border-radius: 50%;
+            width: 4em;
+          }
+          .talk-bubble {
+            margin-left: 2em;
+            padding: 1em;
+            position: relative;
+            width: 12em;
+            background-color: colors.$lightestGray;
+          }
+          /* Right triangle, left side slightly down */
+          .tri-right.border.left-in:before {
+            content: " ";
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -40px;
+            right: auto;
+            top: 8px;
+            bottom: auto;
+            border: 20px solid;
+            border-color: #666 #666 transparent transparent;
+          }
+          .tri-right.left-in:after {
+            content: " ";
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -20px;
+            right: auto;
+            top: 8px;
+            bottom: auto;
+            border: 12px solid;
+            border-color: colors.$lightestGray colors.$lightestGray transparent
+              transparent;
+          }
+          &__author {
+            color: colors.$darkGray;
+            font-size: 1em;
+            text-align: left;
+          }
+          &__content {
+            color: colors.$lightGray;
+            font-size: 0.9em;
+            text-align: left;
+          }
+        }
+      }
+      .load-more-feedbacks {
+        @include buttons.load-more-feedbacks;
+      }
+    }
+  }
+}

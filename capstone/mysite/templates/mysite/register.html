@@ -1,0 +1,26 @@
+{% extends "mysite/base.html" %}
+
+{% block content %}
+<div id="registerPageWrapper">
+  <div class="container">
+    <h2 class="title">Register</h2>
+
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+
+    <form class="register-form" action="{% url 'mysite:register' %}" method="post">
+      {% csrf_token %}
+      <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+      <input class="form-control" type="email" name="email" placeholder="Email Address">
+      <input class="form-control" type="password" name="password" placeholder="Password">
+      <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+      <button class="button" type="submit">Register</button>
+    </form>
+
+    Already have an account? <a href="{% url 'mysite:login' %}">Login here.</a>
+
+  </div>
+
+</div>
+{% endblock %}

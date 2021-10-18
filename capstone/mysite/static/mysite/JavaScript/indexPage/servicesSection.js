@@ -1,49 +1,55 @@
 class Slider {
-	buttonPrevious = document.querySelector('#navigationBtnLeft');
-	buttonNext = document.querySelector('#navigationBtnRight');
-	
-	sliderContainer = document.querySelector('#slider');
-	navigationTrackerItems = document.querySelector('#navigationTracker').children;
-	slides = document.querySelector('#slides');
-	currentSlide = 0; // Start on the first slide
-	maxLengthOfSlides = 4;
+  constructor() {
+    this.sliderContainer = document.querySelector("#slider");
+    this.sliderContainer.onscroll = this.handleScroll;
 
-	constructor() {
-		this.buttonNext.onclick = this.handleGoToNextSlide;
-		this.buttonPrevious.onclick = this.handleGoToPreviousSlide;
-		this.sliderContainer.onscroll = this.handleScroll;
-	}
+    // Buttons available for desktop design
+    this.buttonPrevious = document.querySelector("#navigationBtnLeft");
+    this.buttonPrevious.onclick = this.handleGoToPreviousSlide;
 
-	handleScroll = () => {
-		const scrollOfOneCard = 338.5;
-		const num = Math.ceil(this.sliderContainer.scrollLeft / scrollOfOneCard);
-		for (let item of this.navigationTrackerItems) {
-			item.classList.remove('item-active');
-		}
-		this.navigationTrackerItems[num].classList.add('item-active');
-	}
-	
-	handleGoToNextSlide = () => {
-		if (this.currentSlide < this.maxLengthOfSlides) {
-			this.currentSlide++;
-			this.moveToSlide(this.currentSlide);
-		}
-	};
+    this.buttonNext = document.querySelector("#navigationBtnRight");
+    this.buttonNext.onclick = this.handleGoToNextSlide;
 
-	handleGoToPreviousSlide = () => {
-		if (this.currentSlide > 0) {
-			this.currentSlide--;
-			this.moveToSlide(this.currentSlide);
-		}
-	};
+    // Tracker available for mobile design
+    this.navigationTrackerItems =
+      document.querySelector("#navigationTracker").children;
 
-	moveToSlide(slideNum) {
-		const currentMarginLeft = -(slideNum * 100);
-		this.slides.style.marginLeft = `${currentMarginLeft}%`;
-	}
+    this.slides = document.querySelector("#slides");
+
+    this.currentSlide = 0; // The first slide starts on 0
+    this.maxLengthOfSlides = 4;
+  }
+
+  handleScroll = () => {
+    const scrollOfOneCard = 300; // In px
+
+    const num = Math.ceil(this.sliderContainer.scrollLeft / scrollOfOneCard);
+    for (let item of this.navigationTrackerItems) {
+      item.classList.remove("item-active");
+    }
+    this.navigationTrackerItems[num].classList.add("item-active");
+  };
+
+  handleGoToNextSlide = () => {
+    if (this.currentSlide < this.maxLengthOfSlides) {
+      this.currentSlide++;
+      this.moveToSlide(this.currentSlide);
+    }
+  };
+
+  handleGoToPreviousSlide = () => {
+    if (this.currentSlide > 0) {
+      this.currentSlide--;
+      this.moveToSlide(this.currentSlide);
+    }
+  };
+
+  moveToSlide(slideNum) {
+    const currentMarginLeft = -(slideNum * 100);
+    this.slides.style.marginLeft = `${currentMarginLeft}%`;
+  }
 }
 
-
-document.addEventListener('DOMContentLoaded', function() {
-	const slider = new Slider();
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = new Slider();
 });

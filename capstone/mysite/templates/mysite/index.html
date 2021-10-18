@@ -4,137 +4,195 @@
 {% block adicional_in_head %}
 <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 
+<script type="text/javascript">
+  // Global variables
+  const userImagePath = "{% static 'mysite/images/indexPage/user.png' %}";
+</script>
 <script src="{% static 'mysite/JavaScript/indexPage/hamburgerMenu.js' %}"></script>
 <script src="{% static 'mysite/JavaScript/indexPage/servicesSection.js' %}"></script>
+<script src="{% static 'mysite/JavaScript/indexPage/feedbackInteractivity.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 <div id="indexPageWrapper">
-	<div id="landing" class="section">
-		<nav class="navbar">
-			<div class="motto">
-				<img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-black.png' %}" alt="">
-				<p class="motto__text">Barber Shop</p>
-			</div>
-			<a class="navbar__item" href="#">Home</a>
-			<a class="navbar__item" href="#">Queue</a>
-			<a class="navbar__item" href="#">Services</a>
-			<a class="navbar__item book-now" href="#">Book Now</a>
-	
-			<div id="btnHamburger" class="navbar__toggle">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-			<div id="menuForMobile" class="menu">
-				<a class="menu__item" href="#">Home</a>
-				<a class="menu__item" href="#">Queue</a>
-				<a class="menu__item" href="#">Services</a>
-				<a class="menu__item book-now--secondary" href="#">Book Now</a>
-			</div>
-	
-			<div id="overlay"></div> <!-- used when press the hamburger menu -->
-		</nav>
-		<div class="presentation">
-			<div>
-				<h1 class="presentation__title">Barber Shop</h1>
-				<p class="presentation__text">If you want to see what our barber shop is all about, don't hesitate to book an appointment.</p>
-			</div>
-			<img class="presentation__logo" src="{% static 'mysite/images/indexPage/logo-white.png' %}" alt="">
-			<i class="fas fa-angle-double-down"></i>
-		</div>
-	</div>
-	<div class="location section">
-		<div class="container--centered">
-			<h2 class="location__subtitle">Location</h2>
-			<p class="location__text">Av. São Sebastião 999, Parnaíba, Brazil</p>
-		</div>
-		
-		<img class="location__image" src="{% static 'mysite/images/indexPage/location-map.png' %}" alt="Location">
-		
-		<div class="container--centered">
-			<h3 class="location__subtitle">Hours</h3>
-			<p class="location__text">
-				Tues-Fri 9:00am-8:00pm <br>
-				Sat 9:00am-3:00pm <br>
-				Closed Sun
-			</p>
-		</div>
-	</div>
-	<div class="services section">
-		<div class="container--centered">
-			<h2 class="services__subtitle">The Menu</h2>
-	
-			
-			<div id="slider" class="services__slider">
-				<button id="navigationBtnLeft" class="navigation-button left hideForMobile">
-					<i class="fas fa-chevron-left"></i>
-				</button>
-				
-				<button id="navigationBtnRight" class="navigation-button right hideForMobile">
-					<i class="fas fa-chevron-right"></i>
-				</button>
+  <div id="index" class="landing">
+    <nav class="navbar">
+      <div class="motto">
+        {% if user.is_authenticated %}
+        <img class="motto__logo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="">
+        <p class="motto__text">{{ user.username }}</p>
+        {% else %}
+        <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
+        <p class="motto__text">Barber Shop</p>
+        {% endif %}
+      </div>
 
-				<div id="slides" class="slides">
-					<li class="item">
-						<h4 class="item__title">Classic Cut $30 - 30minutes</h4>
-						<p class="item__description">Relax while your barber achieves your tailored look. If you’re looking for a bald fade or if your hair is currently longer than earlobe length please book from our other options.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Skin Fade $40 - 45minutes</h4>
-						<p class="item__description">Also known as a bald fade or a zero fade, this service requires a little extra time. Hair is faded from skin or “0” length to your desired length on top.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Cut &amp; Beard Trim $48 - 45min</h4>
-						<p class="item__description">Combination of a classic cut and beard/mustache shaping.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Skin Fade &amp; Beard Trim $55 - 1hr</h4>
-						<p class="item__description">Combination of skin fade and beard/mustache shaping.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Long Cut $60 - 1hr</h4>
-						<p class="item__description">If your hair is currently past your ear lobes, this is the service for you; whether you’re keeping your long locks or chopping them off for a new look.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Beard Trim $20 - 30min</h4>
-						<p class="item__description">Let your barber apply their artistry to help you create the perfectly shaped beard or mustache style you envision.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Buzz $20 - 15min</h4>
-						<p class="item__description">Ask for a buzz cut if you're looking for a no-nonsense low maintenance look at a uniform length as close as you'd like.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Shave $33 - 30min</h4>
-						<p class="item__description">Experience a traditional hot towel shave with a straight razor and warm shaving cream that will leave your face smooth to the touch.</p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-					<li class="item">
-						<h4 class="item__title">Buzz &amp; Beard Trim $40 - 45min</h4>
-						<p class="item__description">Combination of single length buzz cut and beard/mustache shaping. </p>
-						<button class="book-now hideForDesktop">Book</button>
-					</li>
-				</div>
-				<div id="navigationTracker" class="navigationTracker hideForDesktop">
-					<span class="item item-active"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-					<span class="item"></span>
-				</div>
-			</div>
-		</div>
-	</div>
+      {% if user.is_authenticated %}
+      <a class="navbar__item" href="{% url 'mysite:logout' %}">Logout</a>
+      {% else %}
+      <a class="navbar__item" href="{% url 'mysite:login' %}">Login</a>
+      {% endif %}
+
+      <a class="navbar__item" href="#index">Home</a>
+      <a class="navbar__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
+      <a class="navbar__item" href="#services">Services</a>
+      <a class="navbar__item" href="#">Book Now</a>
+
+      <div id="btnHamburger" class="navbar__toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <div id="menuForMobile" class="mobile-menu">
+        {% if user.is_authenticated %}
+        <a class="mobile-menu__item" href="{% url 'mysite:logout' %}">Logout</a>
+        {% else %}
+        <a class="mobile-menu__item" href="{% url 'mysite:login' %}">Login</a>
+        {% endif %}
+
+        <a class="mobile-menu__item" href="#">Home</a>
+        <a class="mobile-menu__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
+        <a class="mobile-menu__item" href="div.services">Services</a>
+        <a class="mobile-menu__item" href="#">Book Now</a>
+      </div>
+
+      <div id="overlay"></div> <!-- used when press the hamburger menu -->
+    </nav>
+    <div class="presentation">
+      <div>
+        <h1 class="presentation__title">Barber Shop</h1>
+        <p class="presentation__text">If you want to see what our barber shop is all about, don't hesitate to book an
+          appointment.</p>
+      </div>
+      <img class="presentation__logo" src="{% static 'mysite/images/indexPage/logo-white.png' %}" alt="">
+      <i class="fas fa-angle-double-down"></i>
+    </div>
+  </div>
+  <div id="location" class="location">
+    <div class="container">
+      <h2 class="location__subtitle">Location</h2>
+      <p class="location__text">Av. São Sebastião 999, Parnaíba, Brazil</p>
+    </div>
+
+    <img class="location__image" src="{% static 'mysite/images/indexPage/location-map.png' %}" alt="Location">
+
+    <div class="container">
+      <h3 class="location__subtitle">Hours</h3>
+      <p class="location__text">
+        Tues-Fri 9:00am-8:00pm <br>
+        Sat 9:00am-3:00pm <br>
+        Closed Sun
+      </p>
+    </div>
+  </div>
+  <div id="services" class="services">
+    <h2 class="services__subtitle">The Menu</h2>
+
+    <div id="slider" class="services__slider">
+      <div id="slides" class="slides">
+        <li class="item">
+          <h4 class="item__title">Classic Cut $30 - 30minutes</h4>
+          <p class="item__description">Relax while your barber achieves your tailored look. If you’re looking for a
+            bald fade or if your hair is currently longer than earlobe length please book from our other options.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Skin Fade $40 - 45minutes</h4>
+          <p class="item__description">Also known as a bald fade or a zero fade, this service requires a little extra
+            time. Hair is faded from skin or “0” length to your desired length on top.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Cut &amp; Beard Trim $48 - 45min</h4>
+          <p class="item__description">Combination of a classic cut and beard/mustache shaping.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Skin Fade &amp; Beard Trim $55 - 1hr</h4>
+          <p class="item__description">Combination of skin fade and beard/mustache shaping.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Long Cut $60 - 1hr</h4>
+          <p class="item__description">If your hair is currently past your ear lobes, this is the service for you;
+            whether you’re keeping your long locks or chopping them off for a new look.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Beard Trim $20 - 30min</h4>
+          <p class="item__description">Let your barber apply their artistry to help you create the perfectly shaped
+            beard or mustache style you envision.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Buzz $20 - 15min</h4>
+          <p class="item__description">Ask for a buzz cut if you're looking for a no-nonsense low maintenance look at
+            a uniform length as close as you'd like.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Shave $33 - 30min</h4>
+          <p class="item__description">Experience a traditional hot towel shave with a straight razor and warm shaving
+            cream that will leave your face smooth to the touch.</p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+        <li class="item">
+          <h4 class="item__title">Buzz &amp; Beard Trim $40 - 45min</h4>
+          <p class="item__description">Combination of single length buzz cut and beard/mustache shaping. </p>
+          <button class="book-now hideForDesktop">Book</button>
+        </li>
+      </div>
+
+      <!-- Navigation buttons for larger devices designs -->
+      <button id="navigationBtnLeft" class="navigation-button left">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button id="navigationBtnRight" class="navigation-button right">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Navigation tracker used for mobile designs -->
+      <div id="navigationTracker" class="navigationTracker">
+        <span class="item item-active"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+        <span class="item"></span>
+      </div>
+    </div>
+  </div>
+  <div id="feedback" class="feedback">
+    <h2 class="feedback__subtitle">What our customers say about the service</h2>
+
+    <div class="container">
+      <form id="submit-feedback-form" class="feedback-form" action="/submit-new-feedback/" method="post">
+        {{ feedback_form.content }}
+        <button type="submit" class="feedback-form-submit">Enter</button>
+      </form>
+
+      <div id="feedback-posts" class="feedback__posts">
+        {% for user_feedback in user_feedbacks %}
+        <div class="post">
+          <img class="user-photo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="user image">
+          <div class="talk-bubble tri-right left-in">
+            <div class="talktext">
+              <p class="post__author">{{ user_feedback.author.name }} says</p>
+              <p class="post__content">{{ user_feedback.content }}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <button class="load-more-feedbacks">. . .</button>
+    </div>
+
+  </div>
 </div>
 {% endblock %}

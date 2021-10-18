@@ -1,8 +1,5 @@
-@import "./common/globals";
-
-@import "./common/mixins";
-@import "./common/base";
-
-@import "./pageBookingForm/index";
-@import "./pageIndex/index";
-@import "./pageWaitingQueue/index";
+@use "pages/bookingForm";
+@use "pages/index";
+@use "pages/waitingQueue";
+@use "pages/login";
+@use "pages/register";

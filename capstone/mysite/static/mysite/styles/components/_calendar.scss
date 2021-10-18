@@ -1,0 +1,106 @@
+@use "../abstracts/colors";
+@use "../abstracts/animations";
+
+@mixin calendar {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 72%;
+  font-family: Verdana, sans-serif;
+
+  &__month {
+    flex-grow: 2;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: colors.$darkRed;
+
+    #displayMonth, #displayYear {
+      margin-right: 0.6em;
+      letter-spacing: 3px;
+      font-size: 1em;
+      text-transform: uppercase;
+      color: colors.$white;
+    }
+    .change-month {
+      position: absolute;
+      width: 4em;
+      height: 100%;
+      top: 0;
+
+      color: colors.$white;
+      background-color: colors.$darkRed;
+      border: none;
+      transition-property: background-color, color, width;
+      transition-duration: 500ms;
+      transition-timing-function: ease;
+
+      &:hover {
+        cursor: pointer;
+        width: 6em;
+        background-color: colors.$lightestGray;
+        color: colors.$gray;
+      }
+
+      /* classes for animations */
+      &.fadeIn {
+        animation: fadeIn 500ms;
+      }
+      &.fadeOut {
+        animation: fadeOut 500ms;
+      }
+
+      /* positioning the buttons properly */
+      &#nextMonth {
+        right: 0;
+      }
+      &#previousMonth {
+        left: 0;
+      }
+    }
+  }
+  &__weekdays {
+    flex-grow: 1;
+    display: inline-grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: colors.$lightestGray;
+
+    .weekday {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: colors.$lightGray;
+      font-size: 1em;
+    }
+  }
+  &__days {
+    flex-grow: 4;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    column-gap: 0.125em;
+    row-gap: 0.125em;
+
+    * {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.0625em solid colors.$midLightGray;
+      background-color: colors.$white;
+      color: colors.$lightGray;
+      transition: border-color 250ms ease-in-out;
+      animation: createButton 500ms forwards;
+
+      &.active {
+        background-color: colors.$darkPurple;
+        border-color: colors.$darkPurple;
+        color: colors.$white;
+      }
+      &:hover {
+        cursor: pointer;
+        border-color: colors.$darkPurple;
+      }
+    }
+  }
+}

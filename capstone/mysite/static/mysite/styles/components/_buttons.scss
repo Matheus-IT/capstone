@@ -1,0 +1,41 @@
+@use "../abstracts/colors";
+
+@mixin book-now {
+  border: 0.125em solid darken(colors.$darkRed, 14%);
+  text-transform: uppercase;
+  transition: background-color 150ms ease;
+
+  &:hover {
+    background-color: darken(colors.$white, 90%);
+  }
+}
+
+@mixin book-now--secondary {
+  @include book-now;
+  background-color: colors.$white;
+
+  &:hover {
+    background-color: darken(colors.$white, 10%);
+  }
+}
+
+@mixin load-more-feedbacks {
+  width: 4.6em;
+  min-height: 2.6em;
+  border-radius: 50%;
+  border: none;
+  background-color: colors.$midLightGray;
+  transition: all 150ms ease;
+
+  &:hover {
+    width: 5.2em;
+    cursor: pointer;
+  }
+}
+
+@mixin submit-rounded {
+  border-radius: 0.4em;
+  color: colors.$white;
+  background-color: colors.$darkRed;
+  border: 0.0625em solid colors.$black;
+}

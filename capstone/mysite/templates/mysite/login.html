@@ -1,0 +1,22 @@
+{% extends "mysite/base.html" %}
+
+{% block content %}
+<div id="loginPageWrapper">
+  <div class="container">
+    <h2 class="title">Login</h2>
+
+    {% if error_message %}
+    <p class="error-message">{{ error_message }}</p>
+    {% endif %}
+
+    <form class="login-form" action="{% url 'mysite:login' %}" method="post">
+      {% csrf_token %}
+      <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+      <input class="form-control" type="password" name="password" placeholder="Password">
+      <button class="button" type="submit">Login</button>
+    </form>
+
+    Don't have an account? <a href="{% url 'mysite:register' %}">Register here.</a>
+  </div>
+</div>
+{% endblock %}

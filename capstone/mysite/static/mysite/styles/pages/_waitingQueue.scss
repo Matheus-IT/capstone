@@ -1,0 +1,136 @@
+@use "../abstracts/breakpoints" as *;
+
+
+@include breakpoint-down(small) {
+  html, body {
+    #bookingFormPageWrapper {
+      max-height: 100vh;
+      overflow-y: hidden;
+      overflow-x: hidden;
+    }
+  }
+}
+#bookingFormPageWrapper {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    .textContainer {
+      margin: 1em 0;
+      padding: 0;
+
+      #queueSizeWrapper {
+        font-size: 1em;
+
+        #displayQueueSize {
+          font-size: 1.4em;
+          font-weight: bolder;
+          margin-left: 0.2em;
+        }
+      }
+
+      @include breakpoint-down(small) {
+        font-size: 1em;
+      }
+
+      & > * {
+        margin: 0.2em;
+        padding: 0;
+      }
+    }
+
+    #hairSalonContainer {
+      position: relative;
+      margin: auto;
+      padding: 0;
+
+      overflow-x: scroll;
+
+      @include breakpoint-up(medium) {
+        width: 40%;
+      }
+
+      @include breakpoint-down(medium) {
+        width: 60%;
+      }
+
+      @include breakpoint-down(small) {
+        width: 98%;
+      }
+
+      #hairSalonBackground {
+        width: 100%;
+        margin: auto;
+        padding: 0;
+        z-index: 0;
+      }
+
+      #queueContainer {
+        $personWidth: 30%;
+        $personHeight: 100%;
+
+        position: absolute;
+        display: flex;
+        width: 64%;
+        height: 60%;
+        left: 36%;
+        bottom: 0;
+
+        .person {
+          position: relative;
+          width: $personWidth;
+          height: $personHeight;
+          z-index: 10;
+        }
+
+        .personArrivingWalking {
+          position: relative;
+
+          animation-name: arrivesWalking;
+          animation-duration: 2s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-out;
+        }
+
+        @keyframes arrivesWalking {
+          from {
+            left: 75%;
+          }
+
+          to {
+            left: 0;
+          }
+        }
+
+        .personWalkingAway {
+          position: relative;
+
+          animation-name: walksAway;
+          animation-duration: 1.5s;
+          animation-fill-mode: forwards;
+          animation-timing-function: ease-in;
+        }
+
+        @keyframes walksAway {
+          from {
+            left: 0;
+            width: $personWidth;
+            height: $personHeight;
+            opacity: 1;
+          }
+
+          to {
+            left: -4.6em;
+            width: 0;
+            height: $personHeight;
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@use "../abstracts/breakpoints";
+
+@mixin no-scroll {
+  overflow-y: hidden;
+}
+
+@mixin hide-for-mobile {
+  @include breakpoints.breakpoint-down(small) {
+    display: none;
+  }
+}
+
+@mixin hide-for-desktop {
+  @include breakpoints.breakpoint-up(medium) {
+    display: none;
+  }
+}
