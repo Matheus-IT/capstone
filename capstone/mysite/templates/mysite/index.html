@@ -31,6 +31,7 @@
       <a class="navbar__item" href="{% url 'mysite:logout' %}">Logout</a>
       {% else %}
       <a class="navbar__item" href="{% url 'mysite:login' %}">Login</a>
+      <a class="navbar__item" href="{% url 'mysite:register' %}">Register</a>
       {% endif %}
 
       <a class="navbar__item" href="#index">Home</a>
@@ -49,6 +50,7 @@
         <a class="mobile-menu__item" href="{% url 'mysite:logout' %}">Logout</a>
         {% else %}
         <a class="mobile-menu__item" href="{% url 'mysite:login' %}">Login</a>
+        <a class="mobile-menu__item" href="{% url 'mysite:register' %}">Register</a>
         {% endif %}
 
         <a class="mobile-menu__item" href="#">Home</a>
