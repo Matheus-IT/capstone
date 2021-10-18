@@ -557,10 +557,20 @@ body {
     width: 100%;
   }
   #indexPageWrapper .services__slider .slides .item .book-now {
+    border: 0.125em solid #230b0b;
+    text-transform: uppercase;
+    transition: background-color 150ms ease;
+    background-color: #f0f0f0;
     padding: 0.5em 2em;
     margin-top: 1em;
-    background-color: #f0f0f0;
+    border: 0.0625em solid #424242;
     border-radius: 0.4em;
+  }
+  #indexPageWrapper .services__slider .slides .item .book-now:hover {
+    background-color: #0b0b0b;
+  }
+  #indexPageWrapper .services__slider .slides .item .book-now:hover {
+    background-color: #d7d7d7;
   }
 }
 #indexPageWrapper .services__slider .slides .item__title {

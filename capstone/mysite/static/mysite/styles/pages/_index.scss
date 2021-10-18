@@ -301,9 +301,10 @@ body {
             width: 100%;
 
             .book-now {
+              @include buttons.book-now--secondary;
               padding: 0.5em 2em;
               margin-top: 1em;
-              background-color: colors.$white;
+              border: 0.0625em solid colors.$darkGray;
               border-radius: 0.4em;
             }
           }
