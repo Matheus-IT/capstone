@@ -53,14 +53,13 @@ body {
       }
 
       .motto {
-        position: absolute;
         display: flex;
         align-items: center;
-        left: 1.6em;
+        margin-left: 1em;
 
         &__logo {
-          width: 4em;
-          margin-right: 0.2em;
+          width: 2.8em;
+          margin-right: 0.4em;
         }
         &__text {
           font-weight: bold;
@@ -74,9 +73,6 @@ body {
       @include breakpoints.breakpoint-down(medium) {
         &__item {
           display: none;
-        }
-        .motto {
-          left: 1em;
         }
         &__toggle {
           /* Hamburger menu for mobile devices */
