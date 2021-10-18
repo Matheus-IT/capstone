@@ -38,4 +38,10 @@
   color: colors.$white;
   background-color: colors.$darkRed;
   border: 0.0625em solid colors.$black;
+  transition: background-color 500ms ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: lighten(colors.$darkRed, 6);
+  }
 }

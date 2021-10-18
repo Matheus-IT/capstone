@@ -854,6 +854,39 @@ body {
   height: 100vh;
   background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
 }
+#loginPageWrapper .back-to-home {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+@media only screen and (min-width: 40rem) {
+  #loginPageWrapper .back-to-home {
+    top: 4em;
+    left: 6em;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .back-to-home {
+    top: 14%;
+    left: 32%;
+  }
+}
+#loginPageWrapper .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+#loginPageWrapper .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: #424242;
+}
+#loginPageWrapper .back-to-home:hover {
+  cursor: pointer;
+}
+#loginPageWrapper .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
+}
 #loginPageWrapper .container .title {
   margin-top: 1.2em;
   margin-bottom: 0.4em;
@@ -892,9 +925,15 @@ body {
   color: #f0f0f0;
   background-color: #591c1c;
   border: 0.0625em solid #1b1b1b;
+  transition: background-color 500ms ease;
   height: 2.6em;
   width: 94%;
   margin-top: 0.8em;
+  margin-bottom: 0.6em;
+}
+#loginPageWrapper .container .login-form .button:hover {
+  cursor: pointer;
+  background-color: #702323;
 }
 @media only screen and (min-width: 40rem) {
   #loginPageWrapper .container .login-form .button {
@@ -950,9 +989,14 @@ body {
   color: #f0f0f0;
   background-color: #591c1c;
   border: 0.0625em solid #1b1b1b;
+  transition: background-color 500ms ease;
   height: 2.6em;
   width: 94%;
   margin-top: 0.8em;
+}
+#registerPageWrapper .container .register-form .button:hover {
+  cursor: pointer;
+  background-color: #702323;
 }
 @media only screen and (min-width: 40rem) {
   #registerPageWrapper .container .register-form .button {
