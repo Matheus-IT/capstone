@@ -241,7 +241,7 @@ body {
     width: 100%;
   }
 }
-#loginPageWrapper .container .title, #indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
+#registerPageWrapper .container .title, #loginPageWrapper .container .title, #indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
@@ -251,11 +251,11 @@ body {
   font-size: 3em;
 }
 
-#indexPageWrapper .feedback .container, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
+#indexPageWrapper .feedback .container, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
   display: flex;
   flex-direction: column;
 }
-#loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -903,6 +903,64 @@ body {
 }
 @media only screen and (min-width: 64rem) {
   #loginPageWrapper .container .login-form .button {
+    width: 24%;
+  }
+}
+
+#registerPageWrapper {
+  width: 100vw;
+  height: 100vh;
+  background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+#registerPageWrapper .container .title {
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-size: 3em;
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .container .title {
+    margin-top: 3em;
+  }
+}
+#registerPageWrapper .container .register-form {
+  width: 100%;
+}
+#registerPageWrapper .container .register-form .form-control {
+  padding: 0.6em;
+  width: 94%;
+  background-color: #f0f0f0;
+  border-radius: 0.6em;
+  border: 0.0625em solid #535353;
+}
+#registerPageWrapper .container .register-form .form-control:not(:last-of-type) {
+  margin-bottom: 0.4em;
+}
+@media only screen and (min-width: 40rem) {
+  #registerPageWrapper .container .register-form .form-control {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .container .register-form .form-control {
+    width: 24%;
+  }
+}
+#registerPageWrapper .container .register-form .button {
+  border-radius: 0.4em;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: 0.0625em solid #1b1b1b;
+  height: 2.6em;
+  width: 94%;
+  margin-top: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #registerPageWrapper .container .register-form .button {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .container .register-form .button {
     width: 24%;
   }
 }
