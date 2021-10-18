@@ -36,7 +36,7 @@
 
       <a class="navbar__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
       <a class="navbar__item" href="#services">Services</a>
-      <a class="navbar__item" href="#">Book Now</a>
+      <a class="navbar__item" href="{% url 'mysite:booking_form' %}">Book Now</a>
 
       <div id="btnHamburger" class="navbar__toggle">
         <span></span>
@@ -54,7 +54,7 @@
 
         <a class="mobile-menu__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
         <a class="mobile-menu__item" href="#services">Services</a>
-        <a class="mobile-menu__item" href="#">Book Now</a>
+        <a class="mobile-menu__item" href="{% url 'mysite:booking_form' %}">Book Now</a>
       </div>
 
       <div id="overlay"></div> <!-- used when press the hamburger menu -->
