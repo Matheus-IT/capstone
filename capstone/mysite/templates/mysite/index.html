@@ -18,9 +18,15 @@
   <div id="index" class="landing">
     <nav class="navbar">
       <div class="motto">
+        {% if user.is_authenticated %}
+        <img class="motto__logo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="">
+        <p class="motto__text">{{ user.username }}</p>
+        {% else %}
         <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
         <p class="motto__text">Barber Shop</p>
+        {% endif %}
       </div>
+
       <a class="navbar__item" href="#index">Home</a>
       <a class="navbar__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
       <a class="navbar__item" href="#services">Services</a>
