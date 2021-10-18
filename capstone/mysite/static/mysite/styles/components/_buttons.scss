@@ -1,6 +1,5 @@
 @use "../abstracts/colors";
 
-
 @mixin book-now {
   border: 0.125em solid darken(colors.$darkRed, 14%);
   text-transform: uppercase;
@@ -32,4 +31,11 @@
     width: 5.2em;
     cursor: pointer;
   }
+}
+
+@mixin submit-rounded {
+  border-radius: 0.4em;
+  color: colors.$white;
+  background-color: colors.$darkRed;
+  border: 0.0625em solid colors.$black;
 }
