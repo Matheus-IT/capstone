@@ -1,5 +1,6 @@
 @use "../abstracts/globals";
 @use "../abstracts/colors";
+@use "../abstracts/breakpoints";
 @use "../base/containers";
 @use "../base/typography";
 @use "../components/buttons";
@@ -18,6 +19,10 @@
       margin-top: 1.2em;
       margin-bottom: 0.4em;
       font-size: 3em;
+
+      @include breakpoints.breakpoint-up(large) {
+        margin-top: 3em;
+      }
     }
     .login-form {
       @extend %container-col--centered;
@@ -33,12 +38,26 @@
         &:not(:last-of-type) {
           margin-bottom: 0.4em;
         }
+
+        @include breakpoints.breakpoint-up(medium) {
+          width: 44%;
+        }
+        @include breakpoints.breakpoint-up(large) {
+          width: 24%;
+        }
       }
       .button {
         @include buttons.submit-rounded;
         height: 2.6em;
         width: 94%;
         margin-top: 0.8em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          width: 44%;
+        }
+        @include breakpoints.breakpoint-up(large) {
+          width: 24%;
+        }
       }
     }
   }

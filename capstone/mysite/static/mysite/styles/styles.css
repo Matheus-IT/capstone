@@ -859,6 +859,11 @@ body {
   margin-bottom: 0.4em;
   font-size: 3em;
 }
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .container .title {
+    margin-top: 3em;
+  }
+}
 #loginPageWrapper .container .login-form {
   width: 100%;
 }
@@ -872,6 +877,16 @@ body {
 #loginPageWrapper .container .login-form .form-control:not(:last-of-type) {
   margin-bottom: 0.4em;
 }
+@media only screen and (min-width: 40rem) {
+  #loginPageWrapper .container .login-form .form-control {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .container .login-form .form-control {
+    width: 24%;
+  }
+}
 #loginPageWrapper .container .login-form .button {
   border-radius: 0.4em;
   color: #f0f0f0;
@@ -880,6 +895,16 @@ body {
   height: 2.6em;
   width: 94%;
   margin-top: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #loginPageWrapper .container .login-form .button {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .container .login-form .button {
+    width: 24%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
