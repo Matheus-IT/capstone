@@ -116,8 +116,7 @@ body {
 #bookingFormPageWrapper .container .form-outer .form__page .hint {
   font-style: italic;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .field,
-#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
+#bookingFormPageWrapper .container .form-outer .form__page .field, #bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
   position: relative;
   width: 100%;
 }
@@ -143,13 +142,7 @@ body {
   width: 49%;
   justify-content: center;
 }
-#bookingFormPageWrapper
-  .container
-  .form-outer
-  .form__page
-  .multi-field
-  .field
-  label {
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field label {
   margin-right: 0.2em;
 }
 #bookingFormPageWrapper .container .form-outer .form__page .btns {
@@ -174,27 +167,15 @@ body {
   background: #701d46;
   cursor: pointer;
 }
-#bookingFormPageWrapper
-  .container
-  .form-outer
-  .form__page
-  .btns__btn:not(:last-child) {
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:not(:last-child) {
   margin-right: 1em;
 }
-#bookingFormPageWrapper
-  .container
-  .form-outer
-  .form__page
-  .btns__btn--is-disabled {
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled {
   background-color: #b8b8b8;
   color: #686868;
   cursor: default;
 }
-#bookingFormPageWrapper
-  .container
-  .form-outer
-  .form__page
-  .btns__btn--is-disabled:hover {
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled:hover {
   background: #b8b8b8;
   cursor: default;
 }
@@ -260,46 +241,31 @@ body {
     width: 100%;
   }
 }
-#indexPageWrapper .location__subtitle,
-#indexPageWrapper .services__subtitle,
-#indexPageWrapper .services__slider .slides .item__title,
-#indexPageWrapper .feedback__subtitle {
+#indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-#indexPageWrapper .location__subtitle,
-#indexPageWrapper .services__subtitle,
-#indexPageWrapper .services__slider .slides .item__title,
-#indexPageWrapper .feedback__subtitle {
+#indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
   font-size: 3em;
 }
 
-#indexPageWrapper .feedback .container,
-#indexPageWrapper .location,
-#indexPageWrapper .location .container,
-#indexPageWrapper .services,
-#indexPageWrapper .feedback {
+#indexPageWrapper .feedback .container, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
   display: flex;
   flex-direction: column;
 }
-#indexPageWrapper .location,
-#indexPageWrapper .location .container,
-#indexPageWrapper .services,
-#indexPageWrapper .feedback {
+#indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-#indexPageWrapper .landing .navbar,
-#indexPageWrapper .feedback .container .feedback__posts .post {
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
   display: flex;
   flex-direction: row;
 }
-#indexPageWrapper .landing .navbar,
-#indexPageWrapper .feedback .container .feedback__posts .post {
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -318,8 +284,7 @@ body {
   scroll-snap-stop: always;
   padding: 0 0 1em 0;
   color: #f0f0f0;
-  background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)),
-    url(/static/mysite/images/indexPage/landing-background.jpg);
+  background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)), url(/static/mysite/images/indexPage/landing-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -421,8 +386,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
   }
-  #indexPageWrapper .landing .navbar .mobile-menu__item:hover,
-  #indexPageWrapper .landing .navbar .mobile-menu__item:focus {
+  #indexPageWrapper .landing .navbar .mobile-menu__item:hover, #indexPageWrapper .landing .navbar .mobile-menu__item:focus {
     box-shadow: 0 0 3px #424242;
   }
   #indexPageWrapper .landing .navbar .mobile-menu__item:last-of-type {
@@ -645,10 +609,7 @@ body {
   border: solid 2px black;
   border-radius: 50%;
 }
-#indexPageWrapper
-  .services__slider
-  .navigationTracker
-  .item:not(:last-of-type) {
+#indexPageWrapper .services__slider .navigationTracker .item:not(:last-of-type) {
   margin-right: 0.4em;
 }
 #indexPageWrapper .services__slider .navigationTracker .item-active {
@@ -713,11 +674,7 @@ body {
 #indexPageWrapper .feedback .container .feedback__posts .post {
   /* Right triangle, left side slightly down */
 }
-#indexPageWrapper
-  .feedback
-  .container
-  .feedback__posts
-  .post:not(:last-of-type) {
+#indexPageWrapper .feedback .container .feedback__posts .post:not(:last-of-type) {
   margin-bottom: 1em;
 }
 #indexPageWrapper .feedback .container .feedback__posts .post .user-photo {
@@ -732,12 +689,7 @@ body {
   width: 12em;
   background-color: #ddd;
 }
-#indexPageWrapper
-  .feedback
-  .container
-  .feedback__posts
-  .post
-  .tri-right.border.left-in:before {
+#indexPageWrapper .feedback .container .feedback__posts .post .tri-right.border.left-in:before {
   content: " ";
   position: absolute;
   width: 0;
@@ -749,12 +701,7 @@ body {
   border: 20px solid;
   border-color: #666 #666 transparent transparent;
 }
-#indexPageWrapper
-  .feedback
-  .container
-  .feedback__posts
-  .post
-  .tri-right.left-in:after {
+#indexPageWrapper .feedback .container .feedback__posts .post .tri-right.left-in:after {
   content: " ";
   position: absolute;
   width: 0;
@@ -790,8 +737,7 @@ body {
 }
 
 @media only screen and (max-width: 39.9375rem) {
-  html #bookingFormPageWrapper,
-  body #bookingFormPageWrapper {
+  html #bookingFormPageWrapper, body #bookingFormPageWrapper {
     max-height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
@@ -811,11 +757,7 @@ body {
 #bookingFormPageWrapper .container .textContainer #queueSizeWrapper {
   font-size: 1em;
 }
-#bookingFormPageWrapper
-  .container
-  .textContainer
-  #queueSizeWrapper
-  #displayQueueSize {
+#bookingFormPageWrapper .container .textContainer #queueSizeWrapper #displayQueueSize {
   font-size: 1.4em;
   font-weight: bolder;
   margin-left: 0.2em;
@@ -870,11 +812,7 @@ body {
   height: 100%;
   z-index: 10;
 }
-#bookingFormPageWrapper
-  .container
-  #hairSalonContainer
-  #queueContainer
-  .personArrivingWalking {
+#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personArrivingWalking {
   position: relative;
   animation-name: arrivesWalking;
   animation-duration: 2s;
@@ -889,11 +827,7 @@ body {
     left: 0;
   }
 }
-#bookingFormPageWrapper
-  .container
-  #hairSalonContainer
-  #queueContainer
-  .personWalkingAway {
+#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personWalkingAway {
   position: relative;
   animation-name: walksAway;
   animation-duration: 1.5s;
@@ -919,8 +853,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: url("mysite/static/mysite/images/booking-form-background.png"),
-    -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+  background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
 }
 #loginPageWrapper .container {
   display: flex;
