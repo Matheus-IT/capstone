@@ -11,6 +11,38 @@
   background: url("mysite/static/mysite/images/booking-form-background.png"),
     -webkit-linear-gradient(bottom, colors.$darkRed, #b4b4b4);
 
+  .back-to-home {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+
+    @include breakpoints.breakpoint-up(medium) {
+      top: 4em;
+      left: 6em;
+    }
+    @include breakpoints.breakpoint-up(large) {
+      top: 14%;
+      left: 32%;
+    }
+
+    &__icon {
+      font-size: 1em;
+      transition: margin 500ms ease;
+    }
+    &__text {
+      font-size: 0.9em;
+      text-decoration: none;
+      font-style: none;
+      color: colors.$darkGray;
+    }
+
+    &:hover {
+      cursor: pointer;
+      .back-to-home__icon {
+        margin-left: -0.4em;
+      }
+    }
+  }
   .container {
     @extend %container-col--centered;
 
@@ -51,6 +83,7 @@
         height: 2.6em;
         width: 94%;
         margin-top: 0.8em;
+        margin-bottom: 0.6em;
 
         @include breakpoints.breakpoint-up(medium) {
           width: 44%;
