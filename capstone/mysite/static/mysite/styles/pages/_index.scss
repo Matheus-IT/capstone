@@ -29,40 +29,42 @@ body {
 
     $navbarHeight: 3em;
 
+    .motto {
+      position: absolute;
+      height: $navbarHeight;
+      display: flex;
+      align-items: center;
+      margin-left: 1em;
+
+      &__logo {
+        width: 2.8em;
+        margin-right: 0.4em;
+      }
+      &__text {
+        font-weight: bold;
+      }
+    }
+
     .navbar {
       @extend %container-row--centered;
       width: 100%;
       height: $navbarHeight;
       background-color: colors.$darkRedTransparent;
 
-      &:not(:last-child) {
-        margin-right: 1em;
-      }
       &__item {
         text-decoration: none;
         color: colors.$white;
         padding: 0.4em;
         transition: background-color 150ms ease;
 
+        &:not(:last-of-type) {
+          margin-right: 0.4em;
+        }
         &:hover {
           background-color: lighten(colors.$darkRedTransparent, 10%);
         }
         &:last-of-type {
           @include buttons.book-now;
-        }
-      }
-
-      .motto {
-        display: flex;
-        align-items: center;
-        margin-left: 1em;
-
-        &__logo {
-          width: 2.8em;
-          margin-right: 0.4em;
-        }
-        &__text {
-          font-weight: bold;
         }
       }
 
@@ -119,7 +121,7 @@ body {
           position: absolute;
           width: 90%;
           background-color: colors.$white;
-          margin-top: 20em;
+          margin-top: 23.5em;
           padding: 1.6em;
           border-radius: 0.4em;
           text-align: center;

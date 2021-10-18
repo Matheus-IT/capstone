@@ -288,19 +288,33 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+#indexPageWrapper .landing .motto {
+  position: absolute;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+}
+#indexPageWrapper .landing .motto__logo {
+  width: 2.8em;
+  margin-right: 0.4em;
+}
+#indexPageWrapper .landing .motto__text {
+  font-weight: bold;
+}
 #indexPageWrapper .landing .navbar {
   width: 100%;
   height: 3em;
   background-color: rgba(89, 28, 28, 0.6);
-}
-#indexPageWrapper .landing .navbar:not(:last-child) {
-  margin-right: 1em;
 }
 #indexPageWrapper .landing .navbar__item {
   text-decoration: none;
   color: #f0f0f0;
   padding: 0.4em;
   transition: background-color 150ms ease;
+}
+#indexPageWrapper .landing .navbar__item:not(:last-of-type) {
+  margin-right: 0.4em;
 }
 #indexPageWrapper .landing .navbar__item:hover {
   background-color: rgba(128, 40, 40, 0.6);
@@ -312,18 +326,6 @@ body {
 }
 #indexPageWrapper .landing .navbar__item:last-of-type:hover {
   background-color: #0b0b0b;
-}
-#indexPageWrapper .landing .navbar .motto {
-  display: flex;
-  align-items: center;
-  margin-left: 1em;
-}
-#indexPageWrapper .landing .navbar .motto__logo {
-  width: 2.8em;
-  margin-right: 0.4em;
-}
-#indexPageWrapper .landing .navbar .motto__text {
-  font-weight: bold;
 }
 #indexPageWrapper .landing .navbar .mobile-menu {
   display: none;
@@ -373,7 +375,7 @@ body {
     position: absolute;
     width: 90%;
     background-color: #f0f0f0;
-    margin-top: 20em;
+    margin-top: 23.5em;
     padding: 1.6em;
     border-radius: 0.4em;
     text-align: center;

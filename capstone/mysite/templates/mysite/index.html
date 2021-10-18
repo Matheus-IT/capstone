@@ -16,17 +16,17 @@
 {% block content %}
 <div id="indexPageWrapper">
   <div id="index" class="landing">
-    <nav class="navbar">
-      <div class="motto">
-        {% if user.is_authenticated %}
-        <img class="motto__logo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="">
-        <p class="motto__text">{{ user.username }}</p>
-        {% else %}
-        <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
-        <p class="motto__text">Barber Shop</p>
-        {% endif %}
-      </div>
+    <div class="motto">
+      {% if user.is_authenticated %}
+      <img class="motto__logo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="">
+      <p class="motto__text">{{ user.username }}</p>
+      {% else %}
+      <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
+      <p class="motto__text">Barber Shop</p>
+      {% endif %}
+    </div>
 
+    <nav class="navbar">
       {% if user.is_authenticated %}
       <a class="navbar__item" href="{% url 'mysite:logout' %}">Logout</a>
       {% else %}
