@@ -1,18 +1,968 @@
-/* Error: Undefined mixin.
- *    ,
- * 50 |         @include buttons.submit-rounded;
- *    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *    '
- *   pages/_register.scss 50:9  @use
- *   styles.scss 5:1            root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined mixin.\a    \2577 \a 50 \2502          @include buttons.submit-rounded;\a    \2502          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   pages/_register.scss 50:9  @use\a   styles.scss 5:1            root stylesheet";
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text&family=Source+Sans+Pro:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font: normal 1em "Red Hat Text", sans-serif;
+  box-sizing: border-box;
 }
+
+body {
+  color: #424242;
+}
+
+::selection {
+  color: #f0f0f0;
+  background: #591c1c;
+}
+
+#bookingFormPageWrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: 94vh;
+  margin: 3vh auto;
+  padding: 1.6em;
+  background: #f0f0f0;
+  border-radius: 0.4em;
+  font-size: 1em;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  user-select: none;
+}
+@media only screen and (min-width: 150rem) {
+  #bookingFormPageWrapper .container {
+    height: 70vh;
+    margin: 15vh auto;
+  }
+}
+@media only screen and (max-width: 39.9375rem) {
+  #bookingFormPageWrapper .container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    font-size: 0.8em;
+  }
+}
+#bookingFormPageWrapper .container #header {
+  font-size: 2em;
+  font-weight: 600;
+}
+#bookingFormPageWrapper .container .step {
+  position: relative;
+  min-width: 4em;
+  text-align: center;
+}
+#bookingFormPageWrapper .container .step__label {
+  font-weight: 500;
+  font-size: 1.2em;
+  color: #535353;
+}
+#bookingFormPageWrapper .container .step__bullet {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 1.4em;
+  width: 1.4em;
+  margin: auto;
+  border: 2px solid #535353;
+  border-radius: 50%;
+  font-weight: 500;
+  font-size: 1.2em;
+  transition: 0.2s;
+}
+#bookingFormPageWrapper .container .step__bullet .check {
+  display: none;
+  font-size: 1em;
+  color: #fff;
+}
+#bookingFormPageWrapper .container .step__bullet .check--is-active {
+  display: block;
+}
+#bookingFormPageWrapper .container .step__bullet--is-active {
+  border-color: #701d46;
+  background: #701d46;
+}
+#bookingFormPageWrapper .container .step__bullet--is-active .num {
+  display: none;
+}
+#bookingFormPageWrapper .container .form-outer {
+  flex-grow: 1;
+  width: 100%;
+  margin-top: 1em;
+  overflow: hidden;
+}
+#bookingFormPageWrapper .container .form-outer .form {
+  display: flex;
+  width: 400%;
+  height: 100%;
+}
+#bookingFormPageWrapper .container .form-outer .form__page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  transition: margin-left 0.3s ease-in-out;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .hint {
+  font-style: italic;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .field, #bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
+  position: relative;
+  width: 100%;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .field .label {
+  font-weight: 500;
+  margin-bottom: 0.4em;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .field .control {
+  width: 100%;
+  padding: 0.4em;
+  border: 0.0625em solid #686868;
+  border-radius: 0.2em;
+  font-size: 1em;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
+  display: flex;
+  flex-wrap: wrap;
+  width: 49%;
+  justify-content: center;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field label {
+  margin-right: 0.2em;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .btns {
+  display: flex;
+  width: 100%;
+  margin-top: 1em;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn {
+  position: relative;
+  width: 100%;
+  height: 2.8em;
+  border: none;
+  border-radius: 0.2em;
+  background: #591c1c;
+  color: #f0f0f0;
+  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.5s ease;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:hover {
+  background: #701d46;
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:not(:last-child) {
+  margin-right: 1em;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled {
+  background-color: #b8b8b8;
+  color: #686868;
+  cursor: default;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled:hover {
+  background: #b8b8b8;
+  cursor: default;
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  from {
+    width: 0;
+  }
+  to {
+    width: 4em;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    width: 6em;
+    background-color: #ddd;
+    color: #535353;
+  }
+  25% {
+    width: 6em;
+    background-color: #591c1c;
+    color: #f0f0f0;
+  }
+  100% {
+    width: 0;
+    background-color: #591c1c;
+    color: #f0f0f0;
+  }
+}
+@keyframes createButton {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+#registerPageWrapper .container .title, #loginPageWrapper .container .title, #indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
+  font-weight: 500;
+  font-size: 4em;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+#indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
+  font-size: 3em;
+}
+
+#indexPageWrapper .feedback .container, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
+  display: flex;
+  flex-direction: column;
+}
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+  display: flex;
+  flex-direction: row;
+}
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+html,
+body {
+  scroll-snap-type: y proximity;
+}
+
+#indexPageWrapper .landing {
+  width: 100%;
+  height: 100vh;
+  padding: 1em;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  padding: 0 0 1em 0;
+  color: #f0f0f0;
+  background-image: linear-gradient(rgba(5, 5, 5, 0.6), rgba(5, 5, 5, 0.6)), url(/static/mysite/images/indexPage/landing-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#indexPageWrapper .landing .navbar {
+  width: 100%;
+  height: 3em;
+  background-color: rgba(89, 28, 28, 0.6);
+}
+#indexPageWrapper .landing .navbar:not(:last-child) {
+  margin-right: 1em;
+}
+#indexPageWrapper .landing .navbar__item {
+  text-decoration: none;
+  color: #f0f0f0;
+  padding: 0.4em;
+  transition: background-color 150ms ease;
+}
+#indexPageWrapper .landing .navbar__item:hover {
+  background-color: rgba(128, 40, 40, 0.6);
+}
+#indexPageWrapper .landing .navbar__item:last-of-type {
+  border: 0.125em solid #230b0b;
+  text-transform: uppercase;
+  transition: background-color 150ms ease;
+}
+#indexPageWrapper .landing .navbar__item:last-of-type:hover {
+  background-color: #0b0b0b;
+}
+#indexPageWrapper .landing .navbar .motto {
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+}
+#indexPageWrapper .landing .navbar .motto__logo {
+  width: 2.8em;
+  margin-right: 0.4em;
+}
+#indexPageWrapper .landing .navbar .motto__text {
+  font-weight: bold;
+}
+#indexPageWrapper .landing .navbar .mobile-menu {
+  display: none;
+}
+@media only screen and (max-width: 63.9375rem) {
+  #indexPageWrapper .landing .navbar__item {
+    display: none;
+  }
+  #indexPageWrapper .landing .navbar__toggle {
+    /* Hamburger menu for mobile devices */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 2em;
+    height: 2em;
+    margin-left: auto;
+    margin-right: 1.6em;
+  }
+  #indexPageWrapper .landing .navbar__toggle > span {
+    display: block;
+    width: 100%;
+    height: 0.125em;
+    background-color: #f0f0f0;
+    transition: all 300ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transform-origin: 6px 1px;
+  }
+  #indexPageWrapper .landing .navbar__toggle > span:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  #indexPageWrapper .landing .navbar__toggle--open > span:first-child {
+    transform: rotate(45deg);
+  }
+  #indexPageWrapper .landing .navbar__toggle--open > span:nth-child(2) {
+    opacity: 0;
+  }
+  #indexPageWrapper .landing .navbar__toggle--open > span:last-child {
+    transform: rotate(-45deg);
+  }
+  #indexPageWrapper .landing .navbar__toggle:hover {
+    cursor: pointer;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu {
+    /* Also controlled from js */
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    width: 90%;
+    background-color: #f0f0f0;
+    margin-top: 20em;
+    padding: 1.6em;
+    border-radius: 0.4em;
+    text-align: center;
+    z-index: 1;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu__item {
+    display: block;
+    padding: 0.6em;
+    color: #424242;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu__item:hover, #indexPageWrapper .landing .navbar .mobile-menu__item:focus {
+    box-shadow: 0 0 3px #424242;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu__item:last-of-type {
+    border: 0.125em solid #230b0b;
+    text-transform: uppercase;
+    transition: background-color 150ms ease;
+    background-color: #f0f0f0;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu__item:last-of-type:hover {
+    background-color: #0b0b0b;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu__item:last-of-type:hover {
+    background-color: #d7d7d7;
+  }
+  #indexPageWrapper .landing .navbar .mobile-menu--open {
+    visibility: visible;
+  }
+  #indexPageWrapper .landing .navbar #overlay {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 3em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background-image: linear-gradient(#424242, transparent);
+  }
+  #indexPageWrapper .landing .navbar .fade-in {
+    animation: fade-in 200ms ease-in-out forwards;
+  }
+  #indexPageWrapper .landing .navbar .fade-out {
+    animation: fade-out 200ms ease-in-out forwards;
+  }
+}
+#indexPageWrapper .landing .presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+}
+#indexPageWrapper .landing .presentation__title {
+  font: 500 4em "Source Sans Pro", sans-serif;
+}
+#indexPageWrapper .landing .presentation__text {
+  max-width: 20em;
+  font-size: 1.6em;
+}
+#indexPageWrapper .landing .presentation__logo {
+  width: 40%;
+}
+#indexPageWrapper .landing .presentation .fa-angle-double-down {
+  position: absolute;
+  bottom: 0.6em;
+  font-size: 4em;
+  margin: auto;
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .landing .presentation {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+  }
+  #indexPageWrapper .landing .presentation__title {
+    font: 500 3em "Source Sans Pro", sans-serif;
+  }
+  #indexPageWrapper .landing .presentation__text {
+    font-size: 1.4em;
+  }
+  #indexPageWrapper .landing .presentation__logo {
+    width: 64%;
+  }
+}
+#indexPageWrapper .location {
+  width: 100%;
+  height: 100vh;
+  padding: 1em;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  justify-content: space-evenly;
+  background-color: #591c1c;
+  color: #f0f0f0;
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .location {
+    overflow-x: hidden;
+  }
+}
+#indexPageWrapper .location__text {
+  font-size: 1em;
+}
+#indexPageWrapper .location__image {
+  width: 50%;
+  border-radius: 0.2em;
+}
+@media only screen and (max-width: 63.9375rem) {
+  #indexPageWrapper .location__image {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .location__image {
+    height: 50%;
+    width: auto;
+  }
+}
+#indexPageWrapper .services {
+  width: 100%;
+  height: 100vh;
+  padding: 1em;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  /* Position relative to contain the absolute desktop navigation buttons */
+  position: relative;
+  justify-content: space-evenly;
+  background-image: url(/static/mysite/images/indexPage/services-background.jpg);
+  background-size: cover;
+  color: #f0f0f0;
+}
+#indexPageWrapper .services__slider {
+  width: 74%;
+  height: 64%;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .services__slider {
+    width: 94%;
+    overflow-x: auto;
+  }
+}
+#indexPageWrapper .services__slider .slides {
+  display: grid;
+  /* This is gonna make the slider scroll vertically
+  width 5 columns of 2 items */
+  grid-template-columns: repeat(5, 100%);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 0.6em;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  transition: margin-left 300ms ease;
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .services__slider .slides {
+    /* For mobile it's going to display one item per slide */
+    display: flex;
+    width: 900%;
+  }
+}
+#indexPageWrapper .services__slider .slides .item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(66, 66, 66, 0.8);
+  border-radius: 0.4em;
+  padding: 0.6em;
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .services__slider .slides .item {
+    width: 100%;
+  }
+  #indexPageWrapper .services__slider .slides .item .book-now {
+    padding: 0.5em 2em;
+    margin-top: 1em;
+    background-color: #f0f0f0;
+    border-radius: 0.4em;
+  }
+}
+#indexPageWrapper .services__slider .slides .item__title {
+  font-size: 1.4em;
+}
+#indexPageWrapper .services__slider .slides .item__description {
+  font-size: 0.94em;
+  color: rgba(240, 240, 240, 0.8);
+}
+#indexPageWrapper .services__slider .navigation-button {
+  position: absolute;
+  border: none;
+  border-radius: 0.2em;
+  padding: 4.2em 0.6em;
+  top: 41.5%;
+  color: #f0f0f0;
+  background-color: rgba(66, 66, 66, 0.9);
+}
+@media only screen and (max-width: 39.9375rem) {
+  #indexPageWrapper .services__slider .navigation-button {
+    display: none;
+  }
+}
+#indexPageWrapper .services__slider .navigation-button:hover {
+  cursor: pointer;
+  background-color: rgba(92, 92, 92, 0.9);
+}
+#indexPageWrapper .services__slider .navigation-button.left {
+  left: 1.6em;
+}
+#indexPageWrapper .services__slider .navigation-button.right {
+  right: 1.6em;
+}
+#indexPageWrapper .services__slider .navigationTracker {
+  position: absolute;
+  display: flex;
+  bottom: 18vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .services__slider .navigationTracker {
+    display: none;
+  }
+}
+#indexPageWrapper .services__slider .navigationTracker .item {
+  padding: 0.4em;
+  border: solid 2px black;
+  border-radius: 50%;
+}
+#indexPageWrapper .services__slider .navigationTracker .item:not(:last-of-type) {
+  margin-right: 0.4em;
+}
+#indexPageWrapper .services__slider .navigationTracker .item-active {
+  background-color: #f0f0f0;
+}
+#indexPageWrapper .feedback {
+  width: 100%;
+  height: 100vh;
+  padding: 1em;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  background-image: url(/static/mysite/images/indexPage/feedback-background.jpg);
+  background-size: cover;
+}
+#indexPageWrapper .feedback__subtitle {
+  color: #f0f0f0;
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 0.6em;
+}
+#indexPageWrapper .feedback .container {
+  width: 100%;
+  height: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+#indexPageWrapper .feedback .container .feedback-form {
+  position: relative;
+}
+#indexPageWrapper .feedback .container .feedback-submit-content {
+  padding: 0.6em;
+  width: 18em;
+  height: 3.2em;
+  border-radius: 0.6em;
+  transition: height 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  resize: none;
+}
+#indexPageWrapper .feedback .container .feedback-form-submit {
+  position: absolute;
+  bottom: 0.8em;
+  right: 0.4em;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  border: 0.0625em solid #535353;
+  background: #f0f0f0;
+}
+#indexPageWrapper .feedback .container .feedback__posts {
+  overflow-y: scroll;
+  height: 72%;
+  width: 100%;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .feedback .container .feedback__posts {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #indexPageWrapper .feedback .container .feedback__posts {
+    width: 28%;
+  }
+}
+#indexPageWrapper .feedback .container .feedback__posts .post {
+  /* Right triangle, left side slightly down */
+}
+#indexPageWrapper .feedback .container .feedback__posts .post:not(:last-of-type) {
+  margin-bottom: 1em;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post .user-photo {
+  background: #b8b8b8;
+  border-radius: 50%;
+  width: 4em;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post .talk-bubble {
+  margin-left: 2em;
+  padding: 1em;
+  position: relative;
+  width: 12em;
+  background-color: #ddd;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post .tri-right.border.left-in:before {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -40px;
+  right: auto;
+  top: 8px;
+  bottom: auto;
+  border: 20px solid;
+  border-color: #666 #666 transparent transparent;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post .tri-right.left-in:after {
+  content: " ";
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -20px;
+  right: auto;
+  top: 8px;
+  bottom: auto;
+  border: 12px solid;
+  border-color: #ddd #ddd transparent transparent;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post__author {
+  color: #424242;
+  font-size: 1em;
+  text-align: left;
+}
+#indexPageWrapper .feedback .container .feedback__posts .post__content {
+  color: #686868;
+  font-size: 0.9em;
+  text-align: left;
+}
+#indexPageWrapper .feedback .container .load-more-feedbacks {
+  width: 4.6em;
+  min-height: 2.6em;
+  border-radius: 50%;
+  border: none;
+  background-color: #b8b8b8;
+  transition: all 150ms ease;
+}
+#indexPageWrapper .feedback .container .load-more-feedbacks:hover {
+  width: 5.2em;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 39.9375rem) {
+  html #bookingFormPageWrapper, body #bookingFormPageWrapper {
+    max-height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+}
+#bookingFormPageWrapper .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+#bookingFormPageWrapper .container .textContainer {
+  margin: 1em 0;
+  padding: 0;
+}
+#bookingFormPageWrapper .container .textContainer #queueSizeWrapper {
+  font-size: 1em;
+}
+#bookingFormPageWrapper .container .textContainer #queueSizeWrapper #displayQueueSize {
+  font-size: 1.4em;
+  font-weight: bolder;
+  margin-left: 0.2em;
+}
+@media only screen and (max-width: 39.9375rem) {
+  #bookingFormPageWrapper .container .textContainer {
+    font-size: 1em;
+  }
+}
+#bookingFormPageWrapper .container .textContainer > * {
+  margin: 0.2em;
+  padding: 0;
+}
+#bookingFormPageWrapper .container #hairSalonContainer {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  overflow-x: scroll;
+}
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper .container #hairSalonContainer {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 63.9375rem) {
+  #bookingFormPageWrapper .container #hairSalonContainer {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 39.9375rem) {
+  #bookingFormPageWrapper .container #hairSalonContainer {
+    width: 98%;
+  }
+}
+#bookingFormPageWrapper .container #hairSalonContainer #hairSalonBackground {
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  z-index: 0;
+}
+#bookingFormPageWrapper .container #hairSalonContainer #queueContainer {
+  position: absolute;
+  display: flex;
+  width: 64%;
+  height: 60%;
+  left: 36%;
+  bottom: 0;
+}
+#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .person {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  z-index: 10;
+}
+#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personArrivingWalking {
+  position: relative;
+  animation-name: arrivesWalking;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+@keyframes arrivesWalking {
+  from {
+    left: 75%;
+  }
+  to {
+    left: 0;
+  }
+}
+#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personWalkingAway {
+  position: relative;
+  animation-name: walksAway;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+@keyframes walksAway {
+  from {
+    left: 0;
+    width: 30%;
+    height: 100%;
+    opacity: 1;
+  }
+  to {
+    left: -4.6em;
+    width: 0;
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+#loginPageWrapper {
+  width: 100vw;
+  height: 100vh;
+  background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+#loginPageWrapper .container .title {
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-size: 3em;
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .container .title {
+    margin-top: 3em;
+  }
+}
+#loginPageWrapper .container .login-form {
+  width: 100%;
+}
+#loginPageWrapper .container .login-form .form-control {
+  padding: 0.6em;
+  width: 94%;
+  background-color: #f0f0f0;
+  border-radius: 0.6em;
+  border: 0.0625em solid #535353;
+}
+#loginPageWrapper .container .login-form .form-control:not(:last-of-type) {
+  margin-bottom: 0.4em;
+}
+@media only screen and (min-width: 40rem) {
+  #loginPageWrapper .container .login-form .form-control {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .container .login-form .form-control {
+    width: 24%;
+  }
+}
+#loginPageWrapper .container .login-form .button {
+  border-radius: 0.4em;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: 0.0625em solid #1b1b1b;
+  height: 2.6em;
+  width: 94%;
+  margin-top: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #loginPageWrapper .container .login-form .button {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .container .login-form .button {
+    width: 24%;
+  }
+}
+
+#registerPageWrapper {
+  width: 100vw;
+  height: 100vh;
+  background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+#registerPageWrapper .container .title {
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  font-size: 3em;
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .container .title {
+    margin-top: 3em;
+  }
+}
+#registerPageWrapper .container .register-form {
+  width: 100%;
+}
+#registerPageWrapper .container .register-form .form-control {
+  padding: 0.6em;
+  width: 94%;
+  background-color: #f0f0f0;
+  border-radius: 0.6em;
+  border: 0.0625em solid #535353;
+}
+#registerPageWrapper .container .register-form .form-control:not(:last-of-type) {
+  margin-bottom: 0.4em;
+}
+@media only screen and (min-width: 40rem) {
+  #registerPageWrapper .container .register-form .form-control {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .container .register-form .form-control {
+    width: 24%;
+  }
+}
+#registerPageWrapper .container .register-form .button {
+  border-radius: 0.4em;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: 0.0625em solid #1b1b1b;
+  height: 2.6em;
+  width: 94%;
+  margin-top: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #registerPageWrapper .container .register-form .button {
+    width: 44%;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .container .register-form .button {
+    width: 24%;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

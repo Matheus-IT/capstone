@@ -18,9 +18,21 @@
   <div id="index" class="landing">
     <nav class="navbar">
       <div class="motto">
+        {% if user.is_authenticated %}
+        <img class="motto__logo" src="{% static 'mysite/images/indexPage/user.png' %}" alt="">
+        <p class="motto__text">{{ user.username }}</p>
+        {% else %}
         <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
         <p class="motto__text">Barber Shop</p>
+        {% endif %}
       </div>
+
+      {% if user.is_authenticated %}
+      <a class="navbar__item" href="{% url 'mysite:logout' %}">Logout</a>
+      {% else %}
+      <a class="navbar__item" href="{% url 'mysite:login' %}">Login</a>
+      {% endif %}
+
       <a class="navbar__item" href="#index">Home</a>
       <a class="navbar__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
       <a class="navbar__item" href="#services">Services</a>
@@ -31,7 +43,14 @@
         <span></span>
         <span></span>
       </div>
+
       <div id="menuForMobile" class="mobile-menu">
+        {% if user.is_authenticated %}
+        <a class="mobile-menu__item" href="{% url 'mysite:logout' %}">Logout</a>
+        {% else %}
+        <a class="mobile-menu__item" href="{% url 'mysite:login' %}">Login</a>
+        {% endif %}
+
         <a class="mobile-menu__item" href="#">Home</a>
         <a class="mobile-menu__item" href="{% url 'mysite:waiting_queue' %}">Queue</a>
         <a class="mobile-menu__item" href="div.services">Services</a>
