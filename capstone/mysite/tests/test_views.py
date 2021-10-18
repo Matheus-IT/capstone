@@ -65,24 +65,27 @@ class IndexViewTests(TestCase):
     def test_getting_right_number_of_feedback(self):
         '''Test template is receiving the right number of feedback objects'''
         res = self.client.get(URL_INDEX)
-        num_context_feedbacks = res.context.get('user_feedbacks').count()
+        num_context_feedbacks = len(res.context.get('user_feedbacks'))
         self.assertEqual(num_context_feedbacks, FEEDBACKS_PER_PAGE)
 
     def test_getting_the_latest_feedbacks(self):
         '''Tests the template receives the latest feedbacks by creation'''
         res = self.client.get(URL_INDEX)
-        latest_feedbacks_response = res.context.get('user_feedbacks')
+        feedbacks_response = res.context.get('user_feedbacks')
 
         latest_feedbacks = UserFeedback.objects.order_by('-created_at').all()[
             :FEEDBACKS_PER_PAGE
         ]
+        feedbacks_from_db = [f.serialize() for f in latest_feedbacks]
 
         # Assert if the response matches with the database values
-        for feedback, feedback_res in zip(
-            latest_feedbacks, latest_feedbacks_response
+        for feedback_db, feedback_res in zip(
+            feedbacks_from_db, feedbacks_response
         ):
-            self.assertEqual(feedback.content, feedback_res.content)
-            self.assertEqual(feedback.created_at, feedback_res.created_at)
+            self.assertEqual(feedback_db['content'], feedback_res['content'])
+            self.assertEqual(
+                feedback_db['created_at'], feedback_res['created_at']
+            )
 
     def test_submit_feedback_successfully(self):
         payload = {'content': 'testing'}
