@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     main() {
       this.nextMonthButton.onclick = (event) => this.handleGoToNextMonth(event);
-      this.previousMonthButton.onclick = (event) => this.handleGoToCurrentMonth(event);
+      this.previousMonthButton.onclick = (event) =>
+        this.handleGoToCurrentMonth(event);
       this.handleGoToCurrentMonth();
     },
 
@@ -99,8 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     animateFadeIn(element) {
-      console.log(element.classList);
-
       element.style.display = "block";
       element.classList.add("fadeIn");
       element.onanimationend = () => {
@@ -109,8 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     animateFadeOut(element) {
-      console.log(element.classList);
-
       element.classList.add("fadeOut");
       element.onanimationend = () => {
         element.classList.remove("fadeOut");
