@@ -16,22 +16,22 @@
 	<script type="module" src="{% static 'mysite/JavaScript/index.js' %}"></script>
 </head>
 <body>
-	<div id="bookingFormPageWrapper">
+	<div id="waitingQueuePageWrapper">
 		<span id="room-name" hidden >{{ room_name }}</span>
-		
+
 		<div class="container">
 			<div class="textContainer">
 				<h2>Real-time queue</h2>
-				
+
 				<h2 id="queueSizeWrapper">
 					Current queue size: <span id="displayQueueSize"></span>
 				</h2>
 			</div>
-	
+
 			<div id="hairSalonContainer">
 				<!-- The hair salon image is going to be the background -->
 				<img id="hairSalonBackground" src="{% static 'mysite/images/hairSalon.png' %}" alt="" srcset="">
-				
+
 				<div id="queueContainer">
 					<!-- The queue will be generated here via websocket -->
 				</div>
