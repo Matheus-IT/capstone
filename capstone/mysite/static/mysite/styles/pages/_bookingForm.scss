@@ -12,241 +12,282 @@
   overflow: hidden;
   background: url("/static/mysite/images/booking-form-background.png"),
     -webkit-linear-gradient(bottom, colors.$darkRed, #b4b4b4);
-}
 
-.container {
-  @extend %container-col--centered;
-  padding: 1em;
-  height: 100vh;
-  background: colors.$white;
-  font-size: 1em;
-  font-family: "Poppins", sans-serif;
-
-  .header {
-    font-size: 2em;
-    font-weight: 600;
+  .hint {
+    font-size: 0.9em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
   }
 
-  .progress-bar {
-    @include progressBar.progress-bar;
-  }
+  .container {
+    @extend %container-col--centered;
+    padding: 1em;
+    height: 100vh;
+    background: colors.$white;
+    font-size: 1em;
+    font-family: "Poppins", sans-serif;
 
-  .form-outer {
-    flex-grow: 1;
-    width: 100%;
-    margin-top: 1em;
-    overflow: hidden;
+    .back-to-home {
+      align-self: start;
+      margin-bottom: 0.4em;
 
-    .form {
-      display: flex;
-      width: 400%;
-      height: 100%;
+      // @include breakpoints.breakpoint-up(medium) {
+      //   top: 4em;
+      //   left: 6em;
+      // }
+      // @include breakpoints.breakpoint-up(large) {
+      //   top: 14%;
+      //   left: 32%;
+      // }
 
-      .services {
-        flex-grow: 1;
-        position: relative;
-        width: 100%;
-        height: 78%;
-        overflow: auto;
-        scroll-behavior: smooth;
-        color: colors.$white;
-        margin-bottom: 1em;
-
-        background-image: linear-gradient(
-            to right,
-            hsla(0, 0%, 0%, 1),
-            hsla(0, 0%, 45%, 0.8)
-          ),
-          url(/static/mysite/images/booking-form-service-background.jpg);
-        background-size: cover;
-        background-blend-mode: darken;
-
-        &__service {
-          list-style: none;
-          width: max-content;
-          margin: 1em;
-          padding: 0.4em;
-          border-radius: 0.2em;
-          background: rgba(colors.$gray, 0.7);
-          transition: background-color 150ms ease, text-shadow 150ms ease;
-
-          &:hover {
-            text-shadow: 1px 1px 1px colors.$gray;
-            background: lighten(colors.$gray, 10%);
-          }
-        }
+      &__icon {
+        font-size: 1em;
+        transition: margin 500ms ease;
+      }
+      &__text {
+        font-size: 0.9em;
+        text-decoration: none;
+        font-style: none;
+        color: colors.$darkGray;
       }
 
-      .calendar {
-        flex-grow: 1;
-        @extend %container-col;
-        max-height: 72%;
-        font-family: Verdana, sans-serif;
+      &:hover {
+        cursor: pointer;
+        .back-to-home__icon {
+          margin-left: -0.4em;
+        }
+      }
+    }
 
-        &__month {
-          flex-grow: 2;
+    .header {
+      flex-grow: 1;
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: 0.6em;
+    }
+
+    .progress-bar {
+      flex-grow: 1;
+      margin-bottom: 0.4em;
+      @include progressBar.progress-bar;
+    }
+
+    .form-outer {
+      flex-grow: 2;
+      width: 100%;
+      overflow: hidden;
+
+      .form {
+        display: flex;
+        width: 400%;
+        height: 100%;
+
+        .services {
+          flex-grow: 1;
           position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: colors.$darkRed;
+          width: 100%;
+          height: 78%;
+          overflow: auto;
+          scroll-behavior: smooth;
+          color: colors.$white;
+          margin-bottom: 1em;
 
-          .display-month,
-          .display-year {
-            margin-right: 0.6em;
-            letter-spacing: 3px;
-            font-size: 1em;
-            text-transform: uppercase;
-            color: colors.$white;
-          }
+          background-image: linear-gradient(
+              to right,
+              hsla(0, 0%, 0%, 1),
+              hsla(0, 0%, 45%, 0.8)
+            ),
+            url(/static/mysite/images/booking-form-service-background.jpg);
+          background-size: cover;
+          background-blend-mode: darken;
 
-          %button-go-to-month {
-            position: absolute;
-            width: 3em;
-            height: 100%;
-            top: 0;
-
-            color: colors.$white;
-            background-color: colors.$darkRed;
-            border: none;
-            transition-property: background-color, color;
-            transition-duration: 500ms;
-            transition-timing-function: ease;
+          &__service {
+            list-style: none;
+            width: max-content;
+            margin: 1em;
+            padding: 0.4em;
+            border-radius: 0.2em;
+            background: rgba(colors.$gray, 0.7);
+            transition: background-color 150ms ease, text-shadow 150ms ease;
 
             &:hover {
-              cursor: pointer;
-              width: 3.2em;
-              background-color: colors.$lightestGray;
-              color: colors.$gray;
-            }
-          }
-
-          .next-month {
-            @extend %button-go-to-month;
-            right: 0;
-
-            &.fadeIn {
-              animation: fadeIn 500ms;
-            }
-            &.fadeOut {
-              animation: fadeOutNext 500ms;
-            }
-          }
-
-          .previous-month {
-            @extend %button-go-to-month;
-            left: 0;
-
-            &.fadeIn {
-              animation: fadeIn 500ms;
-            }
-
-            &.fadeOut {
-              animation: fadeOutPrev 500ms;
+              text-shadow: 1px 1px 1px colors.$gray;
+              background: lighten(colors.$gray, 10%);
             }
           }
         }
-        &__weekdays {
+
+        .calendar {
           flex-grow: 1;
-          display: inline-grid;
-          grid-template-columns: repeat(7, 1fr);
-          background-color: colors.$lightestGray;
+          @extend %container-col;
+          max-height: 72%;
+          font-family: Verdana, sans-serif;
 
-          .weekday {
+          &__month {
+            flex-grow: 2;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: colors.$lightGray;
-            font-size: 1em;
-          }
-        }
-        &__days {
-          flex-grow: 4;
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          grid-template-rows: repeat(5, 1fr);
-          column-gap: 0.125em;
-          row-gap: 0.125em;
+            background: colors.$darkRed;
 
-          * {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 0.0625em solid colors.$midLightGray;
-            background-color: colors.$white;
-            color: colors.$lightGray;
-            transition: border-color 250ms ease-in-out;
-            animation: createButton 500ms forwards;
-
-            &.active {
-              background-color: colors.$darkPurple;
-              border-color: colors.$darkPurple;
+            .display-month,
+            .display-year {
+              margin-right: 0.6em;
+              letter-spacing: 3px;
+              font-size: 1em;
+              text-transform: uppercase;
               color: colors.$white;
             }
-            &:hover {
-              cursor: pointer;
-              border-color: colors.$darkPurple;
+
+            %button-go-to-month {
+              position: absolute;
+              width: 3em;
+              height: 100%;
+              top: 0;
+
+              color: colors.$white;
+              background-color: colors.$darkRed;
+              border: none;
+              transition-property: background-color, color;
+              transition-duration: 500ms;
+              transition-timing-function: ease;
+
+              &:hover {
+                cursor: pointer;
+                width: 3.2em;
+                background-color: colors.$lightestGray;
+                color: colors.$gray;
+              }
+            }
+
+            .next-month {
+              @extend %button-go-to-month;
+              right: 0;
+
+              &.fadeIn {
+                animation: fadeIn 500ms;
+              }
+              &.fadeOut {
+                animation: fadeOutNext 500ms;
+              }
+            }
+
+            .previous-month {
+              @extend %button-go-to-month;
+              left: 0;
+
+              &.fadeIn {
+                animation: fadeIn 500ms;
+              }
+
+              &.fadeOut {
+                animation: fadeOutPrev 500ms;
+              }
+            }
+          }
+          &__weekdays {
+            flex-grow: 1;
+            display: inline-grid;
+            grid-template-columns: repeat(7, 1fr);
+            background-color: colors.$lightestGray;
+
+            .weekday {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: colors.$lightGray;
+              font-size: 1em;
+            }
+          }
+          &__days {
+            flex-grow: 4;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            column-gap: 0.125em;
+            row-gap: 0.125em;
+
+            * {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 0.0625em solid colors.$midLightGray;
+              background-color: colors.$white;
+              color: colors.$lightGray;
+              transition: border-color 250ms ease-in-out;
+              animation: createButton 500ms forwards;
+
+              &.active {
+                background-color: colors.$darkPurple;
+                border-color: colors.$darkPurple;
+                color: colors.$white;
+              }
+              &:hover {
+                cursor: pointer;
+                border-color: colors.$darkPurple;
+              }
             }
           }
         }
-      }
 
-      &__page {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-
-        width: 25%;
-        height: 100%;
-        transition: margin-left 0.3s ease-in-out;
-
-        .hint {
-          font-style: italic;
-        }
-        .field {
+        &__page {
           position: relative;
-          width: 100%;
-
-          .label {
-            font-weight: 500;
-            margin-bottom: 0.4em;
-          }
-          .control {
-            width: 100%;
-            padding: 0.4em;
-            border: 0.0625em solid colors.$lightGray;
-            border-radius: 0.2em;
-            font-size: 1em;
-          }
-        }
-        .multi-field {
           display: flex;
+          flex-direction: column;
           justify-content: space-between;
-          width: 100%;
+          align-items: center;
 
+          width: 25%;
+          height: 100%;
+          transition: margin-left 0.3s ease-in-out;
+
+          .hint {
+            font-style: italic;
+          }
           .field {
-            @extend .field;
-            display: flex;
-            flex-wrap: wrap;
-            width: 49%;
-            justify-content: center;
+            position: relative;
+            width: 100%;
 
-            label {
-              margin-right: 0.2em;
+            .label {
+              font-weight: 500;
+              margin-bottom: 0.4em;
+            }
+            .control {
+              width: 100%;
+              padding: 0.4em;
+              border: 0.0625em solid colors.$lightGray;
+              border-radius: 0.2em;
+              font-size: 1em;
             }
           }
-        }
-        .buttons-container {
-          @extend %container-row;
-          width: 100%;
+          .multi-field {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
 
-          .btn {
-            @include buttons.btn;
+            .field {
+              @extend .field;
+              display: flex;
+              flex-wrap: wrap;
+              width: 49%;
+              justify-content: center;
 
-            &:not(:last-child) {
-              margin-right: 0.4em;
+              label {
+                margin-right: 0.2em;
+              }
+            }
+          }
+          .buttons-container {
+            @extend %container-row;
+            width: 100%;
+
+            .btn {
+              @include buttons.btn;
+
+              &:not(:last-child) {
+                margin-right: 0.4em;
+              }
             }
           }
         }

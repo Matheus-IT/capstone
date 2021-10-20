@@ -17,17 +17,17 @@ body {
   background: #591c1c;
 }
 
-#indexPageWrapper .feedback .container, .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, .container {
+#indexPageWrapper .feedback .container, #bookingFormPageWrapper .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
   display: flex;
   flex-direction: column;
 }
-#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, .container {
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.container .progress-bar, .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+#bookingFormPageWrapper .container .progress-bar, #bookingFormPageWrapper .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
   display: flex;
   flex-direction: row;
 }
@@ -43,74 +43,102 @@ body {
   overflow: hidden;
   background: url("/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
 }
-
-.container {
+#bookingFormPageWrapper .hint {
+  font-size: 0.9em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+#bookingFormPageWrapper .container {
   padding: 1em;
   height: 100vh;
   background: #f0f0f0;
   font-size: 1em;
   font-family: "Poppins", sans-serif;
 }
-.container .header {
+#bookingFormPageWrapper .container .back-to-home {
+  align-self: start;
+  margin-bottom: 0.4em;
+}
+#bookingFormPageWrapper .container .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+#bookingFormPageWrapper .container .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: #424242;
+}
+#bookingFormPageWrapper .container .back-to-home:hover {
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
+}
+#bookingFormPageWrapper .container .header {
+  flex-grow: 1;
   font-size: 2em;
   font-weight: 600;
+  margin-bottom: 0.6em;
 }
-.container .progress-bar {
+#bookingFormPageWrapper .container .progress-bar {
+  flex-grow: 1;
+  margin-bottom: 0.4em;
   justify-content: space-evenly;
   align-items: center;
+  width: 100%;
   user-select: none;
 }
-.container .progress-bar .step {
+#bookingFormPageWrapper .container .progress-bar .step {
   position: relative;
-  min-width: 4em;
+  min-width: 3em;
   text-align: center;
 }
-.container .progress-bar .step__label {
+#bookingFormPageWrapper .container .progress-bar .step__label {
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #535353;
 }
-.container .progress-bar .step__bullet {
+#bookingFormPageWrapper .container .progress-bar .step__bullet {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 1.4em;
-  width: 1.4em;
+  height: 1.2em;
+  width: 1.2em;
   margin: auto;
   border: 2px solid #535353;
   border-radius: 50%;
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1em;
   transition: 0.2s;
 }
-.container .progress-bar .step__bullet .check {
+#bookingFormPageWrapper .container .progress-bar .step__bullet .check {
   display: none;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #fff;
 }
-.container .progress-bar .step__bullet .check--is-active {
+#bookingFormPageWrapper .container .progress-bar .step__bullet .check--is-active {
   display: block;
 }
-.container .progress-bar .step__bullet--is-active {
+#bookingFormPageWrapper .container .progress-bar .step__bullet--is-active {
   border-color: #701d46;
   background: #701d46;
 }
-.container .progress-bar .step__bullet--is-active .num {
+#bookingFormPageWrapper .container .progress-bar .step__bullet--is-active .num {
   display: none;
 }
-.container .form-outer {
-  flex-grow: 1;
+#bookingFormPageWrapper .container .form-outer {
+  flex-grow: 2;
   width: 100%;
-  margin-top: 1em;
   overflow: hidden;
 }
-.container .form-outer .form {
+#bookingFormPageWrapper .container .form-outer .form {
   display: flex;
   width: 400%;
   height: 100%;
 }
-.container .form-outer .form .services {
+#bookingFormPageWrapper .container .form-outer .form .services {
   flex-grow: 1;
   position: relative;
   width: 100%;
@@ -123,7 +151,7 @@ body {
   background-size: cover;
   background-blend-mode: darken;
 }
-.container .form-outer .form .services__service {
+#bookingFormPageWrapper .container .form-outer .form .services__service {
   list-style: none;
   width: max-content;
   margin: 1em;
@@ -132,16 +160,16 @@ body {
   background: rgba(83, 83, 83, 0.7);
   transition: background-color 150ms ease, text-shadow 150ms ease;
 }
-.container .form-outer .form .services__service:hover {
+#bookingFormPageWrapper .container .form-outer .form .services__service:hover {
   text-shadow: 1px 1px 1px #535353;
   background: #6d6d6d;
 }
-.container .form-outer .form .calendar {
+#bookingFormPageWrapper .container .form-outer .form .calendar {
   flex-grow: 1;
   max-height: 72%;
   font-family: Verdana, sans-serif;
 }
-.container .form-outer .form .calendar__month {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month {
   flex-grow: 2;
   position: relative;
   display: flex;
@@ -149,15 +177,15 @@ body {
   align-items: center;
   background: #591c1c;
 }
-.container .form-outer .form .calendar__month .display-month,
-.container .form-outer .form .calendar__month .display-year {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .display-month,
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .display-year {
   margin-right: 0.6em;
   letter-spacing: 3px;
   font-size: 1em;
   text-transform: uppercase;
   color: #f0f0f0;
 }
-.container .form-outer .form .calendar__month .previous-month, .container .form-outer .form .calendar__month .next-month {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month, #bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month {
   position: absolute;
   width: 3em;
   height: 100%;
@@ -169,44 +197,44 @@ body {
   transition-duration: 500ms;
   transition-timing-function: ease;
 }
-.container .form-outer .form .calendar__month .previous-month:hover, .container .form-outer .form .calendar__month .next-month:hover {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month:hover, #bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month:hover {
   cursor: pointer;
   width: 3.2em;
   background-color: #ddd;
   color: #535353;
 }
-.container .form-outer .form .calendar__month .next-month {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month {
   right: 0;
 }
-.container .form-outer .form .calendar__month .next-month.fadeIn {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month.fadeIn {
   animation: fadeIn 500ms;
 }
-.container .form-outer .form .calendar__month .next-month.fadeOut {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month.fadeOut {
   animation: fadeOutNext 500ms;
 }
-.container .form-outer .form .calendar__month .previous-month {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month {
   left: 0;
 }
-.container .form-outer .form .calendar__month .previous-month.fadeIn {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month.fadeIn {
   animation: fadeIn 500ms;
 }
-.container .form-outer .form .calendar__month .previous-month.fadeOut {
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month.fadeOut {
   animation: fadeOutPrev 500ms;
 }
-.container .form-outer .form .calendar__weekdays {
+#bookingFormPageWrapper .container .form-outer .form .calendar__weekdays {
   flex-grow: 1;
   display: inline-grid;
   grid-template-columns: repeat(7, 1fr);
   background-color: #ddd;
 }
-.container .form-outer .form .calendar__weekdays .weekday {
+#bookingFormPageWrapper .container .form-outer .form .calendar__weekdays .weekday {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #686868;
   font-size: 1em;
 }
-.container .form-outer .form .calendar__days {
+#bookingFormPageWrapper .container .form-outer .form .calendar__days {
   flex-grow: 4;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -214,7 +242,7 @@ body {
   column-gap: 0.125em;
   row-gap: 0.125em;
 }
-.container .form-outer .form .calendar__days * {
+#bookingFormPageWrapper .container .form-outer .form .calendar__days * {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,16 +252,16 @@ body {
   transition: border-color 250ms ease-in-out;
   animation: createButton 500ms forwards;
 }
-.container .form-outer .form .calendar__days *.active {
+#bookingFormPageWrapper .container .form-outer .form .calendar__days *.active {
   background-color: #701d46;
   border-color: #701d46;
   color: #f0f0f0;
 }
-.container .form-outer .form .calendar__days *:hover {
+#bookingFormPageWrapper .container .form-outer .form .calendar__days *:hover {
   cursor: pointer;
   border-color: #701d46;
 }
-.container .form-outer .form__page {
+#bookingFormPageWrapper .container .form-outer .form__page {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -243,42 +271,42 @@ body {
   height: 100%;
   transition: margin-left 0.3s ease-in-out;
 }
-.container .form-outer .form__page .hint {
+#bookingFormPageWrapper .container .form-outer .form__page .hint {
   font-style: italic;
 }
-.container .form-outer .form__page .field, .container .form-outer .form__page .multi-field .field {
+#bookingFormPageWrapper .container .form-outer .form__page .field, #bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
   position: relative;
   width: 100%;
 }
-.container .form-outer .form__page .field .label {
+#bookingFormPageWrapper .container .form-outer .form__page .field .label {
   font-weight: 500;
   margin-bottom: 0.4em;
 }
-.container .form-outer .form__page .field .control {
+#bookingFormPageWrapper .container .form-outer .form__page .field .control {
   width: 100%;
   padding: 0.4em;
   border: 0.0625em solid #686868;
   border-radius: 0.2em;
   font-size: 1em;
 }
-.container .form-outer .form__page .multi-field {
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.container .form-outer .form__page .multi-field .field {
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
   display: flex;
   flex-wrap: wrap;
   width: 49%;
   justify-content: center;
 }
-.container .form-outer .form__page .multi-field .field label {
+#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field label {
   margin-right: 0.2em;
 }
-.container .form-outer .form__page .buttons-container {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container {
   width: 100%;
 }
-.container .form-outer .form__page .buttons-container .btn {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn {
   position: relative;
   width: 100%;
   height: 2.8em;
@@ -291,20 +319,20 @@ body {
   text-transform: uppercase;
   transition: background-color 0.5s ease;
 }
-.container .form-outer .form__page .buttons-container .btn:hover {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn:hover {
   background: #701d46;
   cursor: pointer;
 }
-.container .form-outer .form__page .buttons-container .btn--is-disabled {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn--is-disabled {
   background-color: #b8b8b8;
   color: #686868;
   cursor: default;
 }
-.container .form-outer .form__page .buttons-container .btn--is-disabled:hover {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn--is-disabled:hover {
   background: #b8b8b8;
   cursor: default;
 }
-.container .form-outer .form__page .buttons-container .btn:not(:last-child) {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn:not(:last-child) {
   margin-right: 0.4em;
 }
 

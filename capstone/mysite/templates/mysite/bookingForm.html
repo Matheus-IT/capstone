@@ -4,7 +4,7 @@
 {% block title %} Booking form {% endblock %}
 
 {% block adicional_in_head %}
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 <script src="{% static 'mysite/JavaScript/bookingForm/calendar.js' %}"></script>
 <script src="{% static 'mysite/JavaScript/bookingForm/script.js' %}"></script>
 {% endblock %}
@@ -12,6 +12,11 @@
 {% block content %}
 <div id="bookingFormPageWrapper">
   <div class="container">
+    <div class="back-to-home">
+      <i class="fas fa-chevron-left back-to-home__icon"></i>
+      <a class="back-to-home__text" href="{% url 'mysite:index' %}">Back to home</a>
+    </div>
+
     <header id="header" class="header">Booking Form</header>
 
     <div id="progress-bar" class="progress-bar">
@@ -127,7 +132,7 @@
           <div class="multi-field">
             <div class="field">
               <label for="period0">Morning</label>
-              <input class="inputInf" type="radio" id="period0" name="period" value="morning" checked>
+              <input class="inputInf" type="radio" id="period0" name="period" value="morning">
             </div>
 
             <div class="field">
