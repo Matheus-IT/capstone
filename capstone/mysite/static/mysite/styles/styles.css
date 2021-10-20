@@ -21,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
   justify-content: center;
   align-items: center;
@@ -31,6 +32,7 @@ body {
   display: flex;
   flex-direction: row;
 }
+
 #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
   justify-content: center;
   align-items: center;
@@ -42,6 +44,14 @@ body {
   height: 100vh;
   overflow: hidden;
   background: url("/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 #bookingFormPageWrapper .hint {
   font-size: 0.9em;
@@ -55,9 +65,29 @@ body {
   font-size: 1em;
   font-family: "Poppins", sans-serif;
 }
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper .container {
+    height: 90vh;
+    width: 70%;
+    border-radius: 0.4em;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #bookingFormPageWrapper .container {
+    height: 90vh;
+    width: 38%;
+    border-radius: 0.4em;
+  }
+}
 #bookingFormPageWrapper .container .back-to-home {
   align-self: start;
   margin-bottom: 0.4em;
+}
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper .container .back-to-home {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
 }
 #bookingFormPageWrapper .container .back-to-home__icon {
   font-size: 1em;

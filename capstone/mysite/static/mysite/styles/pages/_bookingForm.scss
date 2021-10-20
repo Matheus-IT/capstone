@@ -13,6 +13,13 @@
   background: url("/static/mysite/images/booking-form-background.png"),
     -webkit-linear-gradient(bottom, colors.$darkRed, #b4b4b4);
 
+  @include breakpoints.breakpoint-up(medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .hint {
     font-size: 0.9em;
     margin-top: 0.2em;
@@ -27,14 +34,25 @@
     font-size: 1em;
     font-family: "Poppins", sans-serif;
 
+    @include breakpoints.breakpoint-up(medium) {
+      height: 90vh;
+      width: 70%;
+      border-radius: 0.4em;
+    }
+    @include breakpoints.breakpoint-up(large) {
+      height: 90vh;
+      width: 38%;
+      border-radius: 0.4em;
+    }
+
     .back-to-home {
       align-self: start;
       margin-bottom: 0.4em;
 
-      // @include breakpoints.breakpoint-up(medium) {
-      //   top: 4em;
-      //   left: 6em;
-      // }
+      @include breakpoints.breakpoint-up(medium) {
+        margin-top: 1em;
+        margin-left: 1em;
+      }
       // @include breakpoints.breakpoint-up(large) {
       //   top: 14%;
       //   left: 32%;
