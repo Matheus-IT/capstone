@@ -459,6 +459,10 @@ body {
   scroll-snap-type: y proximity;
 }
 
+.noScroll {
+  overflow-y: hidden;
+}
+
 #indexPageWrapper .landing {
   width: 100%;
   height: 100vh;
@@ -744,6 +748,8 @@ body {
     text-transform: uppercase;
     transition: background-color 150ms ease;
     background-color: #f0f0f0;
+    color: #1b1b1b;
+    text-decoration: none;
     padding: 0.5em 2em;
     margin-top: 1em;
     border: 0.0625em solid #424242;
