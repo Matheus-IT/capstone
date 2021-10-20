@@ -1,6 +1,7 @@
-@use "../abstracts/breakpoints" as *;
+@use "../abstracts/colors";
+@use "../abstracts/breakpoints";
 
-@include breakpoint-down(small) {
+@include breakpoints.breakpoint-down(small) {
   html,
   body {
     #waitingQueuePageWrapper {
@@ -11,6 +12,30 @@
   }
 }
 #waitingQueuePageWrapper {
+  .back-to-home {
+    align-self: start;
+    margin-top: 1em;
+    margin-left: 1em;
+
+    &__icon {
+      font-size: 1em;
+      transition: margin 500ms ease;
+    }
+    &__text {
+      font-size: 0.9em;
+      text-decoration: none;
+      font-style: none;
+      color: colors.$darkGray;
+    }
+
+    &:hover {
+      cursor: pointer;
+      .back-to-home__icon {
+        margin-left: -0.4em;
+      }
+    }
+  }
+
   .container {
     display: flex;
     flex-direction: column;
@@ -22,6 +47,7 @@
     .textContainer {
       margin: 1em 0;
       padding: 0;
+      text-align: center;
 
       #queueSizeWrapper {
         font-size: 1em;
@@ -33,7 +59,7 @@
         }
       }
 
-      @include breakpoint-down(small) {
+      @include breakpoints.breakpoint-down(small) {
         font-size: 1em;
       }
 
@@ -50,15 +76,15 @@
 
       overflow-x: scroll;
 
-      @include breakpoint-up(medium) {
+      @include breakpoints.breakpoint-up(medium) {
         width: 40%;
       }
 
-      @include breakpoint-down(medium) {
+      @include breakpoints.breakpoint-down(medium) {
         width: 60%;
       }
 
-      @include breakpoint-down(small) {
+      @include breakpoints.breakpoint-down(small) {
         width: 98%;
       }
 

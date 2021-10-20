@@ -7,6 +7,7 @@
 	<meta charset="utf-8">
 	<title>Test app</title>
 	<link rel="stylesheet" href="{% static 'mysite/styles/styles.css' %}">
+  <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
 	<script>
 		// Some global static files' sources which will be used in the program
 		const hairSalonImgSource = '{% static "mysite/images/hairSalon.png" %}';
@@ -19,7 +20,13 @@
 	<div id="waitingQueuePageWrapper">
 		<span id="room-name" hidden >{{ room_name }}</span>
 
+
 		<div class="container">
+			<div class="back-to-home">
+				<i class="fas fa-chevron-left back-to-home__icon"></i>
+				<a class="back-to-home__text" href="{% url 'mysite:index' %}">Back to home</a>
+			</div>
+
 			<div class="textContainer">
 				<h2>Real-time queue</h2>
 
