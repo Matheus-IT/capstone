@@ -118,6 +118,7 @@ body {
   overflow: auto;
   scroll-behavior: smooth;
   color: #f0f0f0;
+  margin-bottom: 1em;
   background-image: linear-gradient(to right, black, rgba(115, 115, 115, 0.8)), url(/static/mysite/images/booking-form-service-background.jpg);
   background-size: cover;
   background-blend-mode: darken;
@@ -303,7 +304,7 @@ body {
   background: #b8b8b8;
   cursor: default;
 }
-.container .form-outer .form__page .buttons-container .btn :not(:last-child) {
+.container .form-outer .form__page .buttons-container .btn:not(:last-child) {
   margin-right: 0.4em;
 }
 

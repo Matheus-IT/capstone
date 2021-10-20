@@ -50,6 +50,7 @@
         overflow: auto;
         scroll-behavior: smooth;
         color: colors.$white;
+        margin-bottom: 1em;
 
         background-image: linear-gradient(
             to right,
@@ -244,7 +245,7 @@
           .btn {
             @include buttons.btn;
 
-            :not(:last-child) {
+            &:not(:last-child) {
               margin-right: 0.4em;
             }
           }
