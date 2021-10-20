@@ -1,16 +1,16 @@
 @use "../abstracts/breakpoints" as *;
 
-
 @include breakpoint-down(small) {
-  html, body {
-    #bookingFormPageWrapper {
+  html,
+  body {
+    #waitingQueuePageWrapper {
       max-height: 100vh;
       overflow-y: hidden;
       overflow-x: hidden;
     }
   }
 }
-#bookingFormPageWrapper {
+#waitingQueuePageWrapper {
   .container {
     display: flex;
     flex-direction: column;

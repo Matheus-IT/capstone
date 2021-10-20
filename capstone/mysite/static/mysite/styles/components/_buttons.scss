@@ -1,5 +1,36 @@
 @use "../abstracts/colors";
 
+@mixin btn {
+  position: relative;
+  width: 100%;
+  height: 2.8em;
+  border: none;
+  border-radius: 0.2em;
+
+  background: colors.$darkRed;
+  color: colors.$white;
+
+  font-size: 1.2em;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background: colors.$darkPurple;
+    cursor: pointer;
+  }
+  &--is-disabled {
+    background-color: colors.$midLightGray;
+    color: colors.$lightGray;
+    cursor: default;
+
+    &:hover {
+      background: colors.$midLightGray;
+      cursor: default;
+    }
+  }
+}
+
 @mixin book-now {
   border: 0.125em solid darken(colors.$darkRed, 14%);
   text-transform: uppercase;

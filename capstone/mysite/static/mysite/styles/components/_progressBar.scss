@@ -1,11 +1,11 @@
 @use "../abstracts/colors";
-
+@use "../base/containers";
 
 @mixin progress-bar {
-  display: flex;
+  @extend %container-row;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
+  //width: 100%;
   user-select: none;
 
   .step {
@@ -46,7 +46,7 @@
         border-color: colors.$darkPurple;
         background: colors.$darkPurple;
 
-        .num{
+        .num {
           display: none;
         }
       }

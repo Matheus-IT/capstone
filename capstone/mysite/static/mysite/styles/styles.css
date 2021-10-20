@@ -17,53 +17,60 @@ body {
   background: #591c1c;
 }
 
-#bookingFormPageWrapper .container {
+#indexPageWrapper .feedback .container, .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, .container {
   display: flex;
   flex-direction: column;
+}
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, .container {
+  justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 94vh;
-  margin: 3vh auto;
-  padding: 1.6em;
+  text-align: center;
+}
+
+.container .progress-bar, .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+  display: flex;
+  flex-direction: row;
+}
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#bookingFormPageWrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+
+.container {
+  padding: 1em;
+  height: 100vh;
   background: #f0f0f0;
-  border-radius: 0.4em;
   font-size: 1em;
   font-family: "Poppins", sans-serif;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  user-select: none;
 }
-@media only screen and (min-width: 150rem) {
-  #bookingFormPageWrapper .container {
-    height: 70vh;
-    margin: 15vh auto;
-  }
-}
-@media only screen and (max-width: 39.9375rem) {
-  #bookingFormPageWrapper .container {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    font-size: 0.8em;
-  }
-}
-#bookingFormPageWrapper .container #header {
+.container .header {
   font-size: 2em;
   font-weight: 600;
 }
-#bookingFormPageWrapper .container .step {
+.container .progress-bar {
+  justify-content: space-evenly;
+  align-items: center;
+  user-select: none;
+}
+.container .progress-bar .step {
   position: relative;
   min-width: 4em;
   text-align: center;
 }
-#bookingFormPageWrapper .container .step__label {
+.container .progress-bar .step__label {
   font-weight: 500;
   font-size: 1.2em;
   color: #535353;
 }
-#bookingFormPageWrapper .container .step__bullet {
+.container .progress-bar .step__bullet {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,33 +84,155 @@ body {
   font-size: 1.2em;
   transition: 0.2s;
 }
-#bookingFormPageWrapper .container .step__bullet .check {
+.container .progress-bar .step__bullet .check {
   display: none;
   font-size: 1em;
   color: #fff;
 }
-#bookingFormPageWrapper .container .step__bullet .check--is-active {
+.container .progress-bar .step__bullet .check--is-active {
   display: block;
 }
-#bookingFormPageWrapper .container .step__bullet--is-active {
+.container .progress-bar .step__bullet--is-active {
   border-color: #701d46;
   background: #701d46;
 }
-#bookingFormPageWrapper .container .step__bullet--is-active .num {
+.container .progress-bar .step__bullet--is-active .num {
   display: none;
 }
-#bookingFormPageWrapper .container .form-outer {
+.container .form-outer {
   flex-grow: 1;
   width: 100%;
   margin-top: 1em;
   overflow: hidden;
 }
-#bookingFormPageWrapper .container .form-outer .form {
+.container .form-outer .form {
   display: flex;
   width: 400%;
   height: 100%;
 }
-#bookingFormPageWrapper .container .form-outer .form__page {
+.container .form-outer .form .services {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  height: 78%;
+  overflow: auto;
+  scroll-behavior: smooth;
+  color: #f0f0f0;
+  background-image: linear-gradient(to right, black, rgba(115, 115, 115, 0.8)), url(/static/mysite/images/booking-form-service-background.jpg);
+  background-size: cover;
+  background-blend-mode: darken;
+}
+.container .form-outer .form .services__service {
+  list-style: none;
+  width: max-content;
+  margin: 1em;
+  padding: 0.4em;
+  border-radius: 0.2em;
+  background: rgba(83, 83, 83, 0.7);
+  transition: background-color 150ms ease, text-shadow 150ms ease;
+}
+.container .form-outer .form .services__service:hover {
+  text-shadow: 1px 1px 1px #535353;
+  background: #6d6d6d;
+}
+.container .form-outer .form .calendar {
+  flex-grow: 1;
+  max-height: 72%;
+  font-family: Verdana, sans-serif;
+}
+.container .form-outer .form .calendar__month {
+  flex-grow: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #591c1c;
+}
+.container .form-outer .form .calendar__month .display-month,
+.container .form-outer .form .calendar__month .display-year {
+  margin-right: 0.6em;
+  letter-spacing: 3px;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #f0f0f0;
+}
+.container .form-outer .form .calendar__month .previous-month, .container .form-outer .form .calendar__month .next-month {
+  position: absolute;
+  width: 3em;
+  height: 100%;
+  top: 0;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: none;
+  transition-property: background-color, color;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+.container .form-outer .form .calendar__month .previous-month:hover, .container .form-outer .form .calendar__month .next-month:hover {
+  cursor: pointer;
+  width: 3.2em;
+  background-color: #ddd;
+  color: #535353;
+}
+.container .form-outer .form .calendar__month .next-month {
+  right: 0;
+}
+.container .form-outer .form .calendar__month .next-month.fadeIn {
+  animation: fadeIn 500ms;
+}
+.container .form-outer .form .calendar__month .next-month.fadeOut {
+  animation: fadeOutNext 500ms;
+}
+.container .form-outer .form .calendar__month .previous-month {
+  left: 0;
+}
+.container .form-outer .form .calendar__month .previous-month.fadeIn {
+  animation: fadeIn 500ms;
+}
+.container .form-outer .form .calendar__month .previous-month.fadeOut {
+  animation: fadeOutPrev 500ms;
+}
+.container .form-outer .form .calendar__weekdays {
+  flex-grow: 1;
+  display: inline-grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #ddd;
+}
+.container .form-outer .form .calendar__weekdays .weekday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #686868;
+  font-size: 1em;
+}
+.container .form-outer .form .calendar__days {
+  flex-grow: 4;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 0.125em;
+  row-gap: 0.125em;
+}
+.container .form-outer .form .calendar__days * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625em solid #b8b8b8;
+  background-color: #f0f0f0;
+  color: #686868;
+  transition: border-color 250ms ease-in-out;
+  animation: createButton 500ms forwards;
+}
+.container .form-outer .form .calendar__days *.active {
+  background-color: #701d46;
+  border-color: #701d46;
+  color: #f0f0f0;
+}
+.container .form-outer .form .calendar__days *:hover {
+  cursor: pointer;
+  border-color: #701d46;
+}
+.container .form-outer .form__page {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -113,44 +242,42 @@ body {
   height: 100%;
   transition: margin-left 0.3s ease-in-out;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .hint {
+.container .form-outer .form__page .hint {
   font-style: italic;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .field, #bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
+.container .form-outer .form__page .field, .container .form-outer .form__page .multi-field .field {
   position: relative;
   width: 100%;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .field .label {
+.container .form-outer .form__page .field .label {
   font-weight: 500;
   margin-bottom: 0.4em;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .field .control {
+.container .form-outer .form__page .field .control {
   width: 100%;
   padding: 0.4em;
   border: 0.0625em solid #686868;
   border-radius: 0.2em;
   font-size: 1em;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .multi-field {
+.container .form-outer .form__page .multi-field {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field {
+.container .form-outer .form__page .multi-field .field {
   display: flex;
   flex-wrap: wrap;
   width: 49%;
   justify-content: center;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .multi-field .field label {
+.container .form-outer .form__page .multi-field .field label {
   margin-right: 0.2em;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns {
-  display: flex;
+.container .form-outer .form__page .buttons-container {
   width: 100%;
-  margin-top: 1em;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn {
+.container .form-outer .form__page .buttons-container .btn {
   position: relative;
   width: 100%;
   height: 2.8em;
@@ -163,21 +290,21 @@ body {
   text-transform: uppercase;
   transition: background-color 0.5s ease;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:hover {
+.container .form-outer .form__page .buttons-container .btn:hover {
   background: #701d46;
   cursor: pointer;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:not(:last-child) {
-  margin-right: 1em;
-}
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled {
+.container .form-outer .form__page .buttons-container .btn--is-disabled {
   background-color: #b8b8b8;
   color: #686868;
   cursor: default;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled:hover {
+.container .form-outer .form__page .buttons-container .btn--is-disabled:hover {
   background: #b8b8b8;
   cursor: default;
+}
+.container .form-outer .form__page .buttons-container .btn :not(:last-child) {
+  margin-right: 0.4em;
 }
 
 @keyframes fade-in {
@@ -213,22 +340,39 @@ body {
     width: 0;
   }
   to {
-    width: 4em;
+    width: 3em;
   }
 }
-@keyframes fadeOut {
+@keyframes fadeOutNext {
   0% {
-    width: 6em;
+    right: 0;
     background-color: #ddd;
     color: #535353;
   }
-  25% {
-    width: 6em;
+  50% {
+    right: 0;
     background-color: #591c1c;
     color: #f0f0f0;
   }
   100% {
-    width: 0;
+    right: -2em;
+    background-color: #591c1c;
+    color: #f0f0f0;
+  }
+}
+@keyframes fadeOutPrev {
+  0% {
+    left: 0;
+    background-color: #ddd;
+    color: #535353;
+  }
+  50% {
+    left: 0;
+    background-color: #591c1c;
+    color: #f0f0f0;
+  }
+  100% {
+    left: -2em;
     background-color: #591c1c;
     color: #f0f0f0;
   }
@@ -249,26 +393,6 @@ body {
 
 #indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
   font-size: 3em;
-}
-
-#indexPageWrapper .feedback .container, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
-  display: flex;
-  flex-direction: column;
-}
-#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
-  display: flex;
-  flex-direction: row;
-}
-#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
 html,
@@ -749,68 +873,69 @@ body {
 }
 
 @media only screen and (max-width: 39.9375rem) {
-  html #bookingFormPageWrapper, body #bookingFormPageWrapper {
+  html #waitingQueuePageWrapper,
+body #waitingQueuePageWrapper {
     max-height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
   }
 }
-#bookingFormPageWrapper .container {
+#waitingQueuePageWrapper .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 0;
 }
-#bookingFormPageWrapper .container .textContainer {
+#waitingQueuePageWrapper .container .textContainer {
   margin: 1em 0;
   padding: 0;
 }
-#bookingFormPageWrapper .container .textContainer #queueSizeWrapper {
+#waitingQueuePageWrapper .container .textContainer #queueSizeWrapper {
   font-size: 1em;
 }
-#bookingFormPageWrapper .container .textContainer #queueSizeWrapper #displayQueueSize {
+#waitingQueuePageWrapper .container .textContainer #queueSizeWrapper #displayQueueSize {
   font-size: 1.4em;
   font-weight: bolder;
   margin-left: 0.2em;
 }
 @media only screen and (max-width: 39.9375rem) {
-  #bookingFormPageWrapper .container .textContainer {
+  #waitingQueuePageWrapper .container .textContainer {
     font-size: 1em;
   }
 }
-#bookingFormPageWrapper .container .textContainer > * {
+#waitingQueuePageWrapper .container .textContainer > * {
   margin: 0.2em;
   padding: 0;
 }
-#bookingFormPageWrapper .container #hairSalonContainer {
+#waitingQueuePageWrapper .container #hairSalonContainer {
   position: relative;
   margin: auto;
   padding: 0;
   overflow-x: scroll;
 }
 @media only screen and (min-width: 40rem) {
-  #bookingFormPageWrapper .container #hairSalonContainer {
+  #waitingQueuePageWrapper .container #hairSalonContainer {
     width: 40%;
   }
 }
 @media only screen and (max-width: 63.9375rem) {
-  #bookingFormPageWrapper .container #hairSalonContainer {
+  #waitingQueuePageWrapper .container #hairSalonContainer {
     width: 60%;
   }
 }
 @media only screen and (max-width: 39.9375rem) {
-  #bookingFormPageWrapper .container #hairSalonContainer {
+  #waitingQueuePageWrapper .container #hairSalonContainer {
     width: 98%;
   }
 }
-#bookingFormPageWrapper .container #hairSalonContainer #hairSalonBackground {
+#waitingQueuePageWrapper .container #hairSalonContainer #hairSalonBackground {
   width: 100%;
   margin: auto;
   padding: 0;
   z-index: 0;
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer {
   position: absolute;
   display: flex;
   width: 64%;
@@ -818,13 +943,13 @@ body {
   left: 36%;
   bottom: 0;
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .person {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer .person {
   position: relative;
   width: 30%;
   height: 100%;
   z-index: 10;
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personArrivingWalking {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer .personArrivingWalking {
   position: relative;
   animation-name: arrivesWalking;
   animation-duration: 2s;
@@ -839,7 +964,7 @@ body {
     left: 0;
   }
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personWalkingAway {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer .personWalkingAway {
   position: relative;
   animation-name: walksAway;
   animation-duration: 1.5s;

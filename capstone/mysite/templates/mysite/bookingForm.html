@@ -12,35 +12,35 @@
 {% block content %}
 <div id="bookingFormPageWrapper">
   <div class="container">
-    <header id="header">Booking Form</header>
+    <header id="header" class="header">Booking Form</header>
 
-    <div id="progress-bar">
+    <div id="progress-bar" class="progress-bar">
       <div class="step">
         <p class="step__label">Services</p>
-        <div class="step__bullet">
+        <div id="stepBullet" class="step__bullet">
           <span class="num">1</span>
-          <div class="check fas fa-check"></div>
+          <div id="check" class="check fas fa-check"></div>
         </div>
       </div>
       <div class="step">
         <p class="step__label">Date</p>
-        <div class="step__bullet">
+        <div id="stepBullet" class="step__bullet">
           <span class="num">2</span>
-          <div class="check fas fa-check"></div>
+          <div id="check" class="check fas fa-check"></div>
         </div>
       </div>
       <div class="step">
         <p class="step__label">Payment</p>
-        <div class="step__bullet">
+        <div id="stepBullet" class="step__bullet">
           <span class="num">3</span>
-          <div class="check fas fa-check"></div>
+          <div id="check" class="check fas fa-check"></div>
         </div>
       </div>
     </div>
 
     <div class="form-outer">
       <form class="form" action="#">
-        <div class="selectService form__page slide-page">
+        <div id="startingPage" class="selectService form__page">
           <p class="hint">
             <i class="far fa-lightbulb"></i>Select the service:
           </p>
@@ -48,44 +48,44 @@
           <ul class="services">
             <li class="services__service">
               <label for="serv0">Classic Cut $30 - 30minutes</label>
-              <input class="inputInf" type="radio" id="serv0" name="service" value="0">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv0" name="service" value="0">
             </li>
             <li class="services__service">
               <label for="serv1">Cut & Beard Trim $48 - 45min</label>
-              <input class="inputInf" type="radio" id="serv1" name="service" value="1">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv1" name="service" value="1">
             </li>
             <li class="services__service">
               <label for="serv2">Skin Fade $40 - 45minutes</label>
-              <input class="inputInf" type="radio" id="serv2" name="service" value="2">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv2" name="service" value="2">
             </li>
             <li class="services__service">
               <label for="serv3">Skin Fade & Beard Trim $55 - 1hr</label>
-              <input class="inputInf" type="radio" id="serv3" name="service" value="3">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv3" name="service" value="3">
             </li>
             <li class="services__service">
               <label for="serv4">Long Cut $60 - 1hr</label>
-              <input class="inputInf" type="radio" id="serv4" name="service" value="4">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv4" name="service" value="4">
             </li>
             <li class="services__service">
               <label for="serv5">Buzz $20 - 15min</label>
-              <input class="inputInf" type="radio" id="serv5" name="service" value="5">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv5" name="service" value="5">
             </li>
             <li class="services__service">
               <label for="serv6">Buzz & Beard Trim $40 - 45min</label>
-              <input class="inputInf" type="radio" id="serv6" name="service" value="6">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv6" name="service" value="6">
             </li>
             <li class="services__service">
               <label for="serv7">Beard Trim $20 - 30min</label>
-              <input class="inputInf" type="radio" id="serv7" name="service" value="7">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv7" name="service" value="7">
             </li>
             <li class="services__service">
               <label for="serv8">Shave $33 - 30min</label>
-              <input class="inputInf" type="radio" id="serv8" name="service" value="8">
+              <input id="inputInfo" class="inputInf" type="radio" id="serv8" name="service" value="8">
             </li>
           </ul>
 
-          <div class="btns">
-            <button class="btns__btn next">Next</button>
+          <div class="buttons-container">
+            <button id="nextPage" class="btn">Next</button>
           </div>
         </div>
 
@@ -96,12 +96,12 @@
             </p>
 
             <div class="calendar__month">
-              <button id="previousMonth" class="change-month">&#10094;</button>
-              <button id="nextMonth" class="change-month">&#10095;</button>
-              <span id="displayMonth">
+              <button id="previousMonth" class="previous-month">&#10094;</button>
+              <button id="nextMonth" class="next-month">&#10095;</button>
+              <span id="displayMonth" class="display-month">
                 <!-- Will be generated by JS -->
               </span>
-              <span id="displayYear">
+              <span id="displayYear" class="display-year">
                 <!-- Will be generated by JS -->
               </span>
             </div>
@@ -127,18 +127,18 @@
           <div class="multi-field">
             <div class="field">
               <label for="period0">Morning</label>
-              <input class="inputInf" type="radio" id="period0" name="period" value="morning" checked>
+              <input id="inputInfo" class="inputInf" type="radio" id="period0" name="period" value="morning" checked>
             </div>
 
             <div class="field">
               <label for="period1">Afternoon</label>
-              <input class="inputInf" type="radio" id="period1" name="period" value="afternoon">
+              <input id="inputInfo" class="inputInf" type="radio" id="period1" name="period" value="afternoon">
             </div>
           </div>
 
-          <div class="btns">
-            <button class="btns__btn prev">Previous</button>
-            <button class="btns__btn next">Next</button>
+          <div class="buttons-container">
+            <button id="previousPage" class="btn">Previous</button>
+            <button id="nextPage" class="btn">Next</button>
           </div>
         </div>
 
@@ -151,7 +151,7 @@
 
           <div class="field">
             <label for="cardNumber">Credit card number</label>
-            <input type="text" name="cardNumber" class="control" id="cardNumber" placeholder="1111-2222-3333-4444">
+            <input type="text" name="cardNumber" class="control" id="cardNumber" placeholder="1111-2222-3333-4444" required>
           </div>
 
           <div class="field">
@@ -171,9 +171,9 @@
             </div>
           </div>
 
-          <div class="btns">
-            <button class="btns__btn prev">Previous</button>
-            <button class="btns__btn submit">Submit</button>
+          <div class="buttons-container">
+            <button id="previousPage" class="btn">Previous</button>
+            <button id="submit" class="btn">Submit</button>
           </div>
         </div>
       </form>
