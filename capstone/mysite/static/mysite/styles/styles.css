@@ -17,91 +17,279 @@ body {
   background: #591c1c;
 }
 
-#bookingFormPageWrapper .container {
+#indexPageWrapper .feedback .container, #bookingFormPageWrapper .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
   display: flex;
   flex-direction: column;
+}
+
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
+  justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 94vh;
-  margin: 3vh auto;
-  padding: 1.6em;
+  text-align: center;
+}
+
+#bookingFormPageWrapper .container .progress-bar, #bookingFormPageWrapper .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+  display: flex;
+  flex-direction: row;
+}
+
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#bookingFormPageWrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+#bookingFormPageWrapper .hint {
+  font-size: 0.9em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+}
+#bookingFormPageWrapper .container {
+  padding: 1em;
+  height: 100vh;
   background: #f0f0f0;
-  border-radius: 0.4em;
   font-size: 1em;
   font-family: "Poppins", sans-serif;
-  display: flex;
+}
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper .container {
+    height: 90vh;
+    width: 70%;
+    border-radius: 0.4em;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #bookingFormPageWrapper .container {
+    height: 90vh;
+    width: 38%;
+    border-radius: 0.4em;
+  }
+}
+#bookingFormPageWrapper .container .back-to-home {
+  align-self: start;
+  margin-bottom: 0.4em;
+}
+@media only screen and (min-width: 40rem) {
+  #bookingFormPageWrapper .container .back-to-home {
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+}
+#bookingFormPageWrapper .container .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+#bookingFormPageWrapper .container .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: #424242;
+}
+#bookingFormPageWrapper .container .back-to-home:hover {
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
+}
+#bookingFormPageWrapper .container .header {
+  flex-grow: 1;
+  font-size: 2em;
+  font-weight: 600;
+  margin-bottom: 0.6em;
+}
+#bookingFormPageWrapper .container .progress-bar {
+  flex-grow: 1;
+  margin-bottom: 0.4em;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
   user-select: none;
 }
-@media only screen and (min-width: 150rem) {
-  #bookingFormPageWrapper .container {
-    height: 70vh;
-    margin: 15vh auto;
-  }
-}
-@media only screen and (max-width: 39.9375rem) {
-  #bookingFormPageWrapper .container {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    font-size: 0.8em;
-  }
-}
-#bookingFormPageWrapper .container #header {
-  font-size: 2em;
-  font-weight: 600;
-}
-#bookingFormPageWrapper .container .step {
+#bookingFormPageWrapper .container .progress-bar .step {
   position: relative;
-  min-width: 4em;
+  min-width: 3em;
   text-align: center;
 }
-#bookingFormPageWrapper .container .step__label {
+#bookingFormPageWrapper .container .progress-bar .step__label {
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1em;
   color: #535353;
 }
-#bookingFormPageWrapper .container .step__bullet {
+#bookingFormPageWrapper .container .progress-bar .step__bullet {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 1.4em;
-  width: 1.4em;
+  height: 1.2em;
+  width: 1.2em;
   margin: auto;
   border: 2px solid #535353;
   border-radius: 50%;
   font-weight: 500;
-  font-size: 1.2em;
+  font-size: 1em;
   transition: 0.2s;
 }
-#bookingFormPageWrapper .container .step__bullet .check {
+#bookingFormPageWrapper .container .progress-bar .step__bullet .check {
   display: none;
-  font-size: 1em;
+  font-size: 0.8em;
   color: #fff;
 }
-#bookingFormPageWrapper .container .step__bullet .check--is-active {
+#bookingFormPageWrapper .container .progress-bar .step__bullet .check--is-active {
   display: block;
 }
-#bookingFormPageWrapper .container .step__bullet--is-active {
+#bookingFormPageWrapper .container .progress-bar .step__bullet--is-active {
   border-color: #701d46;
   background: #701d46;
 }
-#bookingFormPageWrapper .container .step__bullet--is-active .num {
+#bookingFormPageWrapper .container .progress-bar .step__bullet--is-active .num {
   display: none;
 }
 #bookingFormPageWrapper .container .form-outer {
-  flex-grow: 1;
+  flex-grow: 2;
   width: 100%;
-  margin-top: 1em;
   overflow: hidden;
 }
 #bookingFormPageWrapper .container .form-outer .form {
   display: flex;
   width: 400%;
   height: 100%;
+}
+#bookingFormPageWrapper .container .form-outer .form .services {
+  flex-grow: 1;
+  position: relative;
+  width: 100%;
+  height: 78%;
+  overflow: auto;
+  scroll-behavior: smooth;
+  color: #f0f0f0;
+  margin-bottom: 1em;
+  background-image: linear-gradient(to right, black, rgba(115, 115, 115, 0.8)), url(/static/mysite/images/booking-form-service-background.jpg);
+  background-size: cover;
+  background-blend-mode: darken;
+}
+#bookingFormPageWrapper .container .form-outer .form .services__service {
+  list-style: none;
+  width: max-content;
+  margin: 1em;
+  padding: 0.4em;
+  border-radius: 0.2em;
+  background: rgba(83, 83, 83, 0.7);
+  transition: background-color 150ms ease, text-shadow 150ms ease;
+}
+#bookingFormPageWrapper .container .form-outer .form .services__service:hover {
+  text-shadow: 1px 1px 1px #535353;
+  background: #6d6d6d;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar {
+  flex-grow: 1;
+  max-height: 72%;
+  font-family: Verdana, sans-serif;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month {
+  flex-grow: 2;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #591c1c;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .display-month,
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .display-year {
+  margin-right: 0.6em;
+  letter-spacing: 3px;
+  font-size: 1em;
+  text-transform: uppercase;
+  color: #f0f0f0;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month, #bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month {
+  position: absolute;
+  width: 3em;
+  height: 100%;
+  top: 0;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: none;
+  transition-property: background-color, color;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month:hover, #bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month:hover {
+  cursor: pointer;
+  width: 3.2em;
+  background-color: #ddd;
+  color: #535353;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month {
+  right: 0;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month.fadeIn {
+  animation: fadeIn 500ms;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .next-month.fadeOut {
+  animation: fadeOutNext 500ms;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month {
+  left: 0;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month.fadeIn {
+  animation: fadeIn 500ms;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__month .previous-month.fadeOut {
+  animation: fadeOutPrev 500ms;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__weekdays {
+  flex-grow: 1;
+  display: inline-grid;
+  grid-template-columns: repeat(7, 1fr);
+  background-color: #ddd;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__weekdays .weekday {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #686868;
+  font-size: 1em;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__days {
+  flex-grow: 4;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  column-gap: 0.125em;
+  row-gap: 0.125em;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__days * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.0625em solid #b8b8b8;
+  background-color: #f0f0f0;
+  color: #686868;
+  transition: border-color 250ms ease-in-out;
+  animation: createButton 500ms forwards;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__days *.active {
+  background-color: #701d46;
+  border-color: #701d46;
+  color: #f0f0f0;
+}
+#bookingFormPageWrapper .container .form-outer .form .calendar__days *:hover {
+  cursor: pointer;
+  border-color: #701d46;
 }
 #bookingFormPageWrapper .container .form-outer .form__page {
   position: relative;
@@ -145,12 +333,10 @@ body {
 #bookingFormPageWrapper .container .form-outer .form__page .multi-field .field label {
   margin-right: 0.2em;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns {
-  display: flex;
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container {
   width: 100%;
-  margin-top: 1em;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn {
   position: relative;
   width: 100%;
   height: 2.8em;
@@ -163,21 +349,21 @@ body {
   text-transform: uppercase;
   transition: background-color 0.5s ease;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:hover {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn:hover {
   background: #701d46;
   cursor: pointer;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn:not(:last-child) {
-  margin-right: 1em;
-}
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn--is-disabled {
   background-color: #b8b8b8;
   color: #686868;
   cursor: default;
 }
-#bookingFormPageWrapper .container .form-outer .form__page .btns__btn--is-disabled:hover {
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn--is-disabled:hover {
   background: #b8b8b8;
   cursor: default;
+}
+#bookingFormPageWrapper .container .form-outer .form__page .buttons-container .btn:not(:last-child) {
+  margin-right: 0.4em;
 }
 
 @keyframes fade-in {
@@ -213,22 +399,39 @@ body {
     width: 0;
   }
   to {
-    width: 4em;
+    width: 3em;
   }
 }
-@keyframes fadeOut {
+@keyframes fadeOutNext {
   0% {
-    width: 6em;
+    right: 0;
     background-color: #ddd;
     color: #535353;
   }
-  25% {
-    width: 6em;
+  50% {
+    right: 0;
     background-color: #591c1c;
     color: #f0f0f0;
   }
   100% {
-    width: 0;
+    right: -2em;
+    background-color: #591c1c;
+    color: #f0f0f0;
+  }
+}
+@keyframes fadeOutPrev {
+  0% {
+    left: 0;
+    background-color: #ddd;
+    color: #535353;
+  }
+  50% {
+    left: 0;
+    background-color: #591c1c;
+    color: #f0f0f0;
+  }
+  100% {
+    left: -2em;
     background-color: #591c1c;
     color: #f0f0f0;
   }
@@ -251,26 +454,6 @@ body {
   font-size: 3em;
 }
 
-#indexPageWrapper .feedback .container, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
-  display: flex;
-  flex-direction: column;
-}
-#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
-  display: flex;
-  flex-direction: row;
-}
-#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 html,
 body {
   scroll-snap-type: y proximity;
@@ -288,19 +471,33 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+#indexPageWrapper .landing .motto {
+  position: absolute;
+  height: 3em;
+  display: flex;
+  align-items: center;
+  margin-left: 1em;
+}
+#indexPageWrapper .landing .motto__logo {
+  width: 2.8em;
+  margin-right: 0.4em;
+}
+#indexPageWrapper .landing .motto__text {
+  font-weight: bold;
+}
 #indexPageWrapper .landing .navbar {
   width: 100%;
   height: 3em;
   background-color: rgba(89, 28, 28, 0.6);
-}
-#indexPageWrapper .landing .navbar:not(:last-child) {
-  margin-right: 1em;
 }
 #indexPageWrapper .landing .navbar__item {
   text-decoration: none;
   color: #f0f0f0;
   padding: 0.4em;
   transition: background-color 150ms ease;
+}
+#indexPageWrapper .landing .navbar__item:not(:last-of-type) {
+  margin-right: 0.4em;
 }
 #indexPageWrapper .landing .navbar__item:hover {
   background-color: rgba(128, 40, 40, 0.6);
@@ -312,18 +509,6 @@ body {
 }
 #indexPageWrapper .landing .navbar__item:last-of-type:hover {
   background-color: #0b0b0b;
-}
-#indexPageWrapper .landing .navbar .motto {
-  display: flex;
-  align-items: center;
-  margin-left: 1em;
-}
-#indexPageWrapper .landing .navbar .motto__logo {
-  width: 2.8em;
-  margin-right: 0.4em;
-}
-#indexPageWrapper .landing .navbar .motto__text {
-  font-weight: bold;
 }
 #indexPageWrapper .landing .navbar .mobile-menu {
   display: none;
@@ -373,7 +558,7 @@ body {
     position: absolute;
     width: 90%;
     background-color: #f0f0f0;
-    margin-top: 20em;
+    margin-top: 23.5em;
     padding: 1.6em;
     border-radius: 0.4em;
     text-align: center;
@@ -555,10 +740,20 @@ body {
     width: 100%;
   }
   #indexPageWrapper .services__slider .slides .item .book-now {
+    border: 0.125em solid #230b0b;
+    text-transform: uppercase;
+    transition: background-color 150ms ease;
+    background-color: #f0f0f0;
     padding: 0.5em 2em;
     margin-top: 1em;
-    background-color: #f0f0f0;
+    border: 0.0625em solid #424242;
     border-radius: 0.4em;
+  }
+  #indexPageWrapper .services__slider .slides .item .book-now:hover {
+    background-color: #0b0b0b;
+  }
+  #indexPageWrapper .services__slider .slides .item .book-now:hover {
+    background-color: #d7d7d7;
   }
 }
 #indexPageWrapper .services__slider .slides .item__title {
@@ -737,68 +932,91 @@ body {
 }
 
 @media only screen and (max-width: 39.9375rem) {
-  html #bookingFormPageWrapper, body #bookingFormPageWrapper {
+  html #waitingQueuePageWrapper,
+body #waitingQueuePageWrapper {
     max-height: 100vh;
     overflow-y: hidden;
     overflow-x: hidden;
   }
 }
-#bookingFormPageWrapper .container {
+#waitingQueuePageWrapper .back-to-home {
+  align-self: start;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+#waitingQueuePageWrapper .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+#waitingQueuePageWrapper .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: #424242;
+}
+#waitingQueuePageWrapper .back-to-home:hover {
+  cursor: pointer;
+}
+#waitingQueuePageWrapper .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
+}
+#waitingQueuePageWrapper .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 0;
 }
-#bookingFormPageWrapper .container .textContainer {
+#waitingQueuePageWrapper .container .textContainer {
   margin: 1em 0;
   padding: 0;
+  text-align: center;
 }
-#bookingFormPageWrapper .container .textContainer #queueSizeWrapper {
+#waitingQueuePageWrapper .container .textContainer #queueSizeWrapper {
   font-size: 1em;
 }
-#bookingFormPageWrapper .container .textContainer #queueSizeWrapper #displayQueueSize {
+#waitingQueuePageWrapper .container .textContainer #queueSizeWrapper #displayQueueSize {
   font-size: 1.4em;
   font-weight: bolder;
   margin-left: 0.2em;
 }
 @media only screen and (max-width: 39.9375rem) {
-  #bookingFormPageWrapper .container .textContainer {
+  #waitingQueuePageWrapper .container .textContainer {
     font-size: 1em;
   }
 }
-#bookingFormPageWrapper .container .textContainer > * {
+#waitingQueuePageWrapper .container .textContainer > * {
   margin: 0.2em;
   padding: 0;
 }
-#bookingFormPageWrapper .container #hairSalonContainer {
+#waitingQueuePageWrapper .container #hairSalonContainer {
   position: relative;
   margin: auto;
   padding: 0;
   overflow-x: scroll;
 }
 @media only screen and (min-width: 40rem) {
-  #bookingFormPageWrapper .container #hairSalonContainer {
+  #waitingQueuePageWrapper .container #hairSalonContainer {
     width: 40%;
   }
 }
 @media only screen and (max-width: 63.9375rem) {
-  #bookingFormPageWrapper .container #hairSalonContainer {
+  #waitingQueuePageWrapper .container #hairSalonContainer {
     width: 60%;
   }
 }
 @media only screen and (max-width: 39.9375rem) {
-  #bookingFormPageWrapper .container #hairSalonContainer {
+  #waitingQueuePageWrapper .container #hairSalonContainer {
     width: 98%;
   }
 }
-#bookingFormPageWrapper .container #hairSalonContainer #hairSalonBackground {
+#waitingQueuePageWrapper .container #hairSalonContainer #hairSalonBackground {
   width: 100%;
   margin: auto;
   padding: 0;
   z-index: 0;
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer {
   position: absolute;
   display: flex;
   width: 64%;
@@ -806,13 +1024,13 @@ body {
   left: 36%;
   bottom: 0;
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .person {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer .person {
   position: relative;
   width: 30%;
   height: 100%;
   z-index: 10;
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personArrivingWalking {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer .personArrivingWalking {
   position: relative;
   animation-name: arrivesWalking;
   animation-duration: 2s;
@@ -827,7 +1045,7 @@ body {
     left: 0;
   }
 }
-#bookingFormPageWrapper .container #hairSalonContainer #queueContainer .personWalkingAway {
+#waitingQueuePageWrapper .container #hairSalonContainer #queueContainer .personWalkingAway {
   position: relative;
   animation-name: walksAway;
   animation-duration: 1.5s;
@@ -853,6 +1071,39 @@ body {
   width: 100vw;
   height: 100vh;
   background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+#loginPageWrapper .back-to-home {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+@media only screen and (min-width: 40rem) {
+  #loginPageWrapper .back-to-home {
+    top: 4em;
+    left: 6em;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #loginPageWrapper .back-to-home {
+    top: 14%;
+    left: 32%;
+  }
+}
+#loginPageWrapper .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+#loginPageWrapper .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: #424242;
+}
+#loginPageWrapper .back-to-home:hover {
+  cursor: pointer;
+}
+#loginPageWrapper .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
 }
 #loginPageWrapper .container .title {
   margin-top: 1.2em;
@@ -892,9 +1143,15 @@ body {
   color: #f0f0f0;
   background-color: #591c1c;
   border: 0.0625em solid #1b1b1b;
+  transition: background-color 500ms ease;
   height: 2.6em;
   width: 94%;
   margin-top: 0.8em;
+  margin-bottom: 0.6em;
+}
+#loginPageWrapper .container .login-form .button:hover {
+  cursor: pointer;
+  background-color: #702323;
 }
 @media only screen and (min-width: 40rem) {
   #loginPageWrapper .container .login-form .button {
@@ -911,6 +1168,39 @@ body {
   width: 100vw;
   height: 100vh;
   background: url("mysite/static/mysite/images/booking-form-background.png"), -webkit-linear-gradient(bottom, #591c1c, #b4b4b4);
+}
+#registerPageWrapper .back-to-home {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+}
+@media only screen and (min-width: 40rem) {
+  #registerPageWrapper .back-to-home {
+    top: 4em;
+    left: 6em;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #registerPageWrapper .back-to-home {
+    top: 14%;
+    left: 32%;
+  }
+}
+#registerPageWrapper .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+#registerPageWrapper .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: #424242;
+}
+#registerPageWrapper .back-to-home:hover {
+  cursor: pointer;
+}
+#registerPageWrapper .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
 }
 #registerPageWrapper .container .title {
   margin-top: 1.2em;
@@ -950,9 +1240,15 @@ body {
   color: #f0f0f0;
   background-color: #591c1c;
   border: 0.0625em solid #1b1b1b;
+  transition: background-color 500ms ease;
   height: 2.6em;
   width: 94%;
   margin-top: 0.8em;
+  margin-bottom: 0.6em;
+}
+#registerPageWrapper .container .register-form .button:hover {
+  cursor: pointer;
+  background-color: #702323;
 }
 @media only screen and (min-width: 40rem) {
   #registerPageWrapper .container .register-form .button {

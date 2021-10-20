@@ -1,8 +1,8 @@
 @use "../abstracts/colors";
-
+@use "../base/containers";
 
 @mixin progress-bar {
-  display: flex;
+  @extend %container-row;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -10,12 +10,12 @@
 
   .step {
     position: relative;
-    min-width: 4em;
+    min-width: 3em;
     text-align: center;
 
     &__label {
       font-weight: 500;
-      font-size: 1.2em;
+      font-size: 1em;
       color: colors.$gray;
     }
     &__bullet {
@@ -23,19 +23,19 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      height: 1.4em;
-      width: 1.4em;
+      height: 1.2em;
+      width: 1.2em;
       margin: auto;
       border: 2px solid colors.$gray;
 
       border-radius: 50%;
       font-weight: 500;
-      font-size: 1.2em;
+      font-size: 1em;
       transition: 0.2s;
 
       .check {
         display: none;
-        font-size: 1em;
+        font-size: 0.8em;
         color: #fff;
 
         &--is-active {
@@ -46,7 +46,7 @@
         border-color: colors.$darkPurple;
         background: colors.$darkPurple;
 
-        .num{
+        .num {
           display: none;
         }
       }

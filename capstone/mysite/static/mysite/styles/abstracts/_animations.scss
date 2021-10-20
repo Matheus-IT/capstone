@@ -1,6 +1,5 @@
 @use "colors";
 
-
 // ------------------------------ Simple fades -------------------------------
 @keyframes fade-in {
   from {
@@ -40,29 +39,46 @@
     width: 0;
   }
   to {
-    width: 4em;
+    width: 3em;
   }
 }
-@keyframes fadeOut {
+@keyframes fadeOutNext {
   0% {
-    width: 6em;
+    right: 0;
     background-color: colors.$lightestGray;
     color: colors.$gray;
   }
-  25% {
-    width: 6em;
+  50% {
+    right: 0;
     background-color: colors.$darkRed;
     color: colors.$white;
   }
   100% {
-    width: 0;
+    right: -2em; // Button disappear on the right
+    background-color: colors.$darkRed;
+    color: colors.$white;
+  }
+}
+@keyframes fadeOutPrev {
+  0% {
+    left: 0;
+    background-color: colors.$lightestGray;
+    color: colors.$gray;
+  }
+  50% {
+    left: 0;
+    background-color: colors.$darkRed;
+    color: colors.$white;
+  }
+  100% {
+    left: -2em; // Button disappear on the left
     background-color: colors.$darkRed;
     color: colors.$white;
   }
 }
 // ---------------------------------------------------------------------------
 
-$flutteredAnimation: cubic-bezier(.68,-0.55,.27,1.55);
+$flutteredAnimation: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
 @keyframes createButton {
   from {

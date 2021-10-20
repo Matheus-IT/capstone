@@ -1,19 +1,20 @@
 let currentPage = 1;
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ----------------------- Handle animation of text area -------------------
+  // ------------ Posting new feedback - authenticated users only ------------
   const feedbackSubmit = document.querySelector("#feedback-content");
-  const heightBefore = feedbackSubmit.style.height;
-  feedbackSubmit.addEventListener("focus", function () {
+  const heightBefore = feedbackSubmit?.style?.height;
+  feedbackSubmit?.addEventListener("focus", function () {
+    this.value = "";
     this.style.height = "24.2em";
   });
-  feedbackSubmit.addEventListener("focusout", function () {
+  feedbackSubmit?.addEventListener("focusout", function () {
     this.style.height = heightBefore;
   });
-  // -------------------------------------------------------------------------
 
   const feedbackForm = document.querySelector("#submit-feedback-form");
-  feedbackForm.addEventListener("submit", handleSubmitFeedback);
+  feedbackForm?.addEventListener("submit", handleSubmitFeedback);
+  // -------------------------------------------------------------------------
 
   const buttonLoadMoreFeedbacks = document.querySelector(
     ".load-more-feedbacks"

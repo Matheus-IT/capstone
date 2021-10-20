@@ -1,52 +1,249 @@
 @use "../abstracts/globals";
 @use "../abstracts/colors";
 @use "../abstracts/breakpoints";
+@use "../base/containers";
 
 @use "../components/progressBar";
-
+@use "../components/buttons";
 
 #bookingFormPageWrapper {
-  .container {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url("/static/mysite/images/booking-form-background.png"),
+    -webkit-linear-gradient(bottom, colors.$darkRed, #b4b4b4);
+
+  @include breakpoints.breakpoint-up(medium) {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 94vh;
-    margin: 3vh auto;
-    padding: 1.6em;
+  }
+
+  .hint {
+    font-size: 0.9em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+  }
+
+  .container {
+    @extend %container-col--centered;
+    padding: 1em;
+    height: 100vh;
     background: colors.$white;
-    border-radius: 0.4em;
     font-size: 1em;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 
-    @include breakpoints.breakpoint-up(xxlarge) {
-      height: 70vh;
-      margin: 15vh auto;
+    @include breakpoints.breakpoint-up(medium) {
+      height: 90vh;
+      width: 70%;
+      border-radius: 0.4em;
     }
-    @include breakpoints.breakpoint-down(small) {
-      width: 100vw;
-      height: 100vh;
-      margin: 0;
-      font-size: 0.8em;
+    @include breakpoints.breakpoint-up(large) {
+      height: 90vh;
+      width: 38%;
+      border-radius: 0.4em;
     }
 
-    #header {
+    .back-to-home {
+      align-self: start;
+      margin-bottom: 0.4em;
+
+      @include breakpoints.breakpoint-up(medium) {
+        margin-top: 1em;
+        margin-left: 1em;
+      }
+
+      &__icon {
+        font-size: 1em;
+        transition: margin 500ms ease;
+      }
+      &__text {
+        font-size: 0.9em;
+        text-decoration: none;
+        font-style: none;
+        color: colors.$darkGray;
+      }
+
+      &:hover {
+        cursor: pointer;
+        .back-to-home__icon {
+          margin-left: -0.4em;
+        }
+      }
+    }
+
+    .header {
+      flex-grow: 1;
       font-size: 2em;
       font-weight: 600;
+      margin-bottom: 0.6em;
     }
 
-    @include progressBar.progress-bar;
+    .progress-bar {
+      flex-grow: 1;
+      margin-bottom: 0.4em;
+      @include progressBar.progress-bar;
+    }
 
     .form-outer {
-      flex-grow: 1;
+      flex-grow: 2;
       width: 100%;
-      margin-top: 1em;
       overflow: hidden;
 
       .form {
         display: flex;
         width: 400%;
         height: 100%;
+
+        .services {
+          flex-grow: 1;
+          position: relative;
+          width: 100%;
+          height: 78%;
+          overflow: auto;
+          scroll-behavior: smooth;
+          color: colors.$white;
+          margin-bottom: 1em;
+
+          background-image: linear-gradient(
+              to right,
+              hsla(0, 0%, 0%, 1),
+              hsla(0, 0%, 45%, 0.8)
+            ),
+            url(/static/mysite/images/booking-form-service-background.jpg);
+          background-size: cover;
+          background-blend-mode: darken;
+
+          &__service {
+            list-style: none;
+            width: max-content;
+            margin: 1em;
+            padding: 0.4em;
+            border-radius: 0.2em;
+            background: rgba(colors.$gray, 0.7);
+            transition: background-color 150ms ease, text-shadow 150ms ease;
+
+            &:hover {
+              text-shadow: 1px 1px 1px colors.$gray;
+              background: lighten(colors.$gray, 10%);
+            }
+          }
+        }
+
+        .calendar {
+          flex-grow: 1;
+          @extend %container-col;
+          max-height: 72%;
+          font-family: Verdana, sans-serif;
+
+          &__month {
+            flex-grow: 2;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: colors.$darkRed;
+
+            .display-month,
+            .display-year {
+              margin-right: 0.6em;
+              letter-spacing: 3px;
+              font-size: 1em;
+              text-transform: uppercase;
+              color: colors.$white;
+            }
+
+            %button-go-to-month {
+              position: absolute;
+              width: 3em;
+              height: 100%;
+              top: 0;
+
+              color: colors.$white;
+              background-color: colors.$darkRed;
+              border: none;
+              transition-property: background-color, color;
+              transition-duration: 500ms;
+              transition-timing-function: ease;
+
+              &:hover {
+                cursor: pointer;
+                width: 3.2em;
+                background-color: colors.$lightestGray;
+                color: colors.$gray;
+              }
+            }
+
+            .next-month {
+              @extend %button-go-to-month;
+              right: 0;
+
+              &.fadeIn {
+                animation: fadeIn 500ms;
+              }
+              &.fadeOut {
+                animation: fadeOutNext 500ms;
+              }
+            }
+
+            .previous-month {
+              @extend %button-go-to-month;
+              left: 0;
+
+              &.fadeIn {
+                animation: fadeIn 500ms;
+              }
+
+              &.fadeOut {
+                animation: fadeOutPrev 500ms;
+              }
+            }
+          }
+          &__weekdays {
+            flex-grow: 1;
+            display: inline-grid;
+            grid-template-columns: repeat(7, 1fr);
+            background-color: colors.$lightestGray;
+
+            .weekday {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: colors.$lightGray;
+              font-size: 1em;
+            }
+          }
+          &__days {
+            flex-grow: 4;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            column-gap: 0.125em;
+            row-gap: 0.125em;
+
+            * {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 0.0625em solid colors.$midLightGray;
+              background-color: colors.$white;
+              color: colors.$lightGray;
+              transition: border-color 250ms ease-in-out;
+              animation: createButton 500ms forwards;
+
+              &.active {
+                background-color: colors.$darkPurple;
+                border-color: colors.$darkPurple;
+                color: colors.$white;
+              }
+              &:hover {
+                cursor: pointer;
+                border-color: colors.$darkPurple;
+              }
+            }
+          }
+        }
 
         &__page {
           position: relative;
@@ -95,42 +292,15 @@
               }
             }
           }
-          .btns {
-            display: flex;
+          .buttons-container {
+            @extend %container-row;
             width: 100%;
-            margin-top: 1em;
 
-            &__btn {
-              position: relative;
-              width: 100%;
-              height: 2.8em;
-              border: none;
-              border-radius: 0.2em;
+            .btn {
+              @include buttons.btn;
 
-              background: colors.$darkRed;
-              color: colors.$white;
-
-              font-size: 1.2em;
-              font-weight: 500;
-              text-transform: uppercase;
-              transition: background-color 0.5s ease;
-
-              &:hover {
-                background: colors.$darkPurple;
-                cursor: pointer;
-              }
-              &:not(:last-child){
-                margin-right: 1em;
-              }
-              &--is-disabled {
-                background-color: colors.$midLightGray;
-                color: colors.$lightGray;
-                cursor: default;
-
-                &:hover {
-                  background: colors.$midLightGray;
-                  cursor: default;
-                }
+              &:not(:last-child) {
+                margin-right: 0.4em;
               }
             }
           }
