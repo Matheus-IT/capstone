@@ -92,10 +92,10 @@
     <div id="slider" class="services__slider">
       <div id="slides" class="slides">
         {% for service in services %}
-        <li class="item">
+        <li id="serv{{ forloop.count }}" class="item">
           <h4 class="item__title">{{ service.title }}</h4>
           <p class="item__description">{{ service.description }}</p>
-          <a class="book-now" href="{% url 'mysite:booking_form' %}">Book</a>
+          <a class="book-now" href="{% url 'mysite:booking_form' service_id=service.id %}">Book</a>
         </li>
         {% endfor %}
       </div>

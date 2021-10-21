@@ -54,38 +54,47 @@ def password_matches_confirmation(fields: dict):
 def index(request):
     services: list(str) = [
         {
+            'id': 1,
             'title': 'Classic Cut $30 - 30minutes',
             'description': 'Relax while your barber achieves your tailored look. If you’re looking for a bald fade or if your hair is currently longer than earlobe length please book from our other options.',
         },
         {
+            'id': 2,
             'title': 'Skin Fade $40 - 45minutes',
             'description': 'Also known as a bald fade or a zero fade, this service requires a little extra time. Hair is faded from skin or “0” length to your desired length on top.',
         },
         {
+            'id': 3,
             'title': 'Cut & Beard Trim $48 - 45min',
             'description': 'Combination of a classic cut and beard/mustache shaping.',
         },
         {
+            'id': 4,
             'title': 'Skin Fade & Beard Trim $55 - 1hr',
             'description': 'Combination of skin fade and beard/mustache shaping.',
         },
         {
+            'id': 5,
             'title': 'Long Cut $60 - 1hr',
             'description': 'If your hair is currently past your ear lobes, this is the service for you; whether you’re keeping your long locks or chopping them off for a new look.',
         },
         {
+            'id': 6,
             'title': 'Beard Trim $20 - 30min',
             'description': 'Let your barber apply their artistry to help you create the perfectly shaped beard or mustache style you envision.',
         },
         {
+            'id': 7,
             'title': 'Buzz $20 - 15min',
             'description': 'Ask for a buzz cut if you\'re looking for a no-nonsense low maintenance look at a uniform length as close as you\'d like.',
         },
         {
+            'id': 8,
             'title': 'Shave $33 - 30min',
             'description': 'Experience a traditional hot towel shave with a straight razor and warm shaving cream that will leave your face smooth to the touch.',
         },
         {
+            'id': 9,
             'title': 'Buzz & Beard Trim $40 - 45min',
             'description': 'Combination of single length buzz cut and beard/mustache shaping. ',
         },
@@ -154,46 +163,62 @@ def waiting_queue(request):
     )
 
 
-def booking_form(request):
+def booking_form(request, service_id: int):
     services: list(str) = [
         {
+            'id': 1,
             'title': 'Classic Cut $30 - 30minutes',
             'description': 'Relax while your barber achieves your tailored look. If you’re looking for a bald fade or if your hair is currently longer than earlobe length please book from our other options.',
         },
         {
+            'id': 2,
             'title': 'Skin Fade $40 - 45minutes',
             'description': 'Also known as a bald fade or a zero fade, this service requires a little extra time. Hair is faded from skin or “0” length to your desired length on top.',
         },
         {
+            'id': 3,
             'title': 'Cut & Beard Trim $48 - 45min',
             'description': 'Combination of a classic cut and beard/mustache shaping.',
         },
         {
+            'id': 4,
             'title': 'Skin Fade & Beard Trim $55 - 1hr',
             'description': 'Combination of skin fade and beard/mustache shaping.',
         },
         {
+            'id': 5,
             'title': 'Long Cut $60 - 1hr',
             'description': 'If your hair is currently past your ear lobes, this is the service for you; whether you’re keeping your long locks or chopping them off for a new look.',
         },
         {
+            'id': 6,
             'title': 'Beard Trim $20 - 30min',
             'description': 'Let your barber apply their artistry to help you create the perfectly shaped beard or mustache style you envision.',
         },
         {
+            'id': 7,
             'title': 'Buzz $20 - 15min',
             'description': 'Ask for a buzz cut if you\'re looking for a no-nonsense low maintenance look at a uniform length as close as you\'d like.',
         },
         {
+            'id': 8,
             'title': 'Shave $33 - 30min',
             'description': 'Experience a traditional hot towel shave with a straight razor and warm shaving cream that will leave your face smooth to the touch.',
         },
         {
+            'id': 9,
             'title': 'Buzz & Beard Trim $40 - 45min',
             'description': 'Combination of single length buzz cut and beard/mustache shaping. ',
         },
     ]
-    return render(request, 'mysite/bookingForm.html', {'services': services})
+
+    print(f'Chosen service {service_id}')
+
+    return render(
+        request,
+        'mysite/bookingForm.html',
+        {'services': services, 'chosen_service_id': service_id},
+    )
 
 
 @require_http_methods(["GET", "POST"])

@@ -9,7 +9,7 @@
 }
 
 body {
-  color: #424242;
+  color: #2d2d2d;
 }
 
 ::selection {
@@ -97,7 +97,7 @@ body {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #bookingFormPageWrapper .container .back-to-home:hover {
   cursor: pointer;
@@ -571,12 +571,12 @@ body {
   #indexPageWrapper .landing .navbar .mobile-menu__item {
     display: block;
     padding: 0.6em;
-    color: #424242;
+    color: #2d2d2d;
     text-decoration: none;
     text-transform: uppercase;
   }
   #indexPageWrapper .landing .navbar .mobile-menu__item:hover, #indexPageWrapper .landing .navbar .mobile-menu__item:focus {
-    box-shadow: 0 0 3px #424242;
+    box-shadow: 0 0 3px #2d2d2d;
   }
   #indexPageWrapper .landing .navbar .mobile-menu__item:last-of-type {
     border: 0.125em solid #230b0b;
@@ -602,7 +602,7 @@ body {
     bottom: 0;
     left: 0;
     z-index: 0;
-    background-image: linear-gradient(#424242, transparent);
+    background-image: linear-gradient(#2d2d2d, transparent);
   }
   #indexPageWrapper .landing .navbar .fade-in {
     animation: fade-in 200ms ease-in-out forwards;
@@ -735,31 +735,31 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(66, 66, 66, 0.8);
+  background-color: rgba(45, 45, 45, 0.8);
   border-radius: 0.4em;
   padding: 0.6em;
+}
+#indexPageWrapper .services__slider .slides .item .book-now {
+  border: 0.125em solid #230b0b;
+  text-transform: uppercase;
+  transition: background-color 150ms ease;
+  background-color: #f0f0f0;
+  color: #1b1b1b;
+  text-decoration: none;
+  padding: 0.5em 2em;
+  margin-top: 1em;
+  border: 0.0625em solid #2d2d2d;
+  border-radius: 0.4em;
+}
+#indexPageWrapper .services__slider .slides .item .book-now:hover {
+  background-color: #0b0b0b;
+}
+#indexPageWrapper .services__slider .slides .item .book-now:hover {
+  background-color: #d7d7d7;
 }
 @media only screen and (max-width: 39.9375rem) {
   #indexPageWrapper .services__slider .slides .item {
     width: 100%;
-  }
-  #indexPageWrapper .services__slider .slides .item .book-now {
-    border: 0.125em solid #230b0b;
-    text-transform: uppercase;
-    transition: background-color 150ms ease;
-    background-color: #f0f0f0;
-    color: #1b1b1b;
-    text-decoration: none;
-    padding: 0.5em 2em;
-    margin-top: 1em;
-    border: 0.0625em solid #424242;
-    border-radius: 0.4em;
-  }
-  #indexPageWrapper .services__slider .slides .item .book-now:hover {
-    background-color: #0b0b0b;
-  }
-  #indexPageWrapper .services__slider .slides .item .book-now:hover {
-    background-color: #d7d7d7;
   }
 }
 #indexPageWrapper .services__slider .slides .item__title {
@@ -776,7 +776,7 @@ body {
   padding: 4.2em 0.6em;
   top: 41.5%;
   color: #f0f0f0;
-  background-color: rgba(66, 66, 66, 0.9);
+  background-color: rgba(45, 45, 45, 0.9);
 }
 @media only screen and (max-width: 39.9375rem) {
   #indexPageWrapper .services__slider .navigation-button {
@@ -785,7 +785,7 @@ body {
 }
 #indexPageWrapper .services__slider .navigation-button:hover {
   cursor: pointer;
-  background-color: rgba(92, 92, 92, 0.9);
+  background-color: rgba(71, 71, 71, 0.9);
 }
 #indexPageWrapper .services__slider .navigation-button.left {
   left: 1.6em;
@@ -915,7 +915,7 @@ body {
   border-color: #ddd #ddd transparent transparent;
 }
 #indexPageWrapper .feedback .container .feedback__posts .post__author {
-  color: #424242;
+  color: #2d2d2d;
   font-size: 1em;
   text-align: left;
 }
@@ -958,7 +958,7 @@ body #waitingQueuePageWrapper {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #waitingQueuePageWrapper .back-to-home:hover {
   cursor: pointer;
@@ -1103,7 +1103,7 @@ body #waitingQueuePageWrapper {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #loginPageWrapper .back-to-home:hover {
   cursor: pointer;
@@ -1200,7 +1200,7 @@ body #waitingQueuePageWrapper {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #registerPageWrapper .back-to-home:hover {
   cursor: pointer;

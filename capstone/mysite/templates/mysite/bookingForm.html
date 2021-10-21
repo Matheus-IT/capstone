@@ -52,9 +52,13 @@
 
           <ul class="services">
             {% for service in services %}
-            <li class="services__service">
-              <label for="serv0">{{ service.title }}</label>
-              <input class="inputInf" type="radio" id="serv{{ forloop.counter }}" name="service" value="0">
+            <li id="serv{{ forloop.counter }}" class="services__service">
+              <label for="serv{{ forloop.counter }}">{{ service.title }}</label>
+              {% if service.id == chosen_service_id %}
+              <input class="inputInf" type="radio" name="serv{{ forloop.counter }}" checked>
+              {% else %}
+              <input class="inputInf" type="radio" name="serv{{ forloop.counter }}">
+              {% endif %}
             </li>
             {% endfor %}
           </ul>
