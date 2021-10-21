@@ -301,18 +301,18 @@ body {
           border-radius: 0.4em;
           padding: 0.6em;
 
+          .book-now {
+            @include buttons.book-now--secondary;
+            color: colors.$black;
+            text-decoration: none;
+            padding: 0.5em 2em;
+            margin-top: 1em;
+            border: 0.0625em solid colors.$darkGray;
+            border-radius: 0.4em;
+          }
+
           @include breakpoints.breakpoint-down(small) {
             width: 100%;
-
-            .book-now {
-              @include buttons.book-now--secondary;
-              color: colors.$black;
-              text-decoration: none;
-              padding: 0.5em 2em;
-              margin-top: 1em;
-              border: 0.0625em solid colors.$darkGray;
-              border-radius: 0.4em;
-            }
           }
 
           &__title {
