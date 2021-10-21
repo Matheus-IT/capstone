@@ -498,13 +498,13 @@ body {
 
     @include breakpoints.breakpoint-up(medium) {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       grid-template-rows: auto;
       justify-items: center;
       grid-template-areas:
-        "site-logo    .      ."
-        "social-icons . staff-button"
-        "copy         .      .";
+        "site-logo      hours      location     staff-button"
+        "social-icons   hours      location     staff-button"
+        "copy             .           .              .      ";
     }
 
     .motto {
@@ -521,9 +521,10 @@ body {
       &__text {
         font-size: 1em;
         color: colors.$white;
+        width: max-content;
 
         @include breakpoints.breakpoint-up(medium) {
-          font-size: 3em;
+          font-size: 2em;
         }
       }
     }
@@ -534,6 +535,10 @@ body {
       width: 50%;
       margin-bottom: 1em;
 
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+
       &__icon {
         color: colors.$white;
         font-size: 2em;
@@ -541,34 +546,60 @@ body {
     }
     .hours {
       @extend %container-col--centered;
+      grid-area: hours;
       color: colors.$white;
       background-color: unset;
       height: auto;
       padding: 0;
       margin-bottom: 0.4em;
 
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+
       .title {
         @extend %subtitle;
         font-size: 1.1em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1.6em;
+        }
       }
       .description {
         font-size: 0.8em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1em;
+        }
       }
     }
     .location {
       @extend %container-col--centered;
+      grid-area: location;
       color: colors.$white;
       background-color: unset;
       height: auto;
       padding: 0;
       margin-bottom: 1em;
 
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+
       .title {
         @extend %subtitle;
         font-size: 1.1em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1.6em;
+        }
       }
       .description {
         font-size: 0.8em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1em;
+        }
       }
     }
     .staff-button {
@@ -579,6 +610,10 @@ body {
       background-color: colors.$darkRed;
       border: 0.065em solid colors.$white;
       margin-bottom: 0.6em;
+
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
     }
     .copy {
       font-size: 0.6em;

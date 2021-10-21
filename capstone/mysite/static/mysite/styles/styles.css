@@ -960,10 +960,10 @@ body {
 @media only screen and (min-width: 40rem) {
   #indexPageWrapper .footer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     justify-items: center;
-    grid-template-areas: "site-logo    .      ." "social-icons . staff-button" "copy         .      .";
+    grid-template-areas: "site-logo      hours      location     staff-button" "social-icons   hours      location     staff-button" "copy             .           .              .      ";
   }
 }
 #indexPageWrapper .footer .motto__logo {
@@ -978,10 +978,11 @@ body {
 #indexPageWrapper .footer .motto__text {
   font-size: 1em;
   color: #f0f0f0;
+  width: max-content;
 }
 @media only screen and (min-width: 40rem) {
   #indexPageWrapper .footer .motto__text {
-    font-size: 3em;
+    font-size: 2em;
   }
 }
 #indexPageWrapper .footer .social-icons {
@@ -990,35 +991,72 @@ body {
   width: 50%;
   margin-bottom: 1em;
 }
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .social-icons {
+    margin: 0;
+  }
+}
 #indexPageWrapper .footer .social-icons__icon {
   color: #f0f0f0;
   font-size: 2em;
 }
 #indexPageWrapper .footer .hours {
+  grid-area: hours;
   color: #f0f0f0;
   background-color: unset;
   height: auto;
   padding: 0;
   margin-bottom: 0.4em;
 }
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .hours {
+    margin: 0;
+  }
+}
 #indexPageWrapper .footer .hours .title {
   font-size: 1.1em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .hours .title {
+    font-size: 1.6em;
+  }
 }
 #indexPageWrapper .footer .hours .description {
   font-size: 0.8em;
 }
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .hours .description {
+    font-size: 1em;
+  }
+}
 #indexPageWrapper .footer .location {
+  grid-area: location;
   color: #f0f0f0;
   background-color: unset;
   height: auto;
   padding: 0;
   margin-bottom: 1em;
 }
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .location {
+    margin: 0;
+  }
+}
 #indexPageWrapper .footer .location .title {
   font-size: 1.1em;
 }
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .location .title {
+    font-size: 1.6em;
+  }
+}
 #indexPageWrapper .footer .location .description {
   font-size: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .location .description {
+    font-size: 1em;
+  }
 }
 #indexPageWrapper .footer .staff-button {
   grid-area: staff-button;
@@ -1028,6 +1066,11 @@ body {
   background-color: #591c1c;
   border: 0.065em solid #f0f0f0;
   margin-bottom: 0.6em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .staff-button {
+    margin: 0;
+  }
 }
 #indexPageWrapper .footer .copy {
   font-size: 0.6em;
