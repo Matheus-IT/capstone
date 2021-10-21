@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-outer">
-      <form class="form" action="#">
+      <form id="multiStepsForm" class="form" action="{% url 'mysite:index' %}">
         <div id="startingPage" class="selectService form__page">
           <p class="hint">
             <i class="far fa-lightbulb"></i>Select the service:
@@ -152,7 +152,7 @@
 
           <div class="buttons-container">
             <button id="previousPage" class="btn">Previous</button>
-            <button id="submit" class="btn">Submit</button>
+            <button id="submit" class="btn" type="submit">Submit</button>
           </div>
         </div>
       </form>

@@ -81,6 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
         newButton.addEventListener("click", (event) =>
           this.handleSelectDay(event)
         );
+
+        if (i == this.date.getDate()) {
+          newButton.classList.add("active");
+        }
+
         this.daysArea.append(newButton);
         await this.sleep(15);
       }
