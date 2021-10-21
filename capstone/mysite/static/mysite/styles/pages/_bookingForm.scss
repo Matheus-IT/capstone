@@ -250,6 +250,18 @@
             }
           }
         }
+        .field {
+          .title {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          .inputInf {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
 
         &__page {
           position: relative;

@@ -296,6 +296,12 @@ body {
   cursor: pointer;
   border-color: #701d46;
 }
+#bookingFormPageWrapper .container .form-outer .form .field .title:hover {
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .form-outer .form .field .inputInf:hover {
+  cursor: pointer;
+}
 #bookingFormPageWrapper .container .form-outer .form__page {
   position: relative;
   display: flex;
