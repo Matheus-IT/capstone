@@ -152,7 +152,10 @@
     </div>
   </div>
   <div id="footer" class="footer">
-    <img class="site-logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
+    <div class="motto">
+      <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
+      <p class="motto__text">Barber Shop</p>
+    </div>
 
     <div class="social-icons">
       <i class="social-icons__icon fab fa-instagram-square"></i>
@@ -160,11 +163,25 @@
       <i class="social-icons__icon fab fa-twitter-square"></i>
     </div>
 
-    <div class="copy">
-      &copy;2021 Barber Shop
+    <div class="hours">
+      <p class="title">hours</p>
+      <p class="description">
+        Tues-Fri 9:00am-8:00pm <br>
+        Sat 9:00am-3:00pm <br>
+        Closed Sun
+      </p>
+    </div>
+
+    <div class="location">
+      <p class="title">location</p>
+      <p class="description">Av. São Sebastião 999, Parnaíba, Brazil</p>
     </div>
 
     <a class="staff-button" href="{% url 'controlqueue:restrict' %}">Staff area</a>
+
+    <div class="copy">
+      &copy;2021 Barber Shop
+    </div>
   </div>
 </div>
 {% endblock %}

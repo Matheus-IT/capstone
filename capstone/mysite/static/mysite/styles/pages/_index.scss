@@ -492,33 +492,98 @@ body {
   .footer {
     @include sections.snap-section;
     @extend %container-col--centered;
-    justify-content: space-evenly;
-    height: 40vh;
+    height: min-content;
     scroll-snap-align: end;
     background: colors.$darkGray;
 
+    @include breakpoints.breakpoint-up(medium) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      justify-items: center;
+      grid-template-areas:
+        "site-logo    .      ."
+        "social-icons . staff-button"
+        "copy         .      .";
+    }
+
+    .motto {
+      @extend %container-row--centered;
+
+      &__logo {
+        grid-area: site-logo;
+        width: 4em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          width: 8em;
+        }
+      }
+      &__text {
+        font-size: 1em;
+        color: colors.$white;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 3em;
+        }
+      }
+    }
     .social-icons {
       @extend %container-row--centered;
+      grid-area: social-icons;
       justify-content: space-evenly;
       width: 50%;
+      margin-bottom: 1em;
 
       &__icon {
         color: colors.$white;
         font-size: 2em;
       }
     }
-    .copy {
+    .hours {
+      @extend %container-col--centered;
       color: colors.$white;
+      background-color: unset;
+      height: auto;
+      padding: 0;
+      margin-bottom: 0.4em;
+
+      .title {
+        @extend %subtitle;
+        font-size: 1.1em;
+      }
+      .description {
+        font-size: 0.8em;
+      }
     }
-    .site-logo {
-      width: 5em;
+    .location {
+      @extend %container-col--centered;
+      color: colors.$white;
+      background-color: unset;
+      height: auto;
+      padding: 0;
+      margin-bottom: 1em;
+
+      .title {
+        @extend %subtitle;
+        font-size: 1.1em;
+      }
+      .description {
+        font-size: 0.8em;
+      }
     }
     .staff-button {
+      grid-area: staff-button;
       text-decoration: none;
       padding: 0.4em;
       color: colors.$white;
       background-color: colors.$darkRed;
       border: 0.065em solid colors.$white;
+      margin-bottom: 0.6em;
+    }
+    .copy {
+      font-size: 0.6em;
+      grid-area: copy;
+      color: colors.$white;
     }
   }
 }
