@@ -91,57 +91,13 @@
 
     <div id="slider" class="services__slider">
       <div id="slides" class="slides">
-        <li class="item">
-          <h4 class="item__title">Classic Cut $30 - 30minutes</h4>
-          <p class="item__description">Relax while your barber achieves your tailored look. If you’re looking for a
-            bald fade or if your hair is currently longer than earlobe length please book from our other options.</p>
-          <button class="book-now hideForDesktop">Book</button>
+        {% for service in services %}
+        <li id="serv{{ forloop.count }}" class="item">
+          <h4 class="item__title">{{ service.title }}</h4>
+          <p class="item__description">{{ service.description }}</p>
+          <a class="book-now" href="{% url 'mysite:booking_form' service_id=service.id %}">Book</a>
         </li>
-        <li class="item">
-          <h4 class="item__title">Skin Fade $40 - 45minutes</h4>
-          <p class="item__description">Also known as a bald fade or a zero fade, this service requires a little extra
-            time. Hair is faded from skin or “0” length to your desired length on top.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Cut &amp; Beard Trim $48 - 45min</h4>
-          <p class="item__description">Combination of a classic cut and beard/mustache shaping.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Skin Fade &amp; Beard Trim $55 - 1hr</h4>
-          <p class="item__description">Combination of skin fade and beard/mustache shaping.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Long Cut $60 - 1hr</h4>
-          <p class="item__description">If your hair is currently past your ear lobes, this is the service for you;
-            whether you’re keeping your long locks or chopping them off for a new look.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Beard Trim $20 - 30min</h4>
-          <p class="item__description">Let your barber apply their artistry to help you create the perfectly shaped
-            beard or mustache style you envision.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Buzz $20 - 15min</h4>
-          <p class="item__description">Ask for a buzz cut if you're looking for a no-nonsense low maintenance look at
-            a uniform length as close as you'd like.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Shave $33 - 30min</h4>
-          <p class="item__description">Experience a traditional hot towel shave with a straight razor and warm shaving
-            cream that will leave your face smooth to the touch.</p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
-        <li class="item">
-          <h4 class="item__title">Buzz &amp; Beard Trim $40 - 45min</h4>
-          <p class="item__description">Combination of single length buzz cut and beard/mustache shaping. </p>
-          <button class="book-now hideForDesktop">Book</button>
-        </li>
+        {% endfor %}
       </div>
 
       <!-- Navigation buttons for larger devices designs -->
@@ -194,7 +150,38 @@
 
       <button class="load-more-feedbacks">. . .</button>
     </div>
+  </div>
+  <div id="footer" class="footer">
+    <div class="motto">
+      <img class="motto__logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
+      <p class="motto__text">Barber Shop</p>
+    </div>
 
+    <div class="social-icons">
+      <i class="social-icons__icon fab fa-instagram-square"></i>
+      <i class="social-icons__icon fab fa-facebook-square"></i>
+      <i class="social-icons__icon fab fa-twitter-square"></i>
+    </div>
+
+    <div class="hours">
+      <p class="title">hours</p>
+      <p class="description">
+        Tues-Fri 9:00am-8:00pm <br>
+        Sat 9:00am-3:00pm <br>
+        Closed Sun
+      </p>
+    </div>
+
+    <div class="location">
+      <p class="title">location</p>
+      <p class="description">Av. São Sebastião 999, Parnaíba, Brazil</p>
+    </div>
+
+    <a class="staff-button" href="{% url 'controlqueue:restrict' %}">Staff area</a>
+
+    <div class="copy">
+      &copy;2021 Barber Shop
+    </div>
   </div>
 </div>
 {% endblock %}

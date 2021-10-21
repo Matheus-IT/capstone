@@ -127,6 +127,12 @@
             &:hover {
               text-shadow: 1px 1px 1px colors.$gray;
               background: lighten(colors.$gray, 10%);
+              cursor: pointer;
+
+              .inputInf,
+              .title {
+                cursor: pointer;
+              }
             }
           }
         }
@@ -241,6 +247,18 @@
                 cursor: pointer;
                 border-color: colors.$darkPurple;
               }
+            }
+          }
+        }
+        .field {
+          .title {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          .inputInf {
+            &:hover {
+              cursor: pointer;
             }
           }
         }

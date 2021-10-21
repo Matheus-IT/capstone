@@ -15,6 +15,10 @@ body {
   scroll-snap-type: y proximity;
 }
 
+.noScroll {
+  overflow-y: hidden;
+}
+
 #indexPageWrapper {
   .landing {
     @include sections.snap-section;
@@ -297,16 +301,18 @@ body {
           border-radius: 0.4em;
           padding: 0.6em;
 
+          .book-now {
+            @include buttons.book-now--secondary;
+            color: colors.$black;
+            text-decoration: none;
+            padding: 0.5em 2em;
+            margin-top: 1em;
+            border: 0.0625em solid colors.$darkGray;
+            border-radius: 0.4em;
+          }
+
           @include breakpoints.breakpoint-down(small) {
             width: 100%;
-
-            .book-now {
-              @include buttons.book-now--secondary;
-              padding: 0.5em 2em;
-              margin-top: 1em;
-              border: 0.0625em solid colors.$darkGray;
-              border-radius: 0.4em;
-            }
           }
 
           &__title {
@@ -385,7 +391,7 @@ body {
 
       width: 100%;
       height: 80%;
-      justify-content: space-between;
+      justify-content: space-around;
       align-items: center;
 
       .feedback-form {
@@ -481,6 +487,138 @@ body {
       .load-more-feedbacks {
         @include buttons.load-more-feedbacks;
       }
+    }
+  }
+  .footer {
+    @include sections.snap-section;
+    @extend %container-col--centered;
+    height: min-content;
+    scroll-snap-align: end;
+    background: colors.$darkGray;
+
+    @include breakpoints.breakpoint-up(medium) {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto;
+      justify-items: center;
+      grid-template-areas:
+        "site-logo      hours      location     staff-button"
+        "social-icons   hours      location     staff-button"
+        "copy             .           .              .      ";
+    }
+
+    .motto {
+      @extend %container-row--centered;
+
+      &__logo {
+        grid-area: site-logo;
+        width: 4em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          width: 8em;
+        }
+      }
+      &__text {
+        font-size: 1em;
+        color: colors.$white;
+        width: max-content;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 2em;
+        }
+      }
+    }
+    .social-icons {
+      @extend %container-row--centered;
+      grid-area: social-icons;
+      justify-content: space-evenly;
+      width: 50%;
+      margin-bottom: 1em;
+
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+
+      &__icon {
+        color: colors.$white;
+        font-size: 2em;
+      }
+    }
+    .hours {
+      @extend %container-col--centered;
+      grid-area: hours;
+      color: colors.$white;
+      background-color: unset;
+      height: auto;
+      padding: 0;
+      margin-bottom: 0.4em;
+
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+
+      .title {
+        @extend %subtitle;
+        font-size: 1.1em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1.6em;
+        }
+      }
+      .description {
+        font-size: 0.8em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1em;
+        }
+      }
+    }
+    .location {
+      @extend %container-col--centered;
+      grid-area: location;
+      color: colors.$white;
+      background-color: unset;
+      height: auto;
+      padding: 0;
+      margin-bottom: 1em;
+
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+
+      .title {
+        @extend %subtitle;
+        font-size: 1.1em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1.6em;
+        }
+      }
+      .description {
+        font-size: 0.8em;
+
+        @include breakpoints.breakpoint-up(medium) {
+          font-size: 1em;
+        }
+      }
+    }
+    .staff-button {
+      grid-area: staff-button;
+      text-decoration: none;
+      padding: 0.4em;
+      color: colors.$white;
+      background-color: colors.$darkRed;
+      border: 0.065em solid colors.$white;
+      margin-bottom: 0.6em;
+
+      @include breakpoints.breakpoint-up(medium) {
+        margin: 0;
+      }
+    }
+    .copy {
+      font-size: 0.6em;
+      grid-area: copy;
+      color: colors.$white;
     }
   }
 }

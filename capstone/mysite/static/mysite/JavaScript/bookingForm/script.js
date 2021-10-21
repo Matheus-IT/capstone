@@ -39,16 +39,6 @@ class MultiStepsForm {
     this.previousButtons.forEach((prevBtn) => {
       prevBtn.onclick = this.handleGoPreviousStep;
     });
-
-    this.submitBtn.addEventListener("click", () => {
-      this.currentBullet.classList.add("step__bullet--is-active");
-      this.currentProgressCheck.classList.add("check--is-active");
-      this.currentPage++;
-      setTimeout(function () {
-        alert("Your Form Successfully Signed up");
-        location.reload();
-      }, 1000);
-    });
   }
 
   disableButton(btn) {

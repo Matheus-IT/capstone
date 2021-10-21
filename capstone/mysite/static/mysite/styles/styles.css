@@ -9,7 +9,7 @@
 }
 
 body {
-  color: #424242;
+  color: #2d2d2d;
 }
 
 ::selection {
@@ -17,23 +17,23 @@ body {
   background: #591c1c;
 }
 
-#indexPageWrapper .feedback .container, #bookingFormPageWrapper .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
+#indexPageWrapper .feedback .container, #bookingFormPageWrapper .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #indexPageWrapper .footer, #indexPageWrapper .footer .hours, #indexPageWrapper .footer .location, #bookingFormPageWrapper .container {
   display: flex;
   flex-direction: column;
 }
 
-#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #indexPageWrapper .footer, #indexPageWrapper .footer .hours, #indexPageWrapper .footer .location, #bookingFormPageWrapper .container {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-#bookingFormPageWrapper .container .progress-bar, #bookingFormPageWrapper .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+#bookingFormPageWrapper .container .progress-bar, #bookingFormPageWrapper .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post, #indexPageWrapper .footer .motto, #indexPageWrapper .footer .social-icons {
   display: flex;
   flex-direction: row;
 }
 
-#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post, #indexPageWrapper .footer .motto, #indexPageWrapper .footer .social-icons {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -97,7 +97,7 @@ body {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #bookingFormPageWrapper .container .back-to-home:hover {
   cursor: pointer;
@@ -193,6 +193,11 @@ body {
 #bookingFormPageWrapper .container .form-outer .form .services__service:hover {
   text-shadow: 1px 1px 1px #535353;
   background: #6d6d6d;
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .form-outer .form .services__service:hover .inputInf,
+#bookingFormPageWrapper .container .form-outer .form .services__service:hover .title {
+  cursor: pointer;
 }
 #bookingFormPageWrapper .container .form-outer .form .calendar {
   flex-grow: 1;
@@ -290,6 +295,12 @@ body {
 #bookingFormPageWrapper .container .form-outer .form .calendar__days *:hover {
   cursor: pointer;
   border-color: #701d46;
+}
+#bookingFormPageWrapper .container .form-outer .form .field .title:hover {
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .form-outer .form .field .inputInf:hover {
+  cursor: pointer;
 }
 #bookingFormPageWrapper .container .form-outer .form__page {
   position: relative;
@@ -444,19 +455,23 @@ body {
     width: 100%;
   }
 }
-#registerPageWrapper .container .title, #loginPageWrapper .container .title, #indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
+#registerPageWrapper .container .title, #loginPageWrapper .container .title, #indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle, #indexPageWrapper .footer .hours .title, #indexPageWrapper .footer .location .title {
   font-weight: 500;
   font-size: 4em;
   font-family: "Source Sans Pro", sans-serif;
 }
 
-#indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle {
+#indexPageWrapper .location__subtitle, #indexPageWrapper .services__subtitle, #indexPageWrapper .services__slider .slides .item__title, #indexPageWrapper .feedback__subtitle, #indexPageWrapper .footer .hours .title, #indexPageWrapper .footer .location .title {
   font-size: 3em;
 }
 
 html,
 body {
   scroll-snap-type: y proximity;
+}
+
+.noScroll {
+  overflow-y: hidden;
 }
 
 #indexPageWrapper .landing {
@@ -567,12 +582,12 @@ body {
   #indexPageWrapper .landing .navbar .mobile-menu__item {
     display: block;
     padding: 0.6em;
-    color: #424242;
+    color: #2d2d2d;
     text-decoration: none;
     text-transform: uppercase;
   }
   #indexPageWrapper .landing .navbar .mobile-menu__item:hover, #indexPageWrapper .landing .navbar .mobile-menu__item:focus {
-    box-shadow: 0 0 3px #424242;
+    box-shadow: 0 0 3px #2d2d2d;
   }
   #indexPageWrapper .landing .navbar .mobile-menu__item:last-of-type {
     border: 0.125em solid #230b0b;
@@ -598,7 +613,7 @@ body {
     bottom: 0;
     left: 0;
     z-index: 0;
-    background-image: linear-gradient(#424242, transparent);
+    background-image: linear-gradient(#2d2d2d, transparent);
   }
   #indexPageWrapper .landing .navbar .fade-in {
     animation: fade-in 200ms ease-in-out forwards;
@@ -731,29 +746,31 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(66, 66, 66, 0.8);
+  background-color: rgba(45, 45, 45, 0.8);
   border-radius: 0.4em;
   padding: 0.6em;
+}
+#indexPageWrapper .services__slider .slides .item .book-now {
+  border: 0.125em solid #230b0b;
+  text-transform: uppercase;
+  transition: background-color 150ms ease;
+  background-color: #f0f0f0;
+  color: #1b1b1b;
+  text-decoration: none;
+  padding: 0.5em 2em;
+  margin-top: 1em;
+  border: 0.0625em solid #2d2d2d;
+  border-radius: 0.4em;
+}
+#indexPageWrapper .services__slider .slides .item .book-now:hover {
+  background-color: #0b0b0b;
+}
+#indexPageWrapper .services__slider .slides .item .book-now:hover {
+  background-color: #d7d7d7;
 }
 @media only screen and (max-width: 39.9375rem) {
   #indexPageWrapper .services__slider .slides .item {
     width: 100%;
-  }
-  #indexPageWrapper .services__slider .slides .item .book-now {
-    border: 0.125em solid #230b0b;
-    text-transform: uppercase;
-    transition: background-color 150ms ease;
-    background-color: #f0f0f0;
-    padding: 0.5em 2em;
-    margin-top: 1em;
-    border: 0.0625em solid #424242;
-    border-radius: 0.4em;
-  }
-  #indexPageWrapper .services__slider .slides .item .book-now:hover {
-    background-color: #0b0b0b;
-  }
-  #indexPageWrapper .services__slider .slides .item .book-now:hover {
-    background-color: #d7d7d7;
   }
 }
 #indexPageWrapper .services__slider .slides .item__title {
@@ -770,7 +787,7 @@ body {
   padding: 4.2em 0.6em;
   top: 41.5%;
   color: #f0f0f0;
-  background-color: rgba(66, 66, 66, 0.9);
+  background-color: rgba(45, 45, 45, 0.9);
 }
 @media only screen and (max-width: 39.9375rem) {
   #indexPageWrapper .services__slider .navigation-button {
@@ -779,7 +796,7 @@ body {
 }
 #indexPageWrapper .services__slider .navigation-button:hover {
   cursor: pointer;
-  background-color: rgba(92, 92, 92, 0.9);
+  background-color: rgba(71, 71, 71, 0.9);
 }
 #indexPageWrapper .services__slider .navigation-button.left {
   left: 1.6em;
@@ -828,7 +845,7 @@ body {
 #indexPageWrapper .feedback .container {
   width: 100%;
   height: 80%;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 #indexPageWrapper .feedback .container .feedback-form {
@@ -909,7 +926,7 @@ body {
   border-color: #ddd #ddd transparent transparent;
 }
 #indexPageWrapper .feedback .container .feedback__posts .post__author {
-  color: #424242;
+  color: #2d2d2d;
   font-size: 1em;
   text-align: left;
 }
@@ -929,6 +946,136 @@ body {
 #indexPageWrapper .feedback .container .load-more-feedbacks:hover {
   width: 5.2em;
   cursor: pointer;
+}
+#indexPageWrapper .footer {
+  width: 100%;
+  height: 100vh;
+  padding: 1em;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  height: min-content;
+  scroll-snap-align: end;
+  background: #2d2d2d;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    justify-items: center;
+    grid-template-areas: "site-logo      hours      location     staff-button" "social-icons   hours      location     staff-button" "copy             .           .              .      ";
+  }
+}
+#indexPageWrapper .footer .motto__logo {
+  grid-area: site-logo;
+  width: 4em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .motto__logo {
+    width: 8em;
+  }
+}
+#indexPageWrapper .footer .motto__text {
+  font-size: 1em;
+  color: #f0f0f0;
+  width: max-content;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .motto__text {
+    font-size: 2em;
+  }
+}
+#indexPageWrapper .footer .social-icons {
+  grid-area: social-icons;
+  justify-content: space-evenly;
+  width: 50%;
+  margin-bottom: 1em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .social-icons {
+    margin: 0;
+  }
+}
+#indexPageWrapper .footer .social-icons__icon {
+  color: #f0f0f0;
+  font-size: 2em;
+}
+#indexPageWrapper .footer .hours {
+  grid-area: hours;
+  color: #f0f0f0;
+  background-color: unset;
+  height: auto;
+  padding: 0;
+  margin-bottom: 0.4em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .hours {
+    margin: 0;
+  }
+}
+#indexPageWrapper .footer .hours .title {
+  font-size: 1.1em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .hours .title {
+    font-size: 1.6em;
+  }
+}
+#indexPageWrapper .footer .hours .description {
+  font-size: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .hours .description {
+    font-size: 1em;
+  }
+}
+#indexPageWrapper .footer .location {
+  grid-area: location;
+  color: #f0f0f0;
+  background-color: unset;
+  height: auto;
+  padding: 0;
+  margin-bottom: 1em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .location {
+    margin: 0;
+  }
+}
+#indexPageWrapper .footer .location .title {
+  font-size: 1.1em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .location .title {
+    font-size: 1.6em;
+  }
+}
+#indexPageWrapper .footer .location .description {
+  font-size: 0.8em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .location .description {
+    font-size: 1em;
+  }
+}
+#indexPageWrapper .footer .staff-button {
+  grid-area: staff-button;
+  text-decoration: none;
+  padding: 0.4em;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: 0.065em solid #f0f0f0;
+  margin-bottom: 0.6em;
+}
+@media only screen and (min-width: 40rem) {
+  #indexPageWrapper .footer .staff-button {
+    margin: 0;
+  }
+}
+#indexPageWrapper .footer .copy {
+  font-size: 0.6em;
+  grid-area: copy;
+  color: #f0f0f0;
 }
 
 @media only screen and (max-width: 39.9375rem) {
@@ -952,7 +1099,7 @@ body #waitingQueuePageWrapper {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #waitingQueuePageWrapper .back-to-home:hover {
   cursor: pointer;
@@ -1097,7 +1244,7 @@ body #waitingQueuePageWrapper {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #loginPageWrapper .back-to-home:hover {
   cursor: pointer;
@@ -1194,7 +1341,7 @@ body #waitingQueuePageWrapper {
   font-size: 0.9em;
   text-decoration: none;
   font-style: none;
-  color: #424242;
+  color: #2d2d2d;
 }
 #registerPageWrapper .back-to-home:hover {
   cursor: pointer;

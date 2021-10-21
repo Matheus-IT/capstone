@@ -44,49 +44,23 @@
     </div>
 
     <div class="form-outer">
-      <form class="form" action="#">
+      <form id="multiStepsForm" class="form" action="{% url 'mysite:index' %}">
         <div id="startingPage" class="selectService form__page">
           <p class="hint">
             <i class="far fa-lightbulb"></i>Select the service:
           </p>
 
           <ul class="services">
-            <li class="services__service">
-              <label for="serv0">Classic Cut $30 - 30minutes</label>
-              <input class="inputInf" type="radio" id="serv0" name="service" value="0">
+            {% for service in services %}
+            <li id="serv{{ forloop.counter }}" class="services__service">
+              <label class="title" for="input{{ forloop.counter }}">{{ service.title }}</label>
+              {% if service.id == chosen_service_id %}
+              <input id="input{{ forloop.counter }}" class="inputInf" type="radio" name="serv{{ forloop.counter }}" checked>
+              {% else %}
+              <input id="input{{ forloop.counter }}" class="inputInf" type="radio" name="serv{{ forloop.counter }}">
+              {% endif %}
             </li>
-            <li class="services__service">
-              <label for="serv1">Cut & Beard Trim $48 - 45min</label>
-              <input class="inputInf" type="radio" id="serv1" name="service" value="1">
-            </li>
-            <li class="services__service">
-              <label for="serv2">Skin Fade $40 - 45minutes</label>
-              <input class="inputInf" type="radio" id="serv2" name="service" value="2">
-            </li>
-            <li class="services__service">
-              <label for="serv3">Skin Fade & Beard Trim $55 - 1hr</label>
-              <input class="inputInf" type="radio" id="serv3" name="service" value="3">
-            </li>
-            <li class="services__service">
-              <label for="serv4">Long Cut $60 - 1hr</label>
-              <input class="inputInf" type="radio" id="serv4" name="service" value="4">
-            </li>
-            <li class="services__service">
-              <label for="serv5">Buzz $20 - 15min</label>
-              <input class="inputInf" type="radio" id="serv5" name="service" value="5">
-            </li>
-            <li class="services__service">
-              <label for="serv6">Buzz & Beard Trim $40 - 45min</label>
-              <input class="inputInf" type="radio" id="serv6" name="service" value="6">
-            </li>
-            <li class="services__service">
-              <label for="serv7">Beard Trim $20 - 30min</label>
-              <input class="inputInf" type="radio" id="serv7" name="service" value="7">
-            </li>
-            <li class="services__service">
-              <label for="serv8">Shave $33 - 30min</label>
-              <input class="inputInf" type="radio" id="serv8" name="service" value="8">
-            </li>
+            {% endfor %}
           </ul>
 
           <div class="buttons-container">
@@ -131,12 +105,12 @@
           </p>
           <div class="multi-field">
             <div class="field">
-              <label for="period0">Morning</label>
+              <label class="title" for="period0">Morning</label>
               <input class="inputInf" type="radio" id="period0" name="period" value="morning">
             </div>
 
             <div class="field">
-              <label for="period1">Afternoon</label>
+              <label class="title" for="period1">Afternoon</label>
               <input class="inputInf" type="radio" id="period1" name="period" value="afternoon">
             </div>
           </div>
@@ -178,7 +152,7 @@
 
           <div class="buttons-container">
             <button id="previousPage" class="btn">Previous</button>
-            <button id="submit" class="btn">Submit</button>
+            <button id="submit" class="btn" type="submit">Submit</button>
           </div>
         </div>
       </form>
