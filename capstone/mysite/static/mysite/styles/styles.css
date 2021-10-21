@@ -17,23 +17,23 @@ body {
   background: #591c1c;
 }
 
-#indexPageWrapper .feedback .container, #bookingFormPageWrapper .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
+#indexPageWrapper .feedback .container, #bookingFormPageWrapper .container .form-outer .form .calendar, #registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #indexPageWrapper .footer, #bookingFormPageWrapper .container {
   display: flex;
   flex-direction: column;
 }
 
-#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #bookingFormPageWrapper .container {
+#registerPageWrapper .container, #registerPageWrapper .container .register-form, #loginPageWrapper .container, #loginPageWrapper .container .login-form, #indexPageWrapper .location, #indexPageWrapper .location .container, #indexPageWrapper .services, #indexPageWrapper .feedback, #indexPageWrapper .footer, #bookingFormPageWrapper .container {
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-#bookingFormPageWrapper .container .progress-bar, #bookingFormPageWrapper .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+#bookingFormPageWrapper .container .progress-bar, #bookingFormPageWrapper .container .form-outer .form__page .buttons-container, #indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post, #indexPageWrapper .footer .social-icons {
   display: flex;
   flex-direction: row;
 }
 
-#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post {
+#indexPageWrapper .landing .navbar, #indexPageWrapper .feedback .container .feedback__posts .post, #indexPageWrapper .footer .social-icons {
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -946,6 +946,38 @@ body {
 #indexPageWrapper .feedback .container .load-more-feedbacks:hover {
   width: 5.2em;
   cursor: pointer;
+}
+#indexPageWrapper .footer {
+  width: 100%;
+  height: 100vh;
+  padding: 1em;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  justify-content: space-evenly;
+  height: 40vh;
+  scroll-snap-align: end;
+  background: #2d2d2d;
+}
+#indexPageWrapper .footer .social-icons {
+  justify-content: space-evenly;
+  width: 50%;
+}
+#indexPageWrapper .footer .social-icons__icon {
+  color: #f0f0f0;
+  font-size: 2em;
+}
+#indexPageWrapper .footer .copy {
+  color: #f0f0f0;
+}
+#indexPageWrapper .footer .site-logo {
+  width: 5em;
+}
+#indexPageWrapper .footer .staff-button {
+  text-decoration: none;
+  padding: 0.4em;
+  color: #f0f0f0;
+  background-color: #591c1c;
+  border: 0.065em solid #f0f0f0;
 }
 
 @media only screen and (max-width: 39.9375rem) {

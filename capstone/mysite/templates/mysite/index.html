@@ -150,7 +150,21 @@
 
       <button class="load-more-feedbacks">. . .</button>
     </div>
+  </div>
+  <div id="footer" class="footer">
+    <img class="site-logo" src="{% static 'mysite/images/indexPage/moustache-white.png' %}" alt="">
 
+    <div class="social-icons">
+      <i class="social-icons__icon fab fa-instagram-square"></i>
+      <i class="social-icons__icon fab fa-facebook-square"></i>
+      <i class="social-icons__icon fab fa-twitter-square"></i>
+    </div>
+
+    <div class="copy">
+      &copy;2021 Barber Shop
+    </div>
+
+    <a class="staff-button" href="{% url 'controlqueue:restrict' %}">Staff area</a>
   </div>
 </div>
 {% endblock %}

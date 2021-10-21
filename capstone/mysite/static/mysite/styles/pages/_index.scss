@@ -489,4 +489,36 @@ body {
       }
     }
   }
+  .footer {
+    @include sections.snap-section;
+    @extend %container-col--centered;
+    justify-content: space-evenly;
+    height: 40vh;
+    scroll-snap-align: end;
+    background: colors.$darkGray;
+
+    .social-icons {
+      @extend %container-row--centered;
+      justify-content: space-evenly;
+      width: 50%;
+
+      &__icon {
+        color: colors.$white;
+        font-size: 2em;
+      }
+    }
+    .copy {
+      color: colors.$white;
+    }
+    .site-logo {
+      width: 5em;
+    }
+    .staff-button {
+      text-decoration: none;
+      padding: 0.4em;
+      color: colors.$white;
+      background-color: colors.$darkRed;
+      border: 0.065em solid colors.$white;
+    }
+  }
 }

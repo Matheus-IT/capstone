@@ -15,7 +15,11 @@ DEBUG = True
 
 import socket
 
-ALLOWED_HOSTS = ['localhost', socket.gethostbyname(socket.gethostname())]
+ALLOWED_HOSTS = [
+    'localhost',
+    socket.gethostbyname(socket.gethostname()),
+    '192.168.1.67',
+]
 
 
 # Application definition
