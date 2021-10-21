@@ -163,7 +163,7 @@ def waiting_queue(request):
     )
 
 
-def booking_form(request, service_id: int):
+def booking_form(request, service_id: int = None):
     services: list(str) = [
         {
             'id': 1,

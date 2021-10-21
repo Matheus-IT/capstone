@@ -193,6 +193,11 @@ body {
 #bookingFormPageWrapper .container .form-outer .form .services__service:hover {
   text-shadow: 1px 1px 1px #535353;
   background: #6d6d6d;
+  cursor: pointer;
+}
+#bookingFormPageWrapper .container .form-outer .form .services__service:hover .inputInf,
+#bookingFormPageWrapper .container .form-outer .form .services__service:hover .title {
+  cursor: pointer;
 }
 #bookingFormPageWrapper .container .form-outer .form .calendar {
   flex-grow: 1;
