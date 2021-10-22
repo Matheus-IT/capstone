@@ -1,1 +1,1 @@
-web: uvicorn capstone.asgi --log-file -
+web: uvicorn capstone.asgi
