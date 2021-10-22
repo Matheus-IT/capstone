@@ -18,7 +18,8 @@ import socket
 ALLOWED_HOSTS = [
     'localhost',
     socket.gethostbyname(socket.gethostname()),
-    '.vercel.app',
+    '*.vercel.app',
+    '*.herokuapp.com',
 ]
 
 
