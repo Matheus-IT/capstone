@@ -18,7 +18,7 @@ import socket
 ALLOWED_HOSTS = [
     'localhost',
     socket.gethostbyname(socket.gethostname()),
-    '192.168.1.67',
+    '.vercel.app',
 ]
 
 
