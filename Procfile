@@ -1,1 +1,1 @@
-web: uvicorn capstone.asgi:application --reload --port 8000 --host 0.0.0.0
+web: uvicorn capstone.asgi:application --reload --port $PORT --host 0.0.0.0
