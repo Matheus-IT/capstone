@@ -24,4 +24,5 @@ sqlparse
 Twisted
 txaio
 uvicorn
+whitenoise
 zope.interface
