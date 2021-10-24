@@ -9,16 +9,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ta&%3048e=ds)_aq=y!c)z_28gx-e+zie)dx6f@p$0vdhvgc_$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
     socket.gethostbyname(socket.gethostname()),
-    'capstonematheuscosta.herokuapp.com/',
+    'capstonematheuscosta.herokuapp.com',
 ]
 
 INSTALLED_APPS = [
-    'fontawesome-free',
+    'fontawesomefree',
     'channels',
     'controlqueue.apps.ControlqueueConfig',
     'mysite.apps.MysiteConfig',

@@ -8,7 +8,7 @@ constantly
 cryptography
 daphne
 Django
-fontawesome-free
+fontawesomefree
 hyperlink
 idna
 incremental
