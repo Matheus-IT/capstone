@@ -8,6 +8,7 @@ constantly
 cryptography
 daphne
 Django
+django-heroku
 fontawesomefree
 hyperlink
 idna
