@@ -10,13 +10,12 @@
     {% block title %} Hair Salon {% endblock %}
   </title>
   <link rel="stylesheet" href="{% static 'mysite/styles/styles.css' %}">
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
   {% block adicional_in_head %}
   {% endblock %}
 </head>
-
-<body>
-  {% block content %}
-  {% endblock %}
-</body>
-
+  <body>
+    {% block content %}
+    {% endblock %}
+  </body>
 </html>

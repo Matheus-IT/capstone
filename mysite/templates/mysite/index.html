@@ -2,13 +2,11 @@
 {% load static %}
 
 {% block adicional_in_head %}
-<link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-
 <script type="text/javascript">
   // Global variables
   const userImagePath = "{% static 'mysite/images/indexPage/user.png' %}";
 
-    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+  // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
   let vh = window.innerHeight * 0.01;
   // Then we set the value in the --vh custom property to the root of the document
   document.documentElement.style.setProperty('--vh', `${vh}px`);

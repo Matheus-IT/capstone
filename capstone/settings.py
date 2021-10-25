@@ -17,15 +17,15 @@ import socket
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     socket.gethostbyname(socket.gethostname()),
-    '192.168.1.67',
 ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'fontawesome-free',
+    'fontawesomefree',
     'channels',
     'controlqueue.apps.ControlqueueConfig',
     'mysite.apps.MysiteConfig',
