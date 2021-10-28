@@ -105,6 +105,8 @@ This project was planned based on an idea @Matheus-IT had, therefore it is compl
     <img src="./demo/home-mobile.png" alt="Demo Mobile" height="600">
     <figcaption>Design from a mobile prospective</figcaption>
 </figure>
+<br>
+<br>
 
 In addition to that, to deliver a good user experience in a barber shop / hair salon a nice website is not always enough. Based on a personal experience, most of the time when someone goes to a hair salon is spent a significant amount of time waiting for other people to get their hair cut.
 
