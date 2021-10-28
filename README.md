@@ -1,3 +1,9 @@
+<style>
+    summary {
+        cursor: pointer;
+    }
+</style>
+
 # Capstone
 
 The final project of CS50W (Python and Javascript)
@@ -7,12 +13,12 @@ The final project of CS50W (Python and Javascript)
 \* Obs: Python version used in this project: 3.9.1
 
 <details>
-<summary style="cursor: pointer">Linux:</summary>
+<summary>Linux:</summary>
 In the root directory of the project, you can create a virtual environment using  <code>python3 -m venv venv</code> , then running <code>source venv/bin/activate</code> will activate the virtual environment. To install all the dependencies this project requires run <code>pip3 install -r requirements.txt</code>, you should see a message saying that everything was installed.
 </details>
 
 <details>
-<summary style="cursor: pointer">Windows:</summary>
+<summary>Windows:</summary>
 In the root directory of the project, you can create a virtual environment using  <code>python3 -m venv venv</code>, then running <code>venv\Scripts\activate.bat</code> will activate the virtual environment. To install all the dependencies this project requires run <code>pip install -r requirements.txt</code>, you should see a message saying that everything was installed.
 
 ---
@@ -37,6 +43,121 @@ And then I tried again `pip install -r requirements.txt`, the installation was c
 </details>
 
 <details>
-<summary style="cursor: pointer">Mac</summary>
+<summary>Mac</summary>
 I couldn't test on Mac OS, but the steps might be the same as the ones for <strong>linux</strong>.
 </details>
+
+---
+
+```
+├── capstone/  -> core application
+│   ├── asgi.py  -> asgi interface configuration
+│   ├── settings.py
+│   └── urls.py  -> global urls mapping
+├── controlqueue/  -> app to control the interactive queue size
+│   ├── migrations/
+│   │   └── 0001_initial.py
+│   ├── static/
+│   │   └── controlqueue/
+│   │       ├── JavaScript/
+│   │       │   └── adminQueueControl.js  -> interaction for queue size control
+│   │       └── styles/
+│   │           ├── _globals.scss  -> global styles for the queue control
+│   │           ├── _mixins.scss  -> breakpoints for screens
+│   │           ├── _restrict.scss  -> styles for restrict warning
+│   │           └── styles.scss  -> styles to be rendered by sass
+│   ├── templates/
+│   │   └── controlqueue/
+│   │       ├── base.html  -> base for templates
+│   │       ├── noticeAdminOnly.html  -> markup for warning admin users only
+│   │       └── restrict.html  -> markup for restrict area of control queue
+│   ├── tests/
+│   │   └── test_views.py  -> tests for views and queue control behavior
+│   ├── admin.py
+│   ├── apps.py
+│   ├── consumers.py  -> it's like the views, but for websocket connections
+│   ├── models.py  -> application modules, which contains the queue module
+│   ├── routing.py  -> similar to urls but for websocket routing
+│   ├── urls.py  -> url mapping for real time queue page and else related
+│   └── views.py  -> views for http requests
+├── demo/  -> example images readme file on github
+│   ├── home-desktop.png  -> home for desktop design
+│   └── home-mobile.png  -> home for mobile design
+├── mysite/  -> main app to manage the website as a whole
+│   ├── migrations/
+│   │   ├── 0001_initial.py
+│   │   ├── 0002_userfeedback.py
+│   │   └── 0003_userfeedback_created_at.py
+│   ├── static/
+│   │   └── mysite/
+│   │       ├── images/
+│   │       │   ├── indexPage/
+│   │       │   │   ├── feedback-background.jpg  -> background of feedback section
+│   │       │   │   ├── landing-background.jpg  -> background of home page section
+│   │       │   │   ├── location-map.png  -> static image to represent location
+│   │       │   │   ├── logo-white.png  -> logo of home page
+│   │       │   │   ├── moustache-white.png  -> website logo
+│   │       │   │   ├── services-background.jpg  -> used for services section
+│   │       │   │   └── user.png  -> representation of user logo
+│   │       │   ├── booking-form-background.png  -> background for booking form
+│   │       │   ├── booking-form-service-background.jpg  -> used in step "choose service"
+│   │       │   ├── hairSalon.png  -> salon picture for the real time queue
+│   │       │   ├── person.png  -> person waiting in line
+│   │       │   └── person-walking.gif  -> walking to show queue progress
+│   │       ├── JavaScript/
+│   │       │   ├── bookingForm/
+│   │       │   │   ├── calendar.js  -> calendar for booking form date
+│   │       │   │   └── script.js  -> general script for booking form
+│   │       │   ├── indexPage/
+│   │       │   │   ├── feedbackInteractivity.js  -> give and load user feedback
+│   │       │   │   ├── hamburgerMenu.js  -> mobile menu for home page
+│   │       │   │   └── servicesSection.js  -> services carousel
+│   │       │   ├── handleQueue.js  -> waiting queue page interaction
+│   │       │   └── index.js  -> handlers for receiving updates of real time queue
+│   │       └── styles/
+│   │           ├── abstracts/
+│   │           │   ├── _animations.scss  -> global animations
+│   │           │   ├── _breakpoints.scss  -> adjust different screen sizes
+│   │           │   ├── _colors.scss  -> application colors pallet
+│   │           │   ├── _globals.scss  -> general styles
+│   │           │   └── _index.scss  -> file to spread the modules of sass
+│   │           ├── base/
+│   │           │   ├── _atomicStyles.scss  -> atomic styles used in components
+│   │           │   ├── _containers.scss  -> base containers
+│   │           │   ├── _index.scss  -> file to spread the modules of sass
+│   │           │   └── _typography.scss  -> typography related for components
+│   │           ├── components/
+│   │           │   ├── _buttons.scss  -> buttons to be used with components
+│   │           │   ├── _index.scss  -> file to spread the modules of sass
+│   │           │   └── _progressBar.scss  -> progress bar for booking form
+│   │           ├── layout/
+│   │           │   └── sections.scss  -> base styles for website sections
+│   │           ├── pages/
+│   │           │   ├── _bookingForm.scss  -> booking form page styles
+│   │           │   ├── _index.scss  -> styles for the index page (or home page)
+│   │           │   ├── _login.scss  -> styles for the login page
+│   │           │   ├── _register.scss  -> styles for the register page
+│   │           │   └── _waitingQueue.scss  -> styles for the waiting queue page
+│   │           ├── vendors/
+│   │           │   └── _fonts.scss  -> external fonts
+│   │           └── styles.scss  -> sass file to be compiled to css
+│   ├── templates/
+│   │   └── mysite/
+│   │       ├── base.html  -> base template
+│   │       ├── bookingForm.html  -> booking form page
+│   │       ├── index.html  -> index page
+│   │       ├── login.html  -> login page
+│   │       ├── register.html  -> register page
+│   │       └── waiting_queue.html  -> waiting queue page
+│   ├── tests/
+│   │   └── test_views.py  -> tests for the website views and api endpoints
+│   ├── admin.py
+│   ├── apps.py
+│   ├── forms.py  -> forms to be rendered on the templates
+│   ├── models.py  -> app models
+│   ├── urls.py  -> urls to mysite
+│   └── views.py  -> website views and api endpoints
+├── manage.py
+├── README.md  -> readme file with the instructions
+└── requirements.txt  -> file that contains the project dependencies
+```
