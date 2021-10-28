@@ -100,6 +100,8 @@ This project was planned based on an idea @Matheus-IT had, therefore it is compl
     <img src="./demo/home-desktop.png" alt="Demo Desktop" width="700">
     <figcaption>Design from a desktop prospective</figcaption>
 </figure>
+<br>
+<br>
 
 <figure>
     <img src="./demo/home-mobile.png" alt="Demo Mobile" height="600">
@@ -114,6 +116,8 @@ In addition to that, to deliver a good user experience in a barber shop / hair s
     <img src="./demo/queue.png" alt="Demo real-time queue" height="600">
     <figcaption>Real-time queue</figcaption>
 </figure>
+<br>
+<br>
 
 <figure>
     <img src="./demo/queueControl.png" alt="Demo queue control" height="600">
