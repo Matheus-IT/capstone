@@ -4,17 +4,20 @@
     }
 </style>
 
-# Capstone
-
-The final project of CS50W (Python and Javascript)
-
-## Installation
+# Installation
 
 \* Obs: Python version used in this project: 3.9.1
 
 <details>
 <summary>Linux:</summary>
-In the root directory of the project, you can create a virtual environment using  <code>python3 -m venv venv</code> , then running <code>source venv/bin/activate</code> will activate the virtual environment. To install all the dependencies this project requires run <code>pip3 install -r requirements.txt</code>, you should see a message saying that everything was installed.
+First of all let's clone the repository:
+
+```
+git clone https://github.com/Matheus-IT/capstone.git
+```
+
+In the root directory of the project, you can create a virtual environment using <code>python3 -m venv venv</code> , then running <code>source venv/bin/activate</code> will activate the virtual environment. To install all the dependencies this project requires run <code>pip3 install -r requirements.txt</code>, you should see a message saying that everything was installed.
+
 </details>
 
 <details>
@@ -46,24 +49,38 @@ And then I tried again `pip install -r requirements.txt`, the installation was c
 <summary>Mac</summary>
 I couldn't test on Mac OS, but the steps might be the same as the ones for <strong>linux</strong>.
 </details>
+<br>
+<br>
 
 ---
 
 # Distinctiveness and Complexity
 
-This project was planned based on an idea @Matheus-IT had, therefore it is completely different than the other projects in this course, but using the knowledge that was acquire throughout the course. The idea was to create a website for a barber shop / hair salon which would be responsive to mobile and desktop designs, and focused on creating a better user interface and experience. In addition to that, to deliver a good user experience in a barber shop / hair salon a nice website is not always enough. Based on a personal experience, most of the time when someone goes to a hair salon is spent a significant amount of time waiting for other people to get their hair cut.
+This project was planned based on an idea @Matheus-IT had, therefore it is completely different than the other projects in this course, but using the knowledge that was acquire throughout the course. The idea was to create a website for a barber shop / hair salon which would be responsive to mobile and desktop designs, and focused on creating a better user interface and experience.
 
-<img src="./demo/home-desktop.png" alt="Demo Desktop" width="700">
+<figure>
+    <img src="./demo/home-desktop.png" alt="Demo Desktop" width="700">
+    <figcaption>Design from a desktop prospective</figcaption>
+</figure>
 
-_Design from a desktop prospective_
+<figure>
+    <img src="./demo/home-mobile.png" alt="Demo Mobile" height="600">
+    <figcaption>Design from a mobile prospective</figcaption>
+</figure>
 
-<img src="./demo/home-mobile.png" alt="Demo Mobile" height="600">
+In addition to that, to deliver a good user experience in a barber shop / hair salon a nice website is not always enough. Based on a personal experience, most of the time when someone goes to a hair salon is spent a significant amount of time waiting for other people to get their hair cut.
 
-_Design from a mobile prospective_
+<figure>
+    <img src="./demo/queue.png" alt="Demo real-time queue" height="600">
+    <figcaption>Real-time queue</figcaption>
+</figure>
 
-<img src="./demo/queue.png" alt="Demo real-time queue" height="600">
-
-_Real-time queue_
+<figure>
+    <img src="./demo/queueControl.png" alt="Demo queue control" height="600">
+    <figcaption>Real-time queue size control</figcaption>
+</figure>
+<br>
+<br>
 
 ---
 
@@ -180,4 +197,23 @@ _Real-time queue_
 ├── manage.py
 ├── README.md  -> readme file with the instructions
 └── requirements.txt  -> file that contains the project dependencies
+```
+
+<br>
+<br>
+
+---
+
+# Running the app
+
+To run the application is required to have passed through the [installation step](#installation). With that out of the way, we need to apply the migrations:
+
+```
+python3 manage.py migrate
+```
+
+Then just run the server:
+
+```
+python3 manage.py runserver
 ```
