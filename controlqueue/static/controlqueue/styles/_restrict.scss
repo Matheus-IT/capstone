@@ -19,15 +19,6 @@
     margin-top: 1.6em;
     margin-left: 1.4em;
 
-    @include breakpoint-up(medium) {
-      margin-top: 4em;
-      margin-left: 6em;
-    }
-    @include breakpoint-up(large) {
-      margin-top: 14%;
-      margin-left: 32%;
-    }
-
     &__icon {
       font-size: 1em;
       transition: margin 500ms ease;
