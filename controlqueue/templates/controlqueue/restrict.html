@@ -5,7 +5,6 @@
 {% block title %} Restrict area {% endblock %}
 
 {% block adicional_in_head %}
-	<script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
 	<script src="{% static 'controlqueue/JavaScript/adminQueueControl.js' %}"></script>
 {% endblock %}
 
@@ -13,6 +12,11 @@
 	<span id="room-name" hidden>{{ room_name }}</span>
 
 	<div class="container control">
+		<div class="back-to-home">
+			<i class="fas fa-chevron-left back-to-home__icon"></i>
+			<a class="back-to-home__text" href="{% url 'mysite:index' %}">Back to home</a>
+		</div>
+
 		<h1 id="mainMessage">Control increase (+) <br> or decrease (-) the queue</h1>
 
 		<h2 id="queueSizeWrapper">

@@ -13,8 +13,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     socket.gethostbyname(socket.gethostname()),
-    'capstonematheuscosta.herokuapp.com',
 ]
 
 INSTALLED_APPS = [
