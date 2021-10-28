@@ -1,52 +1,86 @@
 .container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-	text-align: center;
-	max-width: 25em;
-	min-height: 90vh;
-	max-height: 90vh;
-	margin: auto;
-	margin-top: 1.6em;
-	padding: 1em;
+  text-align: center;
+  max-width: 25em;
+  min-height: 90vh;
+  max-height: 90vh;
+  margin: auto;
+  margin-top: 1.6em;
+  padding: 1em;
 
-	border-radius: 0.4em;
-	box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 0.4em;
+  box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.12);
 
-	@include breakpoint-down(small) {
-		margin-top: 1em;
-		padding-top: 1em;
+  .back-to-home {
+    align-self: start;
+    margin-top: 1.6em;
+    margin-left: 1.4em;
 
-		#mainMessage {
-			font-size: 1.4em;
-			margin-bottom: 0;
-		}
-	}
+    @include breakpoint-up(medium) {
+      margin-top: 4em;
+      margin-left: 6em;
+    }
+    @include breakpoint-up(large) {
+      margin-top: 14%;
+      margin-left: 32%;
+    }
 
-	#displayQueueSize {
-		font-size: 1.2em;
-	}
+    &__icon {
+      font-size: 1em;
+      transition: margin 500ms ease;
+    }
+    &__text {
+      font-size: 0.9em;
+      text-decoration: none;
+      font-style: none;
+      color: gray;
+    }
 
-	.icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		position: static;
-		padding: 0.2em;
-		height: 1em;
+    &:hover {
+      cursor: pointer;
+      .back-to-home__icon {
+        margin-left: -0.4em;
+      }
+    }
+  }
 
-		background-color: rgb(93, 156, 156);
-		border: solid rgb(93, 156, 156);
-		border-radius: 0.2em;
+  @include breakpoint-down(small) {
+    margin-top: 1em;
+    padding-top: 1em;
 
-		&:not(:last-child) {
-			margin-bottom: 0.1em;
-		}
+    #mainMessage {
+      font-size: 1.4em;
+      margin-bottom: 0;
+    }
+  }
 
-		&:hover, .icon:active {
-			cursor: pointer;
-			border: solid rgb(66, 66, 66);
-		}
-	}
+  #displayQueueSize {
+    font-size: 1.2em;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: static;
+    padding: 0.2em;
+    height: 1em;
+
+    background-color: rgb(93, 156, 156);
+    border: solid rgb(93, 156, 156);
+    border-radius: 0.2em;
+
+    &:not(:last-child) {
+      margin-bottom: 0.1em;
+    }
+
+    &:hover,
+    .icon:active {
+      cursor: pointer;
+      border: solid rgb(66, 66, 66);
+    }
+  }
 }
