@@ -1,9 +1,3 @@
-<style>
-    summary {
-        cursor: pointer;
-    }
-</style>
-
 # Installation
 
 \* Obs: Python version used in this project: 3.9.1
