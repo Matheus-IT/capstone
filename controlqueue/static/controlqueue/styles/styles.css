@@ -17,6 +17,27 @@ body {
   border-radius: 0.4em;
   box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.12);
 }
+.container .back-to-home {
+  align-self: start;
+  margin-top: 1.6em;
+  margin-left: 1.4em;
+}
+.container .back-to-home__icon {
+  font-size: 1em;
+  transition: margin 500ms ease;
+}
+.container .back-to-home__text {
+  font-size: 0.9em;
+  text-decoration: none;
+  font-style: none;
+  color: gray;
+}
+.container .back-to-home:hover {
+  cursor: pointer;
+}
+.container .back-to-home:hover .back-to-home__icon {
+  margin-left: -0.4em;
+}
 @media only screen and (max-width: 39.9375rem) {
   .container {
     margin-top: 1em;
@@ -44,7 +65,8 @@ body {
 .container .icon:not(:last-child) {
   margin-bottom: 0.1em;
 }
-.container .icon:hover, .container .icon .icon:active {
+.container .icon:hover,
+.container .icon .icon:active {
   cursor: pointer;
   border: solid #424242;
 }

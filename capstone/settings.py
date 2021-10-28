@@ -9,12 +9,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ta&%3048e=ds)_aq=y!c)z_28gx-e+zie)dx6f@p$0vdhvgc_$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     socket.gethostbyname(socket.gethostname()),
-    'capstonematheuscosta.herokuapp.com',
 ]
 
 INSTALLED_APPS = [
@@ -32,7 +32,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,8 +57,6 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'capstone.wsgi.application'
 
 ASGI_APPLICATION = 'capstone.asgi.application'
 
