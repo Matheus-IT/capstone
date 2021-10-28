@@ -10,19 +10,63 @@
 
 <details>
 <summary>Linux:</summary>
+
 First of all let's clone the repository:
 
 ```
 git clone https://github.com/Matheus-IT/capstone.git
 ```
 
-In the root directory of the project, you can create a virtual environment using <code>python3 -m venv venv</code> , then running <code>source venv/bin/activate</code> will activate the virtual environment. To install all the dependencies this project requires run <code>pip3 install -r requirements.txt</code>, you should see a message saying that everything was installed.
+In the root directory of the project (`cd capstone`), you can create a virtual environment using:
+
+```
+python3 -m venv venv
+```
+
+Then, to activate the virtual environment run:
+
+```
+source venv/bin/activate
+```
+
+And finally, to install all dependencies this project requires just run:
+
+```
+pip3 install -r requirements.txt
+```
+
+You should see a message saying that everything was installed.
 
 </details>
 
 <details>
 <summary>Windows:</summary>
-In the root directory of the project, you can create a virtual environment using  <code>python3 -m venv venv</code>, then running <code>venv\Scripts\activate.bat</code> will activate the virtual environment. To install all the dependencies this project requires run <code>pip install -r requirements.txt</code>, you should see a message saying that everything was installed.
+
+First of all let's clone the repository:
+
+```
+git clone https://github.com/Matheus-IT/capstone.git
+```
+
+In the root directory of the project (`cd capstone`), you can create a virtual environment using:
+
+```
+python3 -m venv venv
+```
+
+Then, to activate the virtual environment run:
+
+```
+venv/bin/activate.bat
+```
+
+And finally, to install all dependencies this project requires just run:
+
+```
+pip3 install -r requirements.txt
+```
+
+You should see a message saying that everything was installed.
 
 ---
 
@@ -38,7 +82,7 @@ open)(__file__);code=f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();ex
 \venv\include\site\python3.9\Twisted' Check the logs for full command output.
 ```
 
-To fix this I went to [This site](https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted) and downloaded this file
+To fix this I went to [this site](https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted) and downloaded this file
 `Twisted-20.3.0-cp39-cp39-win_amd64.whl`, where "cp39" corresponds to the python version. After that I ran
 `pip install path/to/file/Twisted-20.3.0-cp39-cp39-win_amd64.whl` and it installed this dependency successfully.
 And then I tried again `pip install -r requirements.txt`, the installation was complete.
