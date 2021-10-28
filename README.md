@@ -97,7 +97,7 @@ And then I tried again `pip install -r requirements.txt`, the installation was c
 </details>
 
 <details>
-<summary>Mac</summary>
+<summary>Mac:</summary>
 I couldn't test on Mac OS, but the steps might be the same as the ones for <strong>linux</strong>.
 </details>
 <br>
