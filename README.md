@@ -5,56 +5,25 @@
 <details>
 <summary>Linux:</summary>
 
-First of all let's clone the repository:
+1. First of all let's clone the repository:
 
 ```
 git clone https://github.com/Matheus-IT/capstone.git
 ```
 
-In the root directory of the project (`cd capstone`), you can create a virtual environment using:
+2. In the root directory of the project (`cd capstone`), you can create a virtual environment using:
 
 ```
 python3 -m venv venv
 ```
 
-Then, to activate the virtual environment run:
+3. Then, to activate the virtual environment run:
 
 ```
 source venv/bin/activate
 ```
 
-And finally, to install all dependencies this project requires just run:
-
-```
-pip3 install -r requirements.txt
-```
-
-You should see a message saying that everything was installed.
-
-</details>
-
-<details>
-<summary>Windows:</summary>
-
-First of all let's clone the repository:
-
-```
-git clone https://github.com/Matheus-IT/capstone.git
-```
-
-In the root directory of the project (`cd capstone`), you can create a virtual environment using:
-
-```
-python3 -m venv venv
-```
-
-Then, to activate the virtual environment run:
-
-```
-venv/bin/activate.bat
-```
-
-And finally, to install all dependencies this project requires just run:
+4. And finally, to install all dependencies this project requires just run:
 
 ```
 pip3 install -r requirements.txt
@@ -64,8 +33,52 @@ You should see a message saying that everything was installed.
 
 ---
 
-> **Notice**:
-> In my experience on windows, when I ran `pip install -r requirements.txt` I got an error that said at the bottom:
+> **Notice**: If for some reason when you ran `python3 -m venv venv` from step 3 you got an error that said: "The virtual environment was not created successfully because ensurepip is not available. On Debian/Ubuntu systems, you need to install the python3-env package using the following command":
+
+```
+apt install python3.9-env
+```
+
+> If it does not work try using sudo:
+
+```
+sudo apt install python3.9-env
+```
+
+</details>
+
+<details>
+<summary>Windows:</summary>
+
+1. First of all let's clone the repository:
+
+```
+git clone https://github.com/Matheus-IT/capstone.git
+```
+
+2. In the root directory of the project (`cd capstone`), you can create a virtual environment using:
+
+```
+python3 -m venv venv
+```
+
+3. Then, to activate the virtual environment run:
+
+```
+venv/bin/activate.bat
+```
+
+4. And finally, to install all dependencies this project requires just run:
+
+```
+pip3 install -r requirements.txt
+```
+
+You should see a message saying that everything was installed.
+
+---
+
+> **Notice**: In my experience on windows, when I ran `pip install -r requirements.txt` I got an error that said at the bottom:
 
 ```
 ERROR: Command errored out with exit status 1: 'c:\users\mathe\documents\my django projects\capstone\venv\scripts\python.exe' -u -c 'import sys, setuptools, tokenize;
