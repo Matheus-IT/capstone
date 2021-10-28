@@ -49,6 +49,26 @@ I couldn't test on Mac OS, but the steps might be the same as the ones for <stro
 
 ---
 
+# Distinctiveness and Complexity
+
+This project was planned based on an idea @Matheus-IT had, therefore it is completely different than the other projects in this course, but using the knowledge that was acquire throughout the course. The idea was to create a website for a barber shop / hair salon which would be responsive to mobile and desktop designs, and focused on creating a better user interface and experience. In addition to that, to deliver a good user experience in a barber shop / hair salon a nice website is not always enough. Based on a personal experience, most of the time when someone goes to a hair salon is spent a significant amount of time waiting for other people to get their hair cut.
+
+<img src="./demo/home-desktop.png" alt="Demo Desktop" width="700">
+
+_Design from a desktop prospective_
+
+<img src="./demo/home-mobile.png" alt="Demo Mobile" height="600">
+
+_Design from a mobile prospective_
+
+<img src="./demo/queue.png" alt="Demo real-time queue" height="600">
+
+_Real-time queue_
+
+---
+
+# File structure description
+
 ```
 ├── capstone/  -> core application
 │   ├── asgi.py  -> asgi interface configuration
