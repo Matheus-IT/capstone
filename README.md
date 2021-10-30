@@ -1,3 +1,7 @@
+# Capstone
+
+The final CS50W project with python and javascript
+
 # Installation
 
 \* Obs: Python version used in this project: 3.9.1
@@ -102,6 +106,22 @@ I couldn't test on Mac OS, but the steps might be the same as the ones for <stro
 </details>
 <br>
 <br>
+
+---
+
+# Running the app
+
+To run the application is required to have passed through the [installation step](#installation). With that out of the way, we need to apply the migrations:
+
+```
+python3 manage.py migrate
+```
+
+Then just run the server:
+
+```
+python3 manage.py runserver
+```
 
 ---
 
@@ -258,19 +278,3 @@ In addition to that, to deliver a good user experience in a barber shop / hair s
 
 <br>
 <br>
-
----
-
-# Running the app
-
-To run the application is required to have passed through the [installation step](#installation). With that out of the way, we need to apply the migrations:
-
-```
-python3 manage.py migrate
-```
-
-Then just run the server:
-
-```
-python3 manage.py runserver
-```
