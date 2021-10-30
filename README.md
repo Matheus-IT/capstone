@@ -1,3 +1,7 @@
+# Capstone
+
+The final CS50W project with python and javascript
+
 # Installation
 
 \* Obs: Python version used in this project: 3.9.1
@@ -97,7 +101,7 @@ And then I tried again `pip install -r requirements.txt`, the installation was c
 </details>
 
 <details>
-<summary>Mac</summary>
+<summary>Mac:</summary>
 I couldn't test on Mac OS, but the steps might be the same as the ones for <strong>linux</strong>.
 </details>
 <br>
@@ -105,9 +109,25 @@ I couldn't test on Mac OS, but the steps might be the same as the ones for <stro
 
 ---
 
+# Running the app
+
+To run the application is required to have passed through the [installation step](#installation). With that out of the way, we need to apply the migrations:
+
+```
+python3 manage.py migrate
+```
+
+Then just run the server:
+
+```
+python3 manage.py runserver
+```
+
+---
+
 # Distinctiveness and Complexity
 
-This project was planned based on an idea @Matheus-IT had, therefore it is completely different than the other projects in this course, but using the knowledge that was acquire throughout the course. The idea was to create a website for a barber shop / hair salon which would be responsive to mobile and desktop designs, and focused on creating a better user interface and experience.
+This project was planned based on an idea @Matheus-IT had, therefore it is completely different than the other projects in this course, but using the knowledge that was acquired throughout the course. The idea was to create a website for a barber shop / hair salon which would be responsive to mobile and desktop designs, and focused on creating a better user interface and experience.
 
 <figure>
     <img src="./demo/home-desktop.png" alt="Demo Desktop" width="700">
@@ -123,7 +143,7 @@ This project was planned based on an idea @Matheus-IT had, therefore it is compl
 <br>
 <br>
 
-In addition to that, to deliver a good user experience in a barber shop / hair salon a nice website is not always enough. Based on a personal experience, most of the time when someone goes to a hair salon is spent a significant amount of time waiting for other people to get their hair cut.
+In addition to that, to deliver a good user experience in a barber shop / hair salon a nice website is not always enough. Based on a personal experience, most of the time when someone goes to a hair salon is spent a significant amount of time waiting for other people to get their hair cut. For this reason was developed a real-time queue that can be accessed by the clients, and is controlled by the hair stylist. This way a busy person can check how many people are waiting to be seen and choose a better time to come to the salon.
 
 <figure>
     <img src="./demo/queue.png" alt="Demo real-time queue" height="600">
@@ -258,19 +278,3 @@ In addition to that, to deliver a good user experience in a barber shop / hair s
 
 <br>
 <br>
-
----
-
-# Running the app
-
-To run the application is required to have passed through the [installation step](#installation). With that out of the way, we need to apply the migrations:
-
-```
-python3 manage.py migrate
-```
-
-Then just run the server:
-
-```
-python3 manage.py runserver
-```

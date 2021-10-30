@@ -163,6 +163,7 @@ def waiting_queue(request):
     )
 
 
+@login_required(login_url='mysite:login')
 def booking_form(request, service_id: int = None):
     services: list(str) = [
         {
@@ -211,8 +212,6 @@ def booking_form(request, service_id: int = None):
             'description': 'Combination of single length buzz cut and beard/mustache shaping. ',
         },
     ]
-
-    print(f'Chosen service {service_id}')
 
     return render(
         request,
