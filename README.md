@@ -1,6 +1,6 @@
 # Capstone
 
-The final CS50W project with python and javascript
+The final CS50W project with python and javascript 🤓💻
 
 # Installation
 
