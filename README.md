@@ -2,7 +2,7 @@
 
 The final CS50W project with python and javascript 🤓💻
 
-[![Capstone](http://img.youtube.com/vi/IjfrOCRuSuM/0.jpg)](http://www.youtube.com/watch?v=IjfrOCRuSuM "Network")
+[![Capstone](http://img.youtube.com/vi/XEEUfunFHO0/0.jpg)](https://www.youtube.com/watch?v=XEEUfunFHO0 "final-project-cs50w")
 
 # Installation
 
