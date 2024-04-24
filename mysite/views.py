@@ -165,7 +165,7 @@ def waiting_queue(request):
 
 @login_required(login_url='mysite:login')
 def booking_form(request, service_id: int = None):
-    services: list(str) = [
+    services = [
         {
             'id': 1,
             'title': 'Classic Cut $30 - 30minutes',
