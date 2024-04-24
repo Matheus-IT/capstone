@@ -52,7 +52,7 @@ def password_matches_confirmation(fields: dict):
 
 
 def index(request):
-    services: list(str) = [
+    services = [
         {
             'id': 1,
             'title': 'Classic Cut $30 - 30minutes',
