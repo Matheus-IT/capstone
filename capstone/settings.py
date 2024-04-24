@@ -18,6 +18,7 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = [
+    'daphne',
     'fontawesomefree',
     'channels',
     'controlqueue.apps.ControlqueueConfig',
